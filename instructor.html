@@ -337,6 +337,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#the-opening-watch-this-demo-835850" id="toc-the-opening-watch-this-demo-835850" class="nav-link active" data-scroll-target="#the-opening-watch-this-demo-835850">The opening “watch this” demo (8:35–8:50)</a></li>
   <li><a href="#timing-plan-8351200-205-min" id="toc-timing-plan-8351200-205-min" class="nav-link" data-scroll-target="#timing-plan-8351200-205-min">Timing plan (8:35–12:00, 205 min)</a></li>
+  <li><a href="#slack-channel-pre-course-community" id="toc-slack-channel-pre-course-community" class="nav-link" data-scroll-target="#slack-channel-pre-course-community">Slack channel (pre-course + community)</a></li>
   <li><a href="#zoom-logistics" id="toc-zoom-logistics" class="nav-link" data-scroll-target="#zoom-logistics">Zoom logistics</a></li>
   <li><a href="#common-participant-sticking-points" id="toc-common-participant-sticking-points" class="nav-link" data-scroll-target="#common-participant-sticking-points">Common participant sticking points</a></li>
   <li><a href="#fallbacks" id="toc-fallbacks" class="nav-link" data-scroll-target="#fallbacks">Fallbacks</a></li>
@@ -468,10 +469,20 @@ Important
 </table>
 <p><strong>If you’re running behind:</strong> compress Module 1 (it’s the most lecture-heavy) and protect Exercises 2 and 5 — the git loop and the personal build are the deliverables.</p>
 </section>
+<section id="slack-channel-pre-course-community" class="level2">
+<h2 class="anchored" data-anchor-id="slack-channel-pre-course-community">Slack channel (pre-course + community)</h2>
+<p>All participants get added to a course Slack channel ~1–2 weeks out. It serves three jobs: <strong>pre-work communication</strong>, a <strong>baseline poll</strong>, and a <strong>community channel</strong> that persists after the course (skills sharing, developments, news). Ready-to-post drafts live in the repo:</p>
+<ul>
+<li><code>communications/slack-welcome.md</code> — welcome + pre-work message (setup deadline, bring-a-task ask, norms) and a post-course follow-up.</li>
+<li><code>communications/baseline-poll.md</code> — 4-question emoji-react poll (experience, barriers, stack, hours lost to routine coding), with notes on turning results into the opening slide and calibrating the session.</li>
+</ul>
+<p><strong>Timeline:</strong> T−2 weeks: create channel, post welcome + polls · T−1 week: nudge stragglers on setup verification · T−1 day: post Zoom link + “have these open” list · Course day: screenshot poll results into the opening slide · After: post follow-up, seed the skills-sharing thread.</p>
+<p>Setup problems get debugged <strong>in Slack before course day</strong>, not in the first 15 minutes of class.</p>
+</section>
 <section id="zoom-logistics" class="level2">
 <h2 class="anchored" data-anchor-id="zoom-logistics">Zoom logistics</h2>
 <ul>
-<li>Ask everyone to complete <a href="./setup.html">Setup</a> beforehand; open a 5-min setup-triage window at the start.</li>
+<li>Ask everyone to complete <a href="./setup.html">Setup</a> beforehand; setup problems should surface in Slack pre-course — keep only a short triage window at the start for stragglers.</li>
 <li>Use <strong>breakout rooms</strong> for Exercises 2, 4, and 5 so facilitators can help small groups.</li>
 <li>Post the current exercise link in chat at the start of each hands-on block.</li>
 <li>Encourage cameras optional, chat active. Ask people to paste <code>git status</code> / <code>gh pr diff</code> / the prompt they used when stuck — it’s faster to diagnose than a verbal description.</li>

@@ -332,11 +332,23 @@
     ]
   },
   {
+    "objectID": "instructor.html#slack-channel-pre-course-community",
+    "href": "instructor.html#slack-channel-pre-course-community",
+    "title": "Facilitator Notes",
+    "section": "Slack channel (pre-course + community)",
+    "text": "Slack channel (pre-course + community)\nAll participants get added to a course Slack channel ~1–2 weeks out. It serves three jobs: pre-work communication, a baseline poll, and a community channel that persists after the course (skills sharing, developments, news). Ready-to-post drafts live in the repo:\n\ncommunications/slack-welcome.md — welcome + pre-work message (setup deadline, bring-a-task ask, norms) and a post-course follow-up.\ncommunications/baseline-poll.md — 4-question emoji-react poll (experience, barriers, stack, hours lost to routine coding), with notes on turning results into the opening slide and calibrating the session.\n\nTimeline: T−2 weeks: create channel, post welcome + polls · T−1 week: nudge stragglers on setup verification · T−1 day: post Zoom link + “have these open” list · Course day: screenshot poll results into the opening slide · After: post follow-up, seed the skills-sharing thread.\nSetup problems get debugged in Slack before course day, not in the first 15 minutes of class.",
+    "crumbs": [
+      "Exercises",
+      "Reference",
+      "Facilitator notes"
+    ]
+  },
+  {
     "objectID": "instructor.html#zoom-logistics",
     "href": "instructor.html#zoom-logistics",
     "title": "Facilitator Notes",
     "section": "Zoom logistics",
-    "text": "Zoom logistics\n\nAsk everyone to complete Setup beforehand; open a 5-min setup-triage window at the start.\nUse breakout rooms for Exercises 2, 4, and 5 so facilitators can help small groups.\nPost the current exercise link in chat at the start of each hands-on block.\nEncourage cameras optional, chat active. Ask people to paste git status / gh pr diff / the prompt they used when stuck — it’s faster to diagnose than a verbal description.\nHave a co-facilitator watching chat if possible.",
+    "text": "Zoom logistics\n\nAsk everyone to complete Setup beforehand; setup problems should surface in Slack pre-course — keep only a short triage window at the start for stragglers.\nUse breakout rooms for Exercises 2, 4, and 5 so facilitators can help small groups.\nPost the current exercise link in chat at the start of each hands-on block.\nEncourage cameras optional, chat active. Ask people to paste git status / gh pr diff / the prompt they used when stuck — it’s faster to diagnose than a verbal description.\nHave a co-facilitator watching chat if possible.",
     "crumbs": [
       "Exercises",
       "Reference",
@@ -1203,7 +1215,7 @@
     "href": "setup.html",
     "title": "Setup Guide",
     "section": "",
-    "text": "ImportantPlease complete this before class\n\n\n\nWe’re fully remote on Zoom, and setup problems are slow to debug for 30 people at once. Work through every step below and run the verification checklist at the bottom. If something fails, note the error and bring it — we’ll have a few minutes at the start for stragglers.\nYou need four things: git, a GitHub account (with the gh CLI), Claude Code, and a working terminal. Here’s each, by operating system."
+    "text": "ImportantPlease complete this before class\n\n\n\nWe’re fully remote on Zoom, and setup problems are slow to debug for 30 people at once. Work through every step below and run the verification checklist at the bottom. If something fails, post the error in the course Slack channel — we’ll debug it there before course day rather than during class.\nYou need four things: git, a GitHub account (with the gh CLI), Claude Code, and a working terminal. Here’s each, by operating system."
   },
   {
     "objectID": "setup.html#a-terminal",
@@ -1245,7 +1257,7 @@
     "href": "setup.html#trouble",
     "title": "Setup Guide",
     "section": "Trouble?",
-    "text": "Trouble?\n\n\n\nSymptom\nFix\n\n\n\n\ncommand not found: git/gh/claude\nThe tool didn’t install or isn’t on your PATH. Reinstall; on Windows use Git Bash.\n\n\ngh auth login won’t open a browser\nChoose “paste an authentication token” and follow these steps.\n\n\nclaude says not authenticated\nRun claude (no args) and complete the browser sign-in.\n\n\nCorporate laptop blocks installs\nBring it up in the setup window at the start of class, or use a personal machine if possible."
+    "text": "Trouble?\n\n\n\nSymptom\nFix\n\n\n\n\ncommand not found: git/gh/claude\nThe tool didn’t install or isn’t on your PATH. Reinstall; on Windows use Git Bash.\n\n\ngh auth login won’t open a browser\nChoose “paste an authentication token” and follow these steps.\n\n\nclaude says not authenticated\nRun claude (no args) and complete the browser sign-in.\n\n\nCorporate laptop blocks installs\nPost in the Slack channel — we’ll find a workaround, or use a personal machine if possible."
   },
   {
     "objectID": "slides/foundations.html#the-shift",
