@@ -41,9 +41,20 @@ The goal is *shock value before theory* — let people feel an agent working bef
 
 **If you're running behind:** compress Module 1 (it's the most lecture-heavy) and protect Exercises 2 and 5 — the git loop and the personal build are the deliverables.
 
+## Slack channel (pre-course + community)
+
+All participants get added to a course Slack channel ~1–2 weeks out. It serves three jobs: **pre-work communication**, a **baseline poll**, and a **community channel** that persists after the course (skills sharing, developments, news). Ready-to-post drafts live in the repo:
+
+- `communications/slack-welcome.md` — welcome + pre-work message (setup deadline, bring-a-task ask, norms) and a post-course follow-up.
+- `communications/baseline-poll.md` — 4-question emoji-react poll (experience, barriers, stack, hours lost to routine coding), with notes on turning results into the opening slide and calibrating the session.
+
+**Timeline:** T−2 weeks: create channel, post welcome + polls · T−1 week: nudge stragglers on setup verification · T−1 day: post Zoom link + "have these open" list · Course day: screenshot poll results into the opening slide · After: post follow-up, seed the skills-sharing thread.
+
+Setup problems get debugged **in Slack before course day**, not in the first 15 minutes of class.
+
 ## Zoom logistics
 
-- Ask everyone to complete [Setup](setup.qmd) beforehand; open a 5-min setup-triage window at the start.
+- Ask everyone to complete [Setup](setup.qmd) beforehand; setup problems should surface in Slack pre-course — keep only a short triage window at the start for stragglers.
 - Use **breakout rooms** for Exercises 2, 4, and 5 so facilitators can help small groups.
 - Post the current exercise link in chat at the start of each hands-on block.
 - Encourage cameras optional, chat active. Ask people to paste `git status` / `gh pr diff` / the prompt they used when stuck — it's faster to diagnose than a verbal description.
