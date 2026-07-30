@@ -1,0 +1,1307 @@
+[
+  {
+    "objectID": "slides/skills.html#researchers-repeat-themselves",
+    "href": "slides/skills.html#researchers-repeat-themselves",
+    "title": "Skills & Custom Workflows",
+    "section": "Researchers repeat themselves",
+    "text": "Researchers repeat themselves\nSame tasks, over and over:\n\nClean each new wave of a dataset the same way\nBuild the same style of Table 1\nFormat figures to a journal’s specs\nRun the same model diagnostics\n\n\nRetyping the instructions each time is waste. A skill fixes it."
+  },
+  {
+    "objectID": "slides/skills.html#claude.md-vs.-skill",
+    "href": "slides/skills.html#claude.md-vs.-skill",
+    "title": "Skills & Custom Workflows",
+    "section": "CLAUDE.md vs. skill",
+    "text": "CLAUDE.md vs. skill\n\n\n\n\nCLAUDE.md\nSkill\n\n\n\n\nAnswers\n“know about this project”\n“how to do this task”\n\n\nRead\nevery session\nwhen the task comes up\n\n\nScope\none project\nreusable anywhere\n\n\n\n\nA skill = a named, packaged procedure for a recurring task."
+  },
+  {
+    "objectID": "slides/skills.html#anatomy",
+    "href": "slides/skills.html#anatomy",
+    "title": "Skills & Custom Workflows",
+    "section": "Anatomy",
+    "text": "Anatomy\n---\nname: table-one\ndescription: &gt;\n  Build a publication-ready Table 1 (baseline\n  characteristics by group) from a data frame. Use\n  when the user asks for a descriptive/baseline table.\n---\n# Table One\n## When to use\n## How to do it   (name your packages, formatting, output)\n## Conventions & guardrails"
+  },
+  {
+    "objectID": "slides/skills.html#the-description-is-everything",
+    "href": "slides/skills.html#the-description-is-everything",
+    "title": "Skills & Custom Workflows",
+    "section": "The description is everything",
+    "text": "The description is everything\nThe agent decides whether to fire a skill by reading its description.\n\nVague (“helps with tables”) → ignored or misfired\nSpecific (“build a baseline Table 1 from a data frame”) → fires at the right moment"
+  },
+  {
+    "objectID": "slides/skills.html#a-good-research-skill",
+    "href": "slides/skills.html#a-good-research-skill",
+    "title": "Skills & Custom Workflows",
+    "section": "A good research skill",
+    "text": "A good research skill\n\nOne clear job\nEncodes your standards (palette, table style, conventions)\nHas a done-condition\nIncludes guardrails (“read from data, never fabricate”)\nIs reviewable — a plain file in git"
+  },
+  {
+    "objectID": "slides/skills.html#skills-live-in-git",
+    "href": "slides/skills.html#skills-live-in-git",
+    "title": "Skills & Custom Workflows",
+    "section": "Skills live in git",
+    "text": "Skills live in git\n.claude/skills/ — project-level (in the repo) or personal (everywhere).\n\nShare a skill = git push. Adopt one = git pull.\nYour lab’s conventions become executable."
+  },
+  {
+    "objectID": "slides/skills.html#candidates-to-steal",
+    "href": "slides/skills.html#candidates-to-steal",
+    "title": "Skills & Custom Workflows",
+    "section": "Candidates to steal",
+    "text": "Candidates to steal\n\nTable 1 builder\nJournal-figure formatter\nReproducible-pipeline scaffold\nReviewer-response drafter\nModel diagnostics\nSimulation calibration report"
+  },
+  {
+    "objectID": "slides/skills.html#but-judgment-stays-with-you",
+    "href": "slides/skills.html#but-judgment-stays-with-you",
+    "title": "Skills & Custom Workflows",
+    "section": "But: judgment stays with you",
+    "text": "But: judgment stays with you\n\n\n\n\n\n\nWarning\n\n\nA skill makes a procedure repeatable — not a decision correct.\nA “run my causal analysis” skill will faithfully run the wrong estimand.\n\n\n\nBake in “show me before you commit.”"
+  },
+  {
+    "objectID": "slides/skills.html#recap",
+    "href": "slides/skills.html#recap",
+    "title": "Skills & Custom Workflows",
+    "section": "Recap",
+    "text": "Recap\n\nSkill = reusable procedure; the description decides when it fires\nOne job · your standards · done-condition · guardrails\nPlain files in git → versioned, diffable, shareable\nWorkflow = CLAUDE.md + skills + the git loop\n\n\nNow: Exercise 4 — write your first skill →"
+  },
+  {
+    "objectID": "slides/git-github.html#why-git-first",
+    "href": "slides/git-github.html#why-git-first",
+    "title": "Git & GitHub",
+    "section": "Why git first",
+    "text": "Why git first\nAn agent rewrites twelve files in thirty seconds.\n\nWithout version control: terrifying — can’t see, undo, or separate changes\nWith git: the same speed is safe"
+  },
+  {
+    "objectID": "slides/git-github.html#reframe-the-tools",
+    "href": "slides/git-github.html#reframe-the-tools",
+    "title": "Git & GitHub",
+    "section": "Reframe the tools",
+    "text": "Reframe the tools\n\n\n\nGit\nFor agent work\n\n\n\n\nCommit\nA save point — undo is free\n\n\nBranch\nA sandbox the agent plays in\n\n\nDiff\nExactly what changed — your review surface\n\n\nPull request\nThe gate: nothing lands until you approve\n\n\nMerge\nYour explicit “keep this”"
+  },
+  {
+    "objectID": "slides/git-github.html#the-core-loop",
+    "href": "slides/git-github.html#the-core-loop",
+    "title": "Git & GitHub",
+    "section": "The core loop",
+    "text": "The core loop\n\nbranch → review the diff → merge what you approve\n\n\nEverything else is detail."
+  },
+  {
+    "objectID": "slides/git-github.html#git-in-one-slide",
+    "href": "slides/git-github.html#git-in-one-slide",
+    "title": "Git & GitHub",
+    "section": "Git in one slide",
+    "text": "Git in one slide\ngit init                      # track this folder\ngit status                    # what changed?\ngit add R/01_clean.R          # stage\ngit commit -m \"Clean cohort\"  # snapshot\ngit log --oneline             # history\n\nSmall, frequent commits &gt; rare giant ones. Imperative messages: “Fix join dropping rows.”"
+  },
+  {
+    "objectID": "slides/git-github.html#branches-the-sandbox",
+    "href": "slides/git-github.html#branches-the-sandbox",
+    "title": "Git & GitHub",
+    "section": "Branches: the sandbox",
+    "text": "Branches: the sandbox\ngit switch -c feature/clean-data   # create + move\n# ... agent works, you commit ...\ngit switch main                    # untouched, safe\n\nBranch goes sideways? Throw it away — main never saw it.\nKeep the agent off main."
+  },
+  {
+    "objectID": "slides/git-github.html#prs-the-review-gate",
+    "href": "slides/git-github.html#prs-the-review-gate",
+    "title": "Git & GitHub",
+    "section": "PRs: the review gate",
+    "text": "PRs: the review gate\ngit push -u origin feature/clean-data\ngh pr create --fill\ngh pr diff      # ← READ THIS\ngh pr merge --squash --delete-branch\n\ngh pr diff is where you catch the dropped rows and the thing you didn’t ask for. Merging = “I reviewed this.”"
+  },
+  {
+    "objectID": "slides/git-github.html#destructive-gate-these",
+    "href": "slides/git-github.html#destructive-gate-these",
+    "title": "Git & GitHub",
+    "section": "Destructive — gate these",
+    "text": "Destructive — gate these\n\n\n\n\n\n\nWarning\n\n\n\ngit reset --hard — discards uncommitted work\ngit push --force — overwrites shared history\ngit clean -fd — deletes untracked files\n\n\n\n\nPut in CLAUDE.md: “Never run destructive git commands without asking.”"
+  },
+  {
+    "objectID": "slides/git-github.html#solo-still-yes.",
+    "href": "slides/git-github.html#solo-still-yes.",
+    "title": "Git & GitHub",
+    "section": "Solo? Still yes.",
+    "text": "Solo? Still yes.\nPRs aren’t just for teams.\nEven alone, the branch-and-PR loop gives you a forced review step and a clean, documented history — exactly the reproducibility you want when an agent writes the code."
+  },
+  {
+    "objectID": "slides/git-github.html#recap",
+    "href": "slides/git-github.html#recap",
+    "title": "Git & GitHub",
+    "section": "Recap",
+    "text": "Recap\n\ncommit = save · branch = sandbox · PR = gate · merge = “yes”\nbranch → review the diff → merge what you approve\nKeep the agent off main; read the diff before every merge\nGate destructive commands in CLAUDE.md\n\n\nNow: Exercises 2 & 3 →"
+  },
+  {
+    "objectID": "skills.html",
+    "href": "skills.html",
+    "title": "4 · Skills & Custom Workflows",
+    "section": "",
+    "text": "Module goal: Understand what a skill is, when it’s worth writing one, and how to author a good one — then write your own in Exercise 4, the course’s core deliverable. · Slides",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "4 · Skills & Workflows"
+    ]
+  },
+  {
+    "objectID": "skills.html#from-one-off-prompts-to-reusable-procedures",
+    "href": "skills.html#from-one-off-prompts-to-reusable-procedures",
+    "title": "4 · Skills & Custom Workflows",
+    "section": "From one-off prompts to reusable procedures",
+    "text": "From one-off prompts to reusable procedures\nBy now you can direct an agent through a task. But researchers do the same kinds of tasks over and over: clean a new wave of a dataset the same way, build the same style of Table 1, format a manuscript to a journal’s requirements, run the same diagnostic checks on a model.\nRetyping the instructions each time is exactly the repetition CLAUDE.md solved for project context. A skill solves it for procedures.\n\n\n\n\n\n\n\n\n\nCLAUDE.md\nSkill\n\n\n\n\nAnswers\n“What should the agent always know about this project?”\n“How do I do this recurring task, anywhere?”\n\n\nWhen read\nEvery session, automatically\nWhen the task comes up\n\n\nScope\nOne project\nReusable across projects\n\n\nExample\n“Data lives in data/; use tidyverse”\n“Build a CONSORT-style participant-flow diagram”\n\n\n\nA skill is, at its simplest, a named, packaged set of instructions for one recurring task — a description of when to use it and how to do it, written once and reused.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "4 · Skills & Workflows"
+    ]
+  },
+  {
+    "objectID": "skills.html#anatomy-of-a-skill",
+    "href": "skills.html#anatomy-of-a-skill",
+    "title": "4 · Skills & Custom Workflows",
+    "section": "Anatomy of a skill",
+    "text": "Anatomy of a skill\nA skill is a Markdown file with a bit of structured front matter. The two parts that matter most:\n---\nname: table-one\ndescription: &gt;\n  Build a publication-ready \"Table 1\" (baseline characteristics by\n  group) from a data frame. Use when the user asks for a descriptive\n  or baseline characteristics table.\n---\n\n# Table One\n\n## When to use\nThe user has a cleaned data frame and wants baseline characteristics\ncompared across a grouping variable (e.g., treatment arm).\n\n## How to do it\n1. Confirm the grouping variable and which covariates to include.\n2. Use the `gtsummary` package (`tbl_summary()` + `add_p()` only if asked).\n3. Continuous vars: median [IQR] unless clearly normal; categorical: n (%).\n4. Label variables with human-readable names.\n5. Output as a `gt` table saved to `tables/table1.html` and `.docx`.\n6. Never fabricate values — read them from the data.\n\n## Conventions\n- Match the project's figure/table style in CLAUDE.md.\n- Show me the code and the rendered table before saving.\n\n\n\n\n\n\nTipThe description is the most important line\n\n\n\nThe agent decides whether to use a skill by reading its description. Make it specific about when the skill applies and what it produces. Vague descriptions (“helps with tables”) get ignored or misfired; concrete ones (“build a baseline-characteristics Table 1 from a data frame”) get invoked at the right moment.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "4 · Skills & Workflows"
+    ]
+  },
+  {
+    "objectID": "skills.html#what-makes-a-good-research-skill",
+    "href": "skills.html#what-makes-a-good-research-skill",
+    "title": "4 · Skills & Custom Workflows",
+    "section": "What makes a good research skill",
+    "text": "What makes a good research skill\n\nOne clear job. A skill that does one thing well beats a kitchen-sink skill. “Format to JAMA figure specs” not “do all my figures.”\nEncodes your standards. The whole point is that it captures how you like it done — your palette, your table style, your statistical conventions — so you stop re-explaining.\nHas a done-condition. Say what the finished output looks like and where it goes.\nIncludes guardrails. “Read values from the data, never fabricate.” “Show me before saving.” Judgment stays with you.\nIs reviewable. Because it’s a plain Markdown file in your repo, you can version it, diff it, and share it — a skill is itself reproducible documentation of a procedure.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "4 · Skills & Workflows"
+    ]
+  },
+  {
+    "objectID": "skills.html#where-skills-live",
+    "href": "skills.html#where-skills-live",
+    "title": "4 · Skills & Custom Workflows",
+    "section": "Where skills live",
+    "text": "Where skills live\nIn Claude Code, skills live in a skills/ (or .claude/skills/) folder — project-level (shared via the repo) or personal (across all your projects). Because they’re just files in git, sharing a skill with a collaborator is a git push; adopting theirs is a git pull. Your lab’s conventions become executable.\n\n\n\n\n\n\nNoteSkill vs. “workflow”\n\n\n\nPeople use workflow loosely for a repeatable multi-step process. In practice you’ll build workflows by combining: a CLAUDE.md (project context) + one or more skills (procedures) + the git branch→PR→merge loop (control). Today’s build session is where you start assembling yours.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "4 · Skills & Workflows"
+    ]
+  },
+  {
+    "objectID": "skills.html#good-candidates-from-health-decision-research",
+    "href": "skills.html#good-candidates-from-health-decision-research",
+    "title": "4 · Skills & Custom Workflows",
+    "section": "Good candidates from health-decision research",
+    "text": "Good candidates from health-decision research\nSkills worth writing (steal these for Exercise 4):\n\nTable 1 builder — baseline characteristics to your house style.\nJournal-figure formatter — apply JAMA/NEJM/Annals figure specs to a ggplot.\nReproducible-pipeline scaffold — set up data/, R/, numbered scripts, a 00_run_all.R, and a README, the way you always structure a project.\nReviewer-response drafter — turn reviewer comments + your notes into a structured point-by-point response.\nModel diagnostics — run your standard set of checks (convergence, balance, sensitivity) on a fitted model and summarize.\nSimulation calibration report — compare simulated outputs to targets and flag mismatches.\n\n\n\n\n\n\n\nWarningSkills don’t remove your judgment\n\n\n\nA skill makes a procedure repeatable — it does not make the decision correct. A “run my causal analysis” skill will faithfully run the wrong estimand if you point it at the wrong question. Bake verification and “show me before you commit” into every skill.\n\n\n\nWhat to remember\n\nA skill = a named, reusable procedure for a recurring task; the description decides when it fires.\nGood skills do one job, encode your standards, state a done-condition, and include guardrails.\nSkills are plain files in git — versioned, diffable, shareable with your lab.\nAssemble workflows from CLAUDE.md + skills + the git review loop.\n\n\nNext: Exercise 4 · Write your first skill →, then 5 · Build Session →",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "4 · Skills & Workflows"
+    ]
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources & Cheat Sheets",
+    "section": "",
+    "text": "Keep this page open during the course and after. Every code block has a copy button (hover the top-right corner).",
+    "crumbs": [
+      "Exercises",
+      "Reference",
+      "Resources & cheat sheets"
+    ]
+  },
+  {
+    "objectID": "resources.html#git-cheat-sheet",
+    "href": "resources.html#git-cheat-sheet",
+    "title": "Resources & Cheat Sheets",
+    "section": "Git cheat sheet",
+    "text": "Git cheat sheet\n# --- daily loop ---\ngit status                       # what's changed?\ngit switch -c feature/thing      # new branch + move to it\ngit add .                        # stage everything\ngit commit -m \"Describe change\"  # save a snapshot\ngit switch main                  # back to main\ngit pull                         # get latest from GitHub\ngit log --oneline                # history\n\n# --- undo (safe) ---\ngit restore &lt;file&gt;               # discard un-staged changes to a file\ngit restore --staged &lt;file&gt;      # unstage (keep the edit)\ngit switch -                     # jump back to previous branch\n\n# --- undo (careful — ask first) ---\ngit reset --hard &lt;commit&gt;        # DESTRUCTIVE: discards work\ngit push --force                 # DESTRUCTIVE on shared branches\ngit clean -fd                    # DESTRUCTIVE: deletes untracked files",
+    "crumbs": [
+      "Exercises",
+      "Reference",
+      "Resources & cheat sheets"
+    ]
+  },
+  {
+    "objectID": "resources.html#github-gh-cheat-sheet",
+    "href": "resources.html#github-gh-cheat-sheet",
+    "title": "Resources & Cheat Sheets",
+    "section": "GitHub (gh) cheat sheet",
+    "text": "GitHub (gh) cheat sheet\ngh auth login                    # sign in (once)\ngh auth status                   # am I logged in?\ngh repo create NAME --private --source=. --push   # repo from current folder\ngit push -u origin BRANCH        # push a branch\ngh pr create --fill              # open a PR (auto title/body from commits)\ngh pr create --title \"T\" --body \"B\"\ngh pr diff                       # REVIEW the change — do this before merging\ngh pr merge --squash --delete-branch   # merge and tidy up\ngh repo delete NAME --yes        # delete a throwaway repo",
+    "crumbs": [
+      "Exercises",
+      "Reference",
+      "Resources & cheat sheets"
+    ]
+  },
+  {
+    "objectID": "resources.html#claude-code-cheat-sheet",
+    "href": "resources.html#claude-code-cheat-sheet",
+    "title": "Resources & Cheat Sheets",
+    "section": "Claude Code cheat sheet",
+    "text": "Claude Code cheat sheet\nclaude                           # start a session in the current folder\nclaude --version                 # check it's installed\nInside a session, useful things to say:\n\n\n\n\n\n\n\nSay this\nTo…\n\n\n\n\n“Before editing, tell me your plan and which files you’ll change.”\nGet plan-then-act\n\n\n“Show me the diff.” / “Run the tests.”\nForce it to show its work\n\n\n“Make a branch called x and work there.”\nKeep it off main\n\n\n“Commit this with a clear message.”\nDelegate the git mechanics\n\n\n“Push and open a PR into main.”\nDelegate the PR\n\n\n“Start over” / open a new session\nClear a confused/overlong context\n\n\n\n\n\n\n\n\n\nTipWhen an agent gets confused\n\n\n\nNine times out of ten the fix is one of: (1) start a fresh session (clean context), (2) give a more specific prompt with file paths, or (3) break the task into smaller steps.",
+    "crumbs": [
+      "Exercises",
+      "Reference",
+      "Resources & cheat sheets"
+    ]
+  },
+  {
+    "objectID": "resources.html#templates-to-copy",
+    "href": "resources.html#templates-to-copy",
+    "title": "Resources & Cheat Sheets",
+    "section": "Templates to copy",
+    "text": "Templates to copy\n\nCLAUDE.md template — annotated project-context file.\nSKILL.md template — fill-in-the-blank skill.",
+    "crumbs": [
+      "Exercises",
+      "Reference",
+      "Resources & cheat sheets"
+    ]
+  },
+  {
+    "objectID": "resources.html#glossary",
+    "href": "resources.html#glossary",
+    "title": "Resources & Cheat Sheets",
+    "section": "Glossary",
+    "text": "Glossary\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nAgent\nAn LLM that can use tools (read/write files, run code, search) in a loop to complete tasks.\n\n\nAgentic loop\nAct → observe result → decide next action → repeat, until done or it needs you.\n\n\nBranch\nA parallel line of work in git; a sandbox that doesn’t touch main.\n\n\nCLAUDE.md\nA project (or global) file of standing instructions an agent reads each session.\n\n\nCommit\nA saved snapshot of your files in git, with a message.\n\n\nContext window\nHow much text (files, instructions, conversation) the model can “see” at once.\n\n\nDiff\nThe line-by-line difference between two versions — your review surface.\n\n\ngh\nThe GitHub command-line tool, used for auth and pull requests.\n\n\nHallucination\nA plausible-but-false statement from a model; the reason we verify.\n\n\nLLM\nLarge language model — the model underneath the agent.\n\n\nMCP\nModel Context Protocol — a standard for giving agents extra tools/data sources.\n\n\nMerge\nCombining an approved branch into main; your explicit “keep this.”\n\n\nPrompt\nWhat you ask the agent (and the skill of asking well).\n\n\nPull request (PR)\nA proposal on GitHub to merge a branch, with a reviewable diff.\n\n\nRepository (repo)\nA folder tracked by git.\n\n\nSkill\nA reusable, packaged procedure for a recurring task.\n\n\nToken\nThe unit LLMs read/write text in (~¾ of a word); measures context and cost.\n\n\nWorkflow\nA repeatable multi-step process, assembled from CLAUDE.md + skills + the git loop.",
+    "crumbs": [
+      "Exercises",
+      "Reference",
+      "Resources & cheat sheets"
+    ]
+  },
+  {
+    "objectID": "resources.html#go-deeper",
+    "href": "resources.html#go-deeper",
+    "title": "Resources & Cheat Sheets",
+    "section": "Go deeper",
+    "text": "Go deeper\n\nClaude Code documentation — official guide, features, settings.\nQuarto — the tool this site is built with (great for reproducible reports).\nPro Git book — free, thorough, well-written git reference.\nGitHub Skills — short interactive git/GitHub tutorials.\nHappy Git with R — git for R users, by Jenny Bryan (excellent for this audience).\n\n\n\n\n\n\n\nNoteAfter today\n\n\n\nThe best next step is usage: pick one real repo, add a CLAUDE.md, and start running the branch → PR → merge loop with an agent. Grow your skills folder each time you catch yourself re-explaining something.",
+    "crumbs": [
+      "Exercises",
+      "Reference",
+      "Resources & cheat sheets"
+    ]
+  },
+  {
+    "objectID": "instructor.html",
+    "href": "instructor.html",
+    "title": "Facilitator Notes",
+    "section": "",
+    "text": "Important\n\n\n\nInternal notes for teaching the course — not part of the participant path. (You may want to remove this from the navbar before sharing the site publicly, or leave it; it’s harmless.)",
+    "crumbs": [
+      "Exercises",
+      "Reference",
+      "Facilitator notes"
+    ]
+  },
+  {
+    "objectID": "instructor.html#the-opening-watch-this-demo-835850",
+    "href": "instructor.html#the-opening-watch-this-demo-835850",
+    "title": "Facilitator Notes",
+    "section": "The opening “watch this” demo (8:35–8:50)",
+    "text": "The opening “watch this” demo (8:35–8:50)\nThe goal is shock value before theory — let people feel an agent working before you define anything. Inspired by dictate-and-go live demos.\nScript:\n\nScreen-share a terminal in a real (but disposable) project folder. Have a git init’d repo ready.\nSay out loud, dictating as you type into Claude Code, something ambitious but bounded — e.g.: &gt; “Build me a small Shiny (or Streamlit) app that loads this CSV, lets me filter by treatment arm, and shows a cost distribution plot. Set it up as a proper project, work on a branch, and show me your plan first.”\nApprove the plan, let it start, then leave it running and pivot to Module 1. Glance back occasionally: “notice it’s still going while we talk.”\nAround the end of Module 1 or start of Module 2, return to it and review together — model the reviewing behavior, don’t just admire it. Point out one thing you’d push back on.\n\nPrep checklist:\n\nThe companion sandbox repo (agentic-demo) cloned fresh — it has 500 synthetic patients (data/patients.csv) and a deliberately messy analysis.R (cost/QALY comparison, naive ICER, toy Markov model) that runs but begs to be restructured. Its README lists ready-made demo prompts and a reset procedure.\nClaude Code signed in; a fresh session.\nTerminal font size large enough for Zoom (18pt+).\nA fallback recording of the demo in case live fails (see below).",
+    "crumbs": [
+      "Exercises",
+      "Reference",
+      "Facilitator notes"
+    ]
+  },
+  {
+    "objectID": "instructor.html#timing-plan-8351200-205-min",
+    "href": "instructor.html#timing-plan-8351200-205-min",
+    "title": "Facilitator Notes",
+    "section": "Timing plan (8:35–12:00, 205 min)",
+    "text": "Timing plan (8:35–12:00, 205 min)\n\n\n\n\n\n\n\n\n\nStart\nMin\nBlock\nNotes\n\n\n\n\n8:35\n15\nWelcome + live demo\nStart the background task; set expectations; confirm everyone is set up\n\n\n8:50\n30\nModule 1 · Foundations\nSlides; keep it conceptual; return to the demo mid-way\n\n\n9:20\n35\nModule 2 · Prompting + Ex 1\n~15 lecture, ~15 exercise, 5 buffer\n\n\n9:55\n10\nBreak\nPost the Ex 2 link in chat before the break\n\n\n10:05\n45\nModule 3 · Git + Ex 2 & 3\nBiggest block; protect the exercise time\n\n\n10:50\n30\nModule 4 · Skills + Ex 4\n~12 lecture, ~15 exercise\n\n\n11:20\n35\nModule 5 · Build + Ex 5\nBreakout rooms; facilitators circulate\n\n\n11:55\n5\nWrap-up\nShare-out in chat; point to Resources\n\n\n\nIf you’re running behind: compress Module 1 (it’s the most lecture-heavy) and protect Exercises 2 and 5 — the git loop and the personal build are the deliverables.",
+    "crumbs": [
+      "Exercises",
+      "Reference",
+      "Facilitator notes"
+    ]
+  },
+  {
+    "objectID": "instructor.html#zoom-logistics",
+    "href": "instructor.html#zoom-logistics",
+    "title": "Facilitator Notes",
+    "section": "Zoom logistics",
+    "text": "Zoom logistics\n\nAsk everyone to complete Setup beforehand; open a 5-min setup-triage window at the start.\nUse breakout rooms for Exercises 2, 4, and 5 so facilitators can help small groups.\nPost the current exercise link in chat at the start of each hands-on block.\nEncourage cameras optional, chat active. Ask people to paste git status / gh pr diff / the prompt they used when stuck — it’s faster to diagnose than a verbal description.\nHave a co-facilitator watching chat if possible.",
+    "crumbs": [
+      "Exercises",
+      "Reference",
+      "Facilitator notes"
+    ]
+  },
+  {
+    "objectID": "instructor.html#common-participant-sticking-points",
+    "href": "instructor.html#common-participant-sticking-points",
+    "title": "Facilitator Notes",
+    "section": "Common participant sticking points",
+    "text": "Common participant sticking points\n\n\n\n\n\n\n\nSymptom\nQuick fix\n\n\n\n\ngh not authenticated\ngh auth login → HTTPS → browser\n\n\nAgent edited main directly\nNot fatal on a throwaway; teach git switch -c and re-do on a branch\n\n\nAgent “did too much”\nModel starting a fresh session + a smaller, specific prompt\n\n\nCan’t push (permission)\nCheck gh auth status; repo owner mismatch\n\n\nWindows path/terminal issues\nConfirm they’re using Git Bash, not PowerShell/CMD\n\n\nOverwhelmed by git\nReassure: for today, four commands — switch -c, add, commit, and gh pr create/merge",
+    "crumbs": [
+      "Exercises",
+      "Reference",
+      "Facilitator notes"
+    ]
+  },
+  {
+    "objectID": "instructor.html#fallbacks",
+    "href": "instructor.html#fallbacks",
+    "title": "Facilitator Notes",
+    "section": "Fallbacks",
+    "text": "Fallbacks\n\nLive demo fails: cut to a pre-recorded screen capture of the same flow.\nA participant can’t install anything (locked laptop): pair them into a breakout with someone who’s set up; they still learn the concepts and can build later.\ngh/GitHub down or blocked: the local git loop (branch → commit → review the diff with git diff) still teaches the core idea without a PR. Note it and move on.\nTime collapses: the minimum viable outcome is Exercise 2 (the git loop) + Exercise 4 (one skill). Everything else is bonus.",
+    "crumbs": [
+      "Exercises",
+      "Reference",
+      "Facilitator notes"
+    ]
+  },
+  {
+    "objectID": "instructor.html#deliverables-to-reinforce",
+    "href": "instructor.html#deliverables-to-reinforce",
+    "title": "Facilitator Notes",
+    "section": "Deliverables to reinforce",
+    "text": "Deliverables to reinforce\nBy the end, each participant should have: a repo, a CLAUDE.md, one skill, and one merged PR. Remind them in the wrap-up that these four things are the prototype workflow — and that the way to keep learning is to use the loop on a real project this week.",
+    "crumbs": [
+      "Exercises",
+      "Reference",
+      "Facilitator notes"
+    ]
+  },
+  {
+    "objectID": "git-github.html",
+    "href": "git-github.html",
+    "title": "3 · Git & GitHub",
+    "section": "",
+    "text": "Module goal: Learn just enough git to work safely with an agent: commits as save points, branches as sandboxes, and pull requests as the review gate where you decide what to keep. Ends with Exercise 2 and Exercise 3. · Slides",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "3 · Git & GitHub"
+    ]
+  },
+  {
+    "objectID": "git-github.html#why-git-first-before-turning-an-agent-loose",
+    "href": "git-github.html#why-git-first-before-turning-an-agent-loose",
+    "title": "3 · Git & GitHub",
+    "section": "Why git first, before turning an agent loose",
+    "text": "Why git first, before turning an agent loose\nAn agent is fast and will happily rewrite twelve files in thirty seconds. Without version control, that’s terrifying: you can’t tell what changed, can’t undo cleanly, and can’t separate its work from yours.\nWith git, the same speed is safe. Reframe the tools:\n\n\n\n\n\n\n\nGit concept\nReframed for agent work\n\n\n\n\nCommit\nA save point you can always return to. Undo is free.\n\n\nBranch\nA sandbox where the agent can experiment without touching your working code.\n\n\nDiff\nThe exact, line-by-line record of what the agent changed — your review surface.\n\n\nPull request (PR)\nThe gate: nothing reaches your main code until you approve the diff.\n\n\nMerge\nYour explicit “yes, keep this” decision.\n\n\n\n\n\n\n\n\n\nImportantThe core loop of this whole course\n\n\n\nagent works on a branch → you review the diff in a pull request → you merge only what you approve.\nEverything else is detail. This loop is what lets you move fast and stay in control.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "3 · Git & GitHub"
+    ]
+  },
+  {
+    "objectID": "git-github.html#git-in-ten-minutes",
+    "href": "git-github.html#git-in-ten-minutes",
+    "title": "3 · Git & GitHub",
+    "section": "Git in ten minutes",
+    "text": "Git in ten minutes\nA repository (“repo”) is a folder git is tracking. Work flows through three places: your files → the staging area (what you’re about to save) → a commit (a saved snapshot).\ngit init                      # start tracking this folder\ngit status                    # what's changed / staged?\ngit add R/01_clean.R          # stage a file for the next commit\ngit add .                     # stage everything changed\ngit commit -m \"Clean cohort\"  # save a snapshot with a message\ngit log --oneline             # history of commits\nCommit messages are notes to your future self (and reviewers). Write them in the imperative: “Add cost-effectiveness model”, “Fix join dropping rows”. Small, frequent commits beat rare giant ones — they make history readable and undo precise.\n\n\n\n\n\n\nTipYou can have the agent do the git for you\n\n\n\nYou don’t have to type these. In Claude Code you can say “commit this with a sensible message” or “make a branch called clean-data and work there.” You still decide when to commit and merge — the agent just does the mechanics. Learn the commands anyway, so you understand what it’s doing.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "3 · Git & GitHub"
+    ]
+  },
+  {
+    "objectID": "git-github.html#branches-the-agents-sandbox",
+    "href": "git-github.html#branches-the-agents-sandbox",
+    "title": "3 · Git & GitHub",
+    "section": "Branches: the agent’s sandbox",
+    "text": "Branches: the agent’s sandbox\nA branch is a parallel line of work. main stays stable; the agent plays on a branch.\ngit switch -c feature/clean-data   # create + move to a new branch\n# ... agent makes changes, you commit them ...\ngit switch main                    # your safe, untouched main\ngit switch feature/clean-data      # back to the work\nIf the branch goes sideways, you throw it away — main never saw it. This is the single most important habit for working with agents: let them work on a branch, not on main.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "3 · Git & GitHub"
+    ]
+  },
+  {
+    "objectID": "git-github.html#github-pull-requests-the-review-gate",
+    "href": "git-github.html#github-pull-requests-the-review-gate",
+    "title": "3 · Git & GitHub",
+    "section": "GitHub & pull requests: the review gate",
+    "text": "GitHub & pull requests: the review gate\nGitHub is where repos live online — for backup, collaboration, and (crucially) pull requests. A PR says: “here’s a branch; here’s the diff; should we merge it into main?” It’s a purpose-built review surface with line-by-line comments.\nUsing the gh CLI (installed in Setup):\n# push your branch to GitHub\ngit push -u origin feature/clean-data\n\n# open a pull request from that branch into main\ngh pr create --title \"Clean cohort data\" --body \"Adds R/01_clean.R; drops missing age; recodes sex.\"\n\n# review the change — read the diff!\ngh pr diff\n\n# when you're satisfied, merge and tidy up\ngh pr merge --squash --delete-branch\nThe gh pr diff step is the one that matters. Read it. This is where you catch the dropped rows, the renamed column, the thing you didn’t ask for. Merging is you saying “I’ve reviewed this and I approve.”\n\n\n\n\n\n\nWarningDestructive commands — gate these\n\n\n\nSome git operations are hard or impossible to undo. Don’t let an agent run them unprompted, and be sure you understand them yourself:\n\ngit reset --hard — discards uncommitted work permanently.\ngit push --force — can overwrite others’ history on a shared branch.\ngit clean -fd — deletes untracked files from disk.\n\nA good rule for your CLAUDE.md: “Never run destructive git commands (reset –hard, force push, clean) without asking.”",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "3 · Git & GitHub"
+    ]
+  },
+  {
+    "objectID": "git-github.html#a-complete-session-start-to-finish",
+    "href": "git-github.html#a-complete-session-start-to-finish",
+    "title": "3 · Git & GitHub",
+    "section": "A complete session, start to finish",
+    "text": "A complete session, start to finish\nHere’s the whole loop in one place — the pattern for every agent-assisted change:\n# 1. start clean, on main\ngit switch main && git pull\n\n# 2. branch for the task\ngit switch -c feature/cost-model\n\n# 3. direct the agent to do the work (in Claude Code), review each step,\n#    and commit in small pieces:\n#    \"Add the Markov cost model in R/02_model.R. Show me the diff, then commit.\"\n\n# 4. push and open a PR\ngit push -u origin feature/cost-model\ngh pr create --fill\n\n# 5. REVIEW the diff — the gate\ngh pr diff\n\n# 6. approve by merging; delete the branch\ngh pr merge --squash --delete-branch\n\n# 7. back to a clean main with your approved change\ngit switch main && git pull\n\n\n\n\n\n\nNoteSolo researcher? You still want this.\n\n\n\nPRs aren’t just for teams. Even working alone, the branch-and-PR loop gives you a forced review step and a clean, documented history — exactly the reproducibility and control you want when an agent is writing the code.\n\n\n\nWhat to remember\n\nCommit = save point · branch = sandbox · PR = review gate · merge = your “yes.”\nThe core loop: agent works on a branch → you review the diff → you merge what you approve.\nKeep the agent off main. Read the diff before every merge.\nGate destructive commands (reset --hard, force push, clean) — put it in CLAUDE.md.\n\n\nNext: Exercise 2 · Git with an agent → and Exercise 3 · Write a CLAUDE.md →, then 4 · Skills & Workflows →",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "3 · Git & GitHub"
+    ]
+  },
+  {
+    "objectID": "exercises/ex5-your-workflow.html",
+    "href": "exercises/ex5-your-workflow.html",
+    "title": "Exercise 5 · Your Own Workflow",
+    "section": "",
+    "text": "Time: ~30 min · Pairs with: Build Session · Goal: a working prototype workflow for one of your own research tasks, and a clear next step.\nThis is the capstone. You’ll combine the repo, CLAUDE.md, a skill, and the git review loop around one real task from your work. Full guidance — checkpoints, path, and the “done” definition — lives on the Build Session page. This page is your quick checklist.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "5 · Your own workflow"
+    ]
+  },
+  {
+    "objectID": "exercises/ex5-your-workflow.html#the-four-moves",
+    "href": "exercises/ex5-your-workflow.html#the-four-moves",
+    "title": "Exercise 5 · Your Own Workflow",
+    "section": "The four moves",
+    "text": "The four moves\n\nScaffold a repo for a real task (git init; have the agent set up a reproducible structure; first commit).\nWrite a CLAUDE.md (Ex 3) so the agent understands the project.\nShip one change through branch → PR → review → merge (Ex 2).\nWrite one skill (Ex 4) for the repeatable part, committed into the repo.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "5 · Your own workflow"
+    ]
+  },
+  {
+    "objectID": "exercises/ex5-your-workflow.html#checkpoints",
+    "href": "exercises/ex5-your-workflow.html#checkpoints",
+    "title": "Exercise 5 · Your Own Workflow",
+    "section": "Checkpoints",
+    "text": "Checkpoints\n\n\n\nTime\nYou should have…\n\n\n\n\n+5 min\nA git repo with a scaffolded structure and a first commit\n\n\n+10 min\nA CLAUDE.md with project context and guardrails\n\n\n+20 min\nOne change shipped through a pull request you reviewed\n\n\n+30 min\nOne skill written and committed",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "5 · Your own workflow"
+    ]
+  },
+  {
+    "objectID": "exercises/ex5-your-workflow.html#youre-done-when-the-take-home-checklist",
+    "href": "exercises/ex5-your-workflow.html#youre-done-when-the-take-home-checklist",
+    "title": "Exercise 5 · Your Own Workflow",
+    "section": "You’re done when… (the take-home checklist)",
+    "text": "You’re done when… (the take-home checklist)\n\nA repo for a real task, ideally pushed to GitHub.\nA CLAUDE.md the agent reads each session.\nAt least one change shipped through branch → PR → review → merge.\nAt least one skill capturing something you’ll do again.\nA written next step (put it at the bottom of your CLAUDE.md under ## TODO).\n\n\n\n\n\n\n\nTipCapture your next step in the repo\n\n\n\nEnd by asking the agent:\nAdd a \"## Next steps\" section to the README listing the 3 things I\nshould do next to develop this workflow further. Commit it.\nNow your momentum is saved in the repo, not just your head.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "5 · Your own workflow"
+    ]
+  },
+  {
+    "objectID": "exercises/ex5-your-workflow.html#share-out-last-5-min",
+    "href": "exercises/ex5-your-workflow.html#share-out-last-5-min",
+    "title": "Exercise 5 · Your Own Workflow",
+    "section": "Share out (last 5 min)",
+    "text": "Share out (last 5 min)\nPost one of these in the Zoom chat:\n\nThe skill you wrote (its description line), or\nThe task you scaffolded and what surprised you, or\nOne thing you’ll change about how you work starting Monday.\n\nBack to: Build Session · Resources & next steps →",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "5 · Your own workflow"
+    ]
+  },
+  {
+    "objectID": "exercises/ex3-claude-md.html",
+    "href": "exercises/ex3-claude-md.html",
+    "title": "Exercise 3 · Write a CLAUDE.md",
+    "section": "",
+    "text": "Time: ~10 min · Pairs with: Git & GitHub and Prompting · Goal: a CLAUDE.md that makes the agent behave like it already knows your project.\nNow move onto a project that matters to you (or keep using agentic-ex1). You’ll write the file Claude Code reads at the start of every session.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "3 · Write a CLAUDE.md"
+    ]
+  },
+  {
+    "objectID": "exercises/ex3-claude-md.html#start-from-the-template-2-min",
+    "href": "exercises/ex3-claude-md.html#start-from-the-template-2-min",
+    "title": "Exercise 3 · Write a CLAUDE.md",
+    "section": "1 · Start from the template (2 min)",
+    "text": "1 · Start from the template (2 min)\nOpen the annotated CLAUDE.md template and copy it into your project root as CLAUDE.md. Or have the agent do the first draft:\nRead the files in this repo, then draft a CLAUDE.md that describes what\nthis project does, its folder structure, how to run it, my coding\nconventions, and guardrails. Ask me anything you can't infer.\nLetting the agent draft it from your actual repo is often the fastest start — then you correct it.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "3 · Write a CLAUDE.md"
+    ]
+  },
+  {
+    "objectID": "exercises/ex3-claude-md.html#make-sure-it-covers-the-five-things-5-min",
+    "href": "exercises/ex3-claude-md.html#make-sure-it-covers-the-five-things-5-min",
+    "title": "Exercise 3 · Write a CLAUDE.md",
+    "section": "2 · Make sure it covers the five things (5 min)",
+    "text": "2 · Make sure it covers the five things (5 min)\nA useful research CLAUDE.md answers:\n\nWhat this repo does — one paragraph: the question and what the code produces.\nStructure — what lives where (data/raw, R/, figs/, …).\nHow to run it — the one command or script that reproduces everything.\nConventions — language, style, figure preferences, naming.\nGuardrails — what the agent must not do without asking.\n\n\n\n\n\n\n\nTipGuardrails are the highest-value lines\n\n\n\nThe instructions that save you grief:\n## Guardrails\n- Never modify anything in data/raw/.\n- Never run destructive git commands (reset --hard, force push, clean) without asking.\n- Don't install packages without asking.\n- Make changes on a branch; show me the diff before committing.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "3 · Write a CLAUDE.md"
+    ]
+  },
+  {
+    "objectID": "exercises/ex3-claude-md.html#test-that-it-works-2-min",
+    "href": "exercises/ex3-claude-md.html#test-that-it-works-2-min",
+    "title": "Exercise 3 · Write a CLAUDE.md",
+    "section": "3 · Test that it works (2 min)",
+    "text": "3 · Test that it works (2 min)\nCommit the file, then start a fresh session and give a task that relies on the context:\nWhere does cleaned data get written, and how do I reproduce the whole\npipeline?\nIf the agent answers correctly without you explaining, your CLAUDE.md is doing its job. Commit it:\ngit add CLAUDE.md\ngit commit -m \"Add CLAUDE.md with project context and guardrails\"",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "3 · Write a CLAUDE.md"
+    ]
+  },
+  {
+    "objectID": "exercises/ex3-claude-md.html#bonus-your-global-claude.md",
+    "href": "exercises/ex3-claude-md.html#bonus-your-global-claude.md",
+    "title": "Exercise 3 · Write a CLAUDE.md",
+    "section": "4 · (Bonus) your global CLAUDE.md",
+    "text": "4 · (Bonus) your global CLAUDE.md\nFacts true across all your work — who you are, your stack, your figure preferences — belong in a global file at ~/.claude/CLAUDE.md. Ask the agent:\nHelp me draft a global ~/.claude/CLAUDE.md capturing that I'm a health\npolicy researcher who works in R (tidyverse) and Python, cares about\nreproducibility and publication-ready figures, and prefers concise,\ndirect responses.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "3 · Write a CLAUDE.md"
+    ]
+  },
+  {
+    "objectID": "exercises/ex3-claude-md.html#youre-done-when",
+    "href": "exercises/ex3-claude-md.html#youre-done-when",
+    "title": "Exercise 3 · Write a CLAUDE.md",
+    "section": "You’re done when…",
+    "text": "You’re done when…\n\nYour project has a CLAUDE.md covering the five things.\nIt includes explicit guardrails.\nA fresh session correctly answered a project question using only that context.\nThe file is committed.\n\nNext: Exercise 4 · Write your first skill →",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "3 · Write a CLAUDE.md"
+    ]
+  },
+  {
+    "objectID": "exercises/ex1-first-session.html",
+    "href": "exercises/ex1-first-session.html",
+    "title": "Exercise 1 · Your First Agent Session",
+    "section": "",
+    "text": "Time: ~10 min · Pairs with: Prompting & Directing · Goal: feel the specify → act → review loop on a small, real task.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "1 · First agent session"
+    ]
+  },
+  {
+    "objectID": "exercises/ex1-first-session.html#setup-1-min",
+    "href": "exercises/ex1-first-session.html#setup-1-min",
+    "title": "Exercise 1 · Your First Agent Session",
+    "section": "Setup (1 min)",
+    "text": "Setup (1 min)\nMake a fresh scratch folder and start the agent:\nmkdir agentic-ex1 && cd agentic-ex1\nclaude",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "1 · First agent session"
+    ]
+  },
+  {
+    "objectID": "exercises/ex1-first-session.html#task-do-it-twice-vague-then-specified",
+    "href": "exercises/ex1-first-session.html#task-do-it-twice-vague-then-specified",
+    "title": "Exercise 1 · Your First Agent Session",
+    "section": "Task (do it twice — vague, then specified)",
+    "text": "Task (do it twice — vague, then specified)\nWe’ll generate a tiny synthetic dataset and a summary, so everyone has something concrete to review.\n\nRound 1 — a vague prompt\nType this to the agent, exactly as-is:\nmake me some fake patient data and summarize it\nWatch what it does. It will work — but notice all the choices it made for you (columns, size, format, what “summarize” means).\n\n\nRound 2 — a specified prompt\nNow ask for what you actually want:\nCreate an R script `make_data.R` that generates a synthetic dataset of\n200 patients with columns: id, age (18–90), sex (M/F), treatment\n(control/drug), and cost (positive, right-skewed). Save it to\ndata/patients.csv. Then create `summarize.R` that prints mean cost by\ntreatment arm and saves a colorblind-safe bar chart of it to\nfigs/cost_by_arm.png. Show me each script before running it.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "1 · First agent session"
+    ]
+  },
+  {
+    "objectID": "exercises/ex1-first-session.html#practice-the-loop",
+    "href": "exercises/ex1-first-session.html#practice-the-loop",
+    "title": "Exercise 1 · Your First Agent Session",
+    "section": "Practice the loop",
+    "text": "Practice the loop\n\nWhen it proposes a script, read it before you let it run. Does it do what you asked?\nAsk it to run the scripts and show you the output and the figure path.\nGive one piece of specific feedback, e.g.:\nMake the cost distribution more skewed (use rgamma), and add\nvalue labels on the bars.\nNotice how a precise correction lands in one turn.\n\n\n\n\n\n\n\nTipTry a plan-first prompt\n\n\n\nBefore round 2, you can add: “Before writing anything, tell me your plan and which files you’ll create.” Approve it, then let it go. This is the habit we formalize with git next.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "1 · First agent session"
+    ]
+  },
+  {
+    "objectID": "exercises/ex1-first-session.html#youre-done-when",
+    "href": "exercises/ex1-first-session.html#youre-done-when",
+    "title": "Exercise 1 · Your First Agent Session",
+    "section": "You’re done when…",
+    "text": "You’re done when…\n\nYou ran both the vague and the specified prompt and can articulate the difference in results.\ndata/patients.csv and figs/cost_by_arm.png exist and look right.\nYou gave at least one specific correction and the agent applied it.\nYou read at least one script before it ran.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "1 · First agent session"
+    ]
+  },
+  {
+    "objectID": "exercises/ex1-first-session.html#reflect-30-sec",
+    "href": "exercises/ex1-first-session.html#reflect-30-sec",
+    "title": "Exercise 1 · Your First Agent Session",
+    "section": "Reflect (30 sec)",
+    "text": "Reflect (30 sec)\nWhat did the vague prompt get wrong that the specified one fixed? That gap is the value you add as the director.\nNext: Exercise 2 · Git with an agent →",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "1 · First agent session"
+    ]
+  },
+  {
+    "objectID": "build-session.html",
+    "href": "build-session.html",
+    "title": "5 · Build Session",
+    "section": "",
+    "text": "Module goal: Put it all together on your work. Leave with a repo, a CLAUDE.md, at least one skill, and a change you shipped through the branch→PR→merge loop. This module is Exercise 5 — facilitators circulate to help.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "5 · Build Session"
+    ]
+  },
+  {
+    "objectID": "build-session.html#the-idea",
+    "href": "build-session.html#the-idea",
+    "title": "5 · Build Session",
+    "section": "The idea",
+    "text": "The idea\nThe rest of the course is hands-on. You’ll take one real task from your research and start building an agentic workflow around it — combining everything from the morning:\n\nFoundations → you know what the agent is doing.\nPrompting → you specify tasks well and review critically.\nGit & GitHub → you keep the agent on a branch and merge only what you approve.\nSkills → you package the repeatable part so it pays off again next week.\n\nYou won’t finish a whole project in 35 minutes — that’s not the goal. The goal is a working prototype and momentum: a repo set up correctly, one skill written, one change shipped, and a clear next step.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "5 · Build Session"
+    ]
+  },
+  {
+    "objectID": "build-session.html#pick-a-task-2-min",
+    "href": "build-session.html#pick-a-task-2-min",
+    "title": "5 · Build Session",
+    "section": "Pick a task (2 min)",
+    "text": "Pick a task (2 min)\nChoose something small enough to make real progress on but real enough to matter. Good candidates:\n\nA data-cleaning step for a dataset you’re working with now.\nA figure you keep remaking — turn it into a formatter skill.\nA simulation or model scaffold (Markov / microsimulation structure) you can flesh out later.\nA manuscript task: methods section, reviewer response, README for a repo.\nA project scaffold: set up a new analysis repo the way you always wish you had.\n\n\n\n\n\n\n\nTipIf you’re stuck choosing\n\n\n\nPick the task you most dread repeating. That’s the one where a workflow pays off fastest — and dread is a great filter for “worth automating.”",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "5 · Build Session"
+    ]
+  },
+  {
+    "objectID": "build-session.html#suggested-path-30-min",
+    "href": "build-session.html#suggested-path-30-min",
+    "title": "5 · Build Session",
+    "section": "Suggested path (≈30 min)",
+    "text": "Suggested path (≈30 min)\nWork through as many as you can; each stands alone.\n\n1 · Set up the repo (5 min)\nmkdir my-workflow && cd my-workflow\ngit init\nclaude\nThen ask the agent to scaffold a reproducible structure: &gt; “Set up a reproducible R (or Python) project: data/raw, data/clean, R/ (or src/), figs/, a .gitignore, and a README. Make the first commit.”\n\n\n2 · Write a CLAUDE.md (5 min)\nUse the template and Exercise 3. Capture what the project does, its structure, how to run it, your conventions, and your guardrails. Commit it.\n\n\n3 · Ship one change through a PR (10 min)\nDirect the agent to do your actual task on a branch, review the diff, and merge it — the loop from Module 3:\ngit switch -c feature/first-task\n# ... direct the agent; review; commit ...\ngit push -u origin feature/first-task   # (after gh repo create if needed)\ngh pr create --fill\ngh pr diff        # review!\ngh pr merge --squash --delete-branch\n\n\n4 · Write a skill (10 min)\nFind the part of your task you’ll repeat and package it as a skill (Exercise 4, template). Commit it into the repo so it travels with the project.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "5 · Build Session"
+    ]
+  },
+  {
+    "objectID": "build-session.html#checkpoints-where-you-should-be",
+    "href": "build-session.html#checkpoints-where-you-should-be",
+    "title": "5 · Build Session",
+    "section": "Checkpoints — where you should be",
+    "text": "Checkpoints — where you should be\n\n\n\nTime\nYou should have…\n\n\n\n\n+5 min\nA git repo with a scaffolded structure and a first commit\n\n\n+10 min\nA CLAUDE.md describing the project and your guardrails\n\n\n+20 min\nOne change shipped through a branch → PR → merge\n\n\n+30 min\nOne skill written and committed",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "5 · Build Session"
+    ]
+  },
+  {
+    "objectID": "build-session.html#done-for-today",
+    "href": "build-session.html#done-for-today",
+    "title": "5 · Build Session",
+    "section": "“Done” for today",
+    "text": "“Done” for today\nYou’re done when you can answer yes to all of these:\n\nI have a repo (local, ideally pushed to GitHub) for a real task.\nIt has a CLAUDE.md an agent reads at the start of each session.\nI directed an agent through at least one branch → PR → review → merge.\nI wrote at least one skill that captures something I’ll do again.\nI know my next step to keep developing this after today.\n\n\n\n\n\n\n\nNoteGetting help\n\n\n\nDrop questions in the Zoom chat and facilitators will jump into breakout rooms. Stuck on git? Show your git status and gh pr diff. Stuck on the agent? Share the prompt you used — usually the fix is a more specific prompt.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "5 · Build Session"
+    ]
+  },
+  {
+    "objectID": "build-session.html#where-to-go-next",
+    "href": "build-session.html#where-to-go-next",
+    "title": "5 · Build Session",
+    "section": "Where to go next",
+    "text": "Where to go next\n\nGrow your CLAUDE.md and skills as you notice yourself re-explaining things.\nShare a skill with a labmate (git push) — build a shared team library.\nBring the branch→PR→merge loop to your existing repos, not just new ones.\nRevisit the Resources page for cheat sheets and deeper reading.\n\n\nWhat to remember\n\nA workflow = project scaffold + CLAUDE.md + skills + the git review loop, assembled around a real task.\nAim for a working prototype and momentum, not a finished project.\nAutomate the task you most dread repeating — that’s where it pays off first.\n\n\nWrap-up: share what you built, and see Resources to keep going.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "5 · Build Session"
+    ]
+  },
+  {
+    "objectID": "agenda.html",
+    "href": "agenda.html",
+    "title": "Agenda",
+    "section": "",
+    "text": "A half-day course that alternates short lectures, live demonstrations, and hands-on exercises. Timings are targets — we’ll flex to keep the hands-on blocks intact."
+  },
+  {
+    "objectID": "agenda.html#run-of-show",
+    "href": "agenda.html#run-of-show",
+    "title": "Agenda",
+    "section": "Run of show",
+    "text": "Run of show\n\n8:35 Welcome & the “watch this” demo · 15 min\nBefore any theory, I’ll open Claude Code, dictate a task out loud, and set it working on a real project in the background — then we start the lecture while it runs. The point is to feel what “directing an agent” means before we define it.\n\n\n8:50 Module 1 · Foundations · 30 min\nFoundations → · slides\nWhat agentic coding actually is: an LLM that can use tools (read files, run code, edit, search) in a loop. The landscape of tools. The vocabulary you’ll hear. Where this helps research — and where to be careful.\n\n\n9:20 Module 2 · Prompting & directing · 35 min\nPrompting → · slides · Exercise 1\nHow to prompt effectively, scope context, plan before acting, and review output. Meet CLAUDE.md. Then you run your first agent session.\n\n\n9:55 Break · 10 min\n\n\n10:05 Module 3 · Git & GitHub · 45 min\nGit & GitHub → · slides · Exercises 2 & 3\nVersion control reframed as the operating system for safe agent collaboration: commits, branches, pull requests, and merging only what you approve. You’ll direct an agent through a full branch → PR → review → merge loop, then write a CLAUDE.md for a project.\n\n\n10:50 Module 4 · Skills & workflows · 30 min\nSkills & workflows → · slides · Exercise 4\nCustomizing an agent for your recurring tasks. What a skill is, when to write one, and the anatomy of a good one. You’ll write your first skill — the course’s core deliverable.\n\n\n11:20 Module 5 · Build session · 35 min\nBuild session → · Exercise 5\nThe rest is yours. Bring a research task and prototype a workflow for it, with me and others available to help.\n\n\n11:55 Wrap-up · 5 min\nShare what you built, where to go deeper, and how to keep developing your workflow after today."
+  },
+  {
+    "objectID": "agenda.html#what-to-have-open",
+    "href": "agenda.html#what-to-have-open",
+    "title": "Agenda",
+    "section": "What to have open",
+    "text": "What to have open\n\nThis website.\nA terminal in a folder where you can make a scratch project.\nClaude Code (claude), signed in.\nYour GitHub account in a browser tab.\nA research task in mind for the build session."
+  },
+  {
+    "objectID": "exercises.html",
+    "href": "exercises.html",
+    "title": "Hands-on Exercises",
+    "section": "",
+    "text": "The course is built around doing, not watching. Each exercise is self-contained, time-boxed, and has a concrete “you’re done when…” check. They map onto the modules and build on each other.\n\n\n\n#\nExercise\nPairs with\nTime\nYou’ll leave with\n\n\n\n\n1\nFirst agent session\nPrompting\n~10 min\nA task done by an agent that you specified and reviewed\n\n\n2\nGit with an agent\nGit & GitHub\n~15 min\nA change shipped through branch → PR → merge\n\n\n3\nWrite a CLAUDE.md\nGit & GitHub\n~10 min\nA project the agent understands on sight\n\n\n4\nWrite your first skill\nSkills\n~12 min\nA reusable skill — the core deliverable\n\n\n5\nYour own workflow\nBuild session\n~30 min\nA prototype workflow for your research\n\n\n\n\n\n\n\n\n\nTipWorking style\n\n\n\nKeep this site, your terminal, and Claude Code side by side. Copy-paste the starter commands, but read the diffs and outputs — the learning is in the reviewing, not the running. Stuck for more than a couple of minutes? Post in the Zoom chat.\n\n\n\n\n\n\n\n\nNoteA shared warm-up repo\n\n\n\nFor Exercises 1–2 you don’t need your own project yet — we’ll create a small throwaway repo so everyone starts from the same place. Exercises 3–5 move onto a project that matters to you.\n\n\nStart with Exercise 1 →.\n\n\n\n Back to top",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "All exercises"
+    ]
+  },
+  {
+    "objectID": "exercises/ex2-git-with-agent.html",
+    "href": "exercises/ex2-git-with-agent.html",
+    "title": "Exercise 2 · Git with an Agent",
+    "section": "",
+    "text": "Time: ~15 min · Pairs with: Git & GitHub · Goal: run the core control loop end-to-end, so you trust an agent with real code.\nWe’ll continue in the agentic-ex1 folder from Exercise 1 (or make a fresh one). By the end you’ll have a change reviewed and merged through a real pull request.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "2 · Git with an agent"
+    ]
+  },
+  {
+    "objectID": "exercises/ex2-git-with-agent.html#make-it-a-repo-and-put-it-on-github-3-min",
+    "href": "exercises/ex2-git-with-agent.html#make-it-a-repo-and-put-it-on-github-3-min",
+    "title": "Exercise 2 · Git with an Agent",
+    "section": "1 · Make it a repo and put it on GitHub (3 min)",
+    "text": "1 · Make it a repo and put it on GitHub (3 min)\ncd agentic-ex1          # or your Exercise 1 folder\ngit init\ngit add .\ngit commit -m \"Initial synthetic-data scripts\"\ngh repo create agentic-ex1 --private --source=. --push\ngh repo create makes the GitHub repo and pushes main in one step. (Use --private for a throwaway.)",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "2 · Git with an agent"
+    ]
+  },
+  {
+    "objectID": "exercises/ex2-git-with-agent.html#branch-for-the-change-1-min",
+    "href": "exercises/ex2-git-with-agent.html#branch-for-the-change-1-min",
+    "title": "Exercise 2 · Git with an Agent",
+    "section": "2 · Branch for the change (1 min)",
+    "text": "2 · Branch for the change (1 min)\nNever work on main. Ask the agent — or type it yourself:\ngit switch -c feature/add-summary-table\nOr say to Claude Code: “Create a branch called feature/add-summary-table and work there.”",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "2 · Git with an agent"
+    ]
+  },
+  {
+    "objectID": "exercises/ex2-git-with-agent.html#direct-the-change-in-small-commits-5-min",
+    "href": "exercises/ex2-git-with-agent.html#direct-the-change-in-small-commits-5-min",
+    "title": "Exercise 2 · Git with an Agent",
+    "section": "3 · Direct the change, in small commits (5 min)",
+    "text": "3 · Direct the change, in small commits (5 min)\nGive the agent a real task and have it commit as it goes:\nOn this branch: add a script `table.R` that writes a summary table of\nmean and SD of cost by treatment arm to tables/summary.csv. Show me the\ndiff, then commit it with a clear message.\nReview what it shows you. Then:\nAlso add a one-line note about this table to the README, and commit that\nseparately.\nCheck your history:\ngit log --oneline\nYou should see two small, clearly-labelled commits.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "2 · Git with an agent"
+    ]
+  },
+  {
+    "objectID": "exercises/ex2-git-with-agent.html#open-a-pull-request-2-min",
+    "href": "exercises/ex2-git-with-agent.html#open-a-pull-request-2-min",
+    "title": "Exercise 2 · Git with an Agent",
+    "section": "4 · Open a pull request (2 min)",
+    "text": "4 · Open a pull request (2 min)\ngit push -u origin feature/add-summary-table\ngh pr create --title \"Add cost summary table\" --fill\nOr let the agent do it: “Push this branch and open a pull request into main.”",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "2 · Git with an agent"
+    ]
+  },
+  {
+    "objectID": "exercises/ex2-git-with-agent.html#review-the-diff-the-gate-2-min",
+    "href": "exercises/ex2-git-with-agent.html#review-the-diff-the-gate-2-min",
+    "title": "Exercise 2 · Git with an Agent",
+    "section": "5 · Review the diff — the gate (2 min)",
+    "text": "5 · Review the diff — the gate (2 min)\nThis is the whole point. Read the change before you accept it:\ngh pr diff\nAsk yourself: is this only what I asked for? Any surprise edits? Right files?\n\n\n\n\n\n\nTipPractice catching something\n\n\n\nBefore merging, ask the agent to “add a totals row to the summary table.” Re-run gh pr diff and find that new change in the diff. Seeing your review surface update is the muscle you’re building.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "2 · Git with an agent"
+    ]
+  },
+  {
+    "objectID": "exercises/ex2-git-with-agent.html#merge-what-you-approve-1-min",
+    "href": "exercises/ex2-git-with-agent.html#merge-what-you-approve-1-min",
+    "title": "Exercise 2 · Git with an Agent",
+    "section": "6 · Merge what you approve (1 min)",
+    "text": "6 · Merge what you approve (1 min)\ngh pr merge --squash --delete-branch\ngit switch main && git pull\nYour approved change is now on main; the branch is cleaned up; main never saw the messy middle.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "2 · Git with an agent"
+    ]
+  },
+  {
+    "objectID": "exercises/ex2-git-with-agent.html#youre-done-when",
+    "href": "exercises/ex2-git-with-agent.html#youre-done-when",
+    "title": "Exercise 2 · Git with an Agent",
+    "section": "You’re done when…",
+    "text": "You’re done when…\n\nYour repo is on GitHub with main pushed.\nYou made a change on a branch, in at least two small commits.\nYou opened a pull request and ran gh pr diff to review it.\nYou merged it and returned to a clean main.\n\n\n\n\n\n\n\nWarningIf something breaks\n\n\n\n\ngh: not authenticated → run gh auth login (see Setup).\nPushed to the wrong branch? You’re on a throwaway repo — safe to experiment. Try git switch main and start the branch again.\nDon’t run git push --force or git reset --hard to “fix” things right now — ask a facilitator first.\n\n\n\nNext: Exercise 3 · Write a CLAUDE.md →",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "2 · Git with an agent"
+    ]
+  },
+  {
+    "objectID": "exercises/ex4-first-skill.html",
+    "href": "exercises/ex4-first-skill.html",
+    "title": "Exercise 4 · Write Your First Skill",
+    "section": "",
+    "text": "Time: ~12 min · Pairs with: Skills & Workflows · Goal: a working, reusable skill that captures how you like a recurring task done. This is the thing you take home.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "4 · Write your first skill"
+    ]
+  },
+  {
+    "objectID": "exercises/ex4-first-skill.html#pick-a-task-you-repeat-2-min",
+    "href": "exercises/ex4-first-skill.html#pick-a-task-you-repeat-2-min",
+    "title": "Exercise 4 · Write Your First Skill",
+    "section": "1 · Pick a task you repeat (2 min)",
+    "text": "1 · Pick a task you repeat (2 min)\nChoose one recurring task where you keep re-explaining your preferences. Steal one of these if nothing jumps out:\n\nTable 1 builder — baseline characteristics to your house style.\nFigure formatter — apply your (or a journal’s) figure specs to a plot.\nProject scaffold — set up a reproducible repo the way you always do.\nReviewer-response drafter — comments + notes → point-by-point response.\nModel diagnostics — run your standard checks on a fitted model.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "4 · Write your first skill"
+    ]
+  },
+  {
+    "objectID": "exercises/ex4-first-skill.html#draft-it-from-the-template-5-min",
+    "href": "exercises/ex4-first-skill.html#draft-it-from-the-template-5-min",
+    "title": "Exercise 4 · Write Your First Skill",
+    "section": "2 · Draft it from the template (5 min)",
+    "text": "2 · Draft it from the template (5 min)\nOpen the SKILL.md template. Fill in the four parts:\n---\nname: &lt;short-kebab-case-name&gt;\ndescription: &gt;\n  &lt;ONE specific sentence: what it does and WHEN to use it. This is how\n  the agent decides to invoke it — be concrete.&gt;\n---\n\n# &lt;Skill title&gt;\n\n## When to use\n&lt;The situation that should trigger this skill.&gt;\n\n## How to do it\n1. &lt;step&gt;\n2. &lt;step&gt;  (name the packages / functions you prefer)\n3. &lt;where the output goes and what it looks like&gt;\n\n## Conventions & guardrails\n- &lt;your style choices&gt;\n- Show me the result before saving. Never fabricate values.\n\n\n\n\n\n\nTipLet the agent help you write it\n\n\n\nYou can bootstrap the skill by describing the task once and asking:\nTurn this into a skill file: I regularly build a Table 1 of baseline\ncharacteristics by treatment arm using gtsummary, median [IQR] for\ncontinuous and n (%) for categorical, saved as a gt table. Write it in\nthe SKILL.md format with a specific description and guardrails.\nThen refine the description and guardrails yourself.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "4 · Write your first skill"
+    ]
+  },
+  {
+    "objectID": "exercises/ex4-first-skill.html#install-it-where-claude-code-will-find-it-2-min",
+    "href": "exercises/ex4-first-skill.html#install-it-where-claude-code-will-find-it-2-min",
+    "title": "Exercise 4 · Write Your First Skill",
+    "section": "3 · Install it where Claude Code will find it (2 min)",
+    "text": "3 · Install it where Claude Code will find it (2 min)\nSave the file into your skills folder (project-level so it travels with the repo):\nmkdir -p .claude/skills/table-one\n# save your file as .claude/skills/table-one/SKILL.md\n(Adjust the name to your skill.) Commit it:\ngit add .claude/skills\ngit commit -m \"Add table-one skill\"",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "4 · Write your first skill"
+    ]
+  },
+  {
+    "objectID": "exercises/ex4-first-skill.html#test-it-on-real-input-3-min",
+    "href": "exercises/ex4-first-skill.html#test-it-on-real-input-3-min",
+    "title": "Exercise 4 · Write Your First Skill",
+    "section": "4 · Test it on real input (3 min)",
+    "text": "4 · Test it on real input (3 min)\nStart a fresh session and trigger the skill with a natural request — don’t name the skill explicitly; see if the description makes it fire:\nI have a cleaned data frame with age, sex, and treatment arm. Build me a\nbaseline characteristics table.\nWatch whether the agent applies your conventions from the skill. If it doesn’t fire, your description probably isn’t specific enough about when to use it — tighten it and retry.",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "4 · Write your first skill"
+    ]
+  },
+  {
+    "objectID": "exercises/ex4-first-skill.html#youre-done-when",
+    "href": "exercises/ex4-first-skill.html#youre-done-when",
+    "title": "Exercise 4 · Write Your First Skill",
+    "section": "You’re done when…",
+    "text": "You’re done when…\n\nYou have a SKILL.md with a specific description and clear steps.\nIt includes at least one guardrail (“show me before saving” / “never fabricate”).\nIt’s saved in your skills folder and committed.\nA natural-language request triggered the skill and produced output in your style.\n\n\n\n\n\n\n\nNoteShare it\n\n\n\nA skill is just a file in git. git push, send a labmate the repo, and they git pull — now your lab shares an executable convention. This is how a workflow spreads.\n\n\nNext: Exercise 5 · Your own workflow →",
+    "crumbs": [
+      "Exercises",
+      "Hands-on",
+      "4 · Write your first skill"
+    ]
+  },
+  {
+    "objectID": "foundations.html",
+    "href": "foundations.html",
+    "title": "1 · Foundations of Agentic Coding",
+    "section": "",
+    "text": "Module goal: Leave with an accurate mental model of what an agent is (an LLM that uses tools in a loop), the vocabulary you’ll hear, and honest judgment about where this helps research and where it doesn’t. · Slides",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "1 · Foundations"
+    ]
+  },
+  {
+    "objectID": "foundations.html#the-shift-from-writing-to-directing",
+    "href": "foundations.html#the-shift-from-writing-to-directing",
+    "title": "1 · Foundations of Agentic Coding",
+    "section": "The shift: from writing to directing",
+    "text": "The shift: from writing to directing\nFor decades, programming meant typing every line yourself. Agentic coding changes the unit of work. You describe what you want; the agent reads your files, writes code, runs it, reads the errors, and fixes them — then you review and decide what to keep.\nYou move from author to director. Your value shifts from remembering syntax to specifying intent clearly, reviewing critically, and keeping control. That last part is what the rest of this course is really about.\n\n\n\n\n\n\nTipDemo (do this live)\n\n\n\nThis is the moment to point back at the task you dictated at 8:35. It’s been running while we talked. We’ll look at what it did — and immediately practice reviewing rather than trusting.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "1 · Foundations"
+    ]
+  },
+  {
+    "objectID": "foundations.html#what-is-an-agent-precisely",
+    "href": "foundations.html#what-is-an-agent-precisely",
+    "title": "1 · Foundations of Agentic Coding",
+    "section": "What is an “agent,” precisely?",
+    "text": "What is an “agent,” precisely?\nStrip away the hype and an agent is three things:\n\nA large language model (LLM) — a model that predicts text, and is very good at turning descriptions into code.\nTools — the model can call functions: read a file, write a file, run a shell command, search the web, run your tests.\nA loop — the model takes an action, observes the result, and decides the next action, repeating until the task is done or it needs you.\n\n        ┌─────────────────────────────────────────┐\n        │                                           │\n   you ─┴─► LLM ──► pick a tool ──► run it ──► read the result\n             ▲                                     │\n             └──────────── decide next ◄───────────┘\n                        (repeat until done)\nThe “agentic” part is the loop plus tools. A plain chatbot answers; an agent acts, checks its work, and iterates in your actual project.\n\n\n\n\n\n\nNoteWhy the loop matters for research\n\n\n\nBecause the agent runs your code and reads the errors, it can debug a simulation that won’t converge, fix a data-join that drops rows, or iterate on a ggplot until the figure looks right — without you round-tripping every message. That feedback loop is where the productivity gain comes from.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "1 · Foundations"
+    ]
+  },
+  {
+    "objectID": "foundations.html#the-landscape-as-of-mid-2026",
+    "href": "foundations.html#the-landscape-as-of-mid-2026",
+    "title": "1 · Foundations of Agentic Coding",
+    "section": "The landscape (as of mid-2026)",
+    "text": "The landscape (as of mid-2026)\nYou don’t need to know every tool — you need to know the categories so you can place whatever you encounter.\n\n\n\n\n\n\n\n\nCategory\nWhat it is\nExamples\n\n\n\n\nTerminal / CLI agents\nAn agent that lives in your terminal and works on your files and repos directly\nClaude Code (this course), and similar CLI agents\n\n\nIDE-integrated\nAgents inside your editor\nVS Code / JetBrains extensions, Cursor\n\n\nChat + code\nGeneral chat assistants that can write code but don’t run in your project\nclaude.ai, ChatGPT\n\n\nCloud / async agents\nAgents that run on a server, e.g. on a pull request\nGitHub-based coding agents\n\n\n\nWe use Claude Code because it works directly in a real git repo — which lets us teach agentic coding and version control together, the way you’ll actually work.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "1 · Foundations"
+    ]
+  },
+  {
+    "objectID": "foundations.html#vocabulary-youll-hear-today",
+    "href": "foundations.html#vocabulary-youll-hear-today",
+    "title": "1 · Foundations of Agentic Coding",
+    "section": "Vocabulary you’ll hear today",
+    "text": "Vocabulary you’ll hear today\nKeep this handy; we’ll use these all morning. (Full glossary in Resources.)\n\n\n\n\n\n\n\nTerm\nPlain-English meaning\n\n\n\n\nLLM\nThe underlying model (e.g., Claude) that turns your words into code and decisions.\n\n\nToken\nThe unit an LLM reads/writes text in (~¾ of a word). “Context” and cost are measured in tokens.\n\n\nContext window\nHow much text the model can “see” at once — your files, instructions, and the conversation so far.\n\n\nPrompt\nWhat you ask for. Also the skill of asking well.\n\n\nTool / tool call\nAn action the agent can take (read, edit, run, search).\n\n\nAgentic loop\nAct → observe → decide → repeat.\n\n\nCLAUDE.md\nA project file of standing instructions the agent reads every session (Module 2).\n\n\nSkill\nA reusable, packaged instruction set for a recurring task (Module 4).\n\n\nHallucination\nWhen a model states something plausible but false — the reason we review.\n\n\nMCP\n“Model Context Protocol” — a standard way to give agents extra tools/data sources.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "1 · Foundations"
+    ]
+  },
+  {
+    "objectID": "foundations.html#where-this-helps-research-and-where-it-doesnt",
+    "href": "foundations.html#where-this-helps-research-and-where-it-doesnt",
+    "title": "1 · Foundations of Agentic Coding",
+    "section": "Where this helps research — and where it doesn’t",
+    "text": "Where this helps research — and where it doesn’t\n\nStrong fitsHandle with care\n\n\n\nBoilerplate & glue: reshaping data, writing read_csv/join pipelines, wiring scripts together.\nDebugging: paste an error; the agent reproduces and fixes it in-repo.\nRefactoring: turning a 400-line script into functions, adding a config, improving runtime.\nSimulation scaffolding: setting up a Markov/microsimulation structure you then verify.\nFigures & tables: iterating on publication-ready ggplot/matplotlib from a description.\nWriting support: methods sections, READMEs, reviewer responses, documentation.\n\n\n\n\nStatistical / causal judgment: the agent will happily run a model that’s wrong for your question. The estimand is yours to own.\nDomain correctness: it can invent a plausible-but-wrong parameter or citation. Verify.\nAnything irreversible: deleting files, force-pushing, touching real data — gate these (Module 3).\nConfidential data: know your IRB/data-use rules before pointing an agent at PHI.\n\n\n\n\n\n\n\n\n\n\nWarningThe one rule that makes all of this safe\n\n\n\nNever merge what you haven’t reviewed. Agents are fast and confident, and sometimes confidently wrong. The productivity gain is real only if you keep a review step — which is exactly why we spend a whole module on git.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "1 · Foundations"
+    ]
+  },
+  {
+    "objectID": "foundations.html#reproducibility-an-underrated-win",
+    "href": "foundations.html#reproducibility-an-underrated-win",
+    "title": "1 · Foundations of Agentic Coding",
+    "section": "Reproducibility: an underrated win",
+    "text": "Reproducibility: an underrated win\nBecause an agent works in a repo, everything it does is inspectable and versioned. Done well, agentic coding pushes you toward better reproducibility than typing everything yourself: scripted pipelines, committed history, and prose (in CLAUDE.md and skills) that documents how the project is meant to be run — the kind of thing you can drop straight into a methods supplement.\n\nWhat to remember\n\nAn agent = LLM + tools + a loop. It acts, checks, and iterates in your real project.\nYour job shifts from typing to directing and reviewing.\nIt’s strongest on boilerplate, debugging, refactoring, and figures; weakest on judgment you must own.\nThe whole approach is only safe if you review before you keep — that’s what git gives us.\n\n\nNext: 2 · Prompting & Directing →",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "1 · Foundations"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Agentic Coding for Research",
+    "section": "",
+    "text": "The future of research programming is shifting from writing every line to directing, reviewing, and iterating with intelligent agents.\n\nThis half-day, hands-on course introduces agentic coding with tools like Claude Code, uses git & GitHub as your safety layer for collaborating with agents, and ends with you building a custom workflow for your own research.\nStart with Setup → See the agenda"
+  },
+  {
+    "objectID": "index.html#who-this-is-for",
+    "href": "index.html#who-this-is-for",
+    "title": "Agentic Coding for Research",
+    "section": "Who this is for",
+    "text": "Who this is for\nHealth researchers and academics who use R or Python for simulation models, data pipelines, or analysis scripts — and want to work faster and more reproducibly with AI agents. No advanced programming experience required. If you can write a basic R or Python script, you’re ready."
+  },
+  {
+    "objectID": "index.html#what-youll-leave-with",
+    "href": "index.html#what-youll-leave-with",
+    "title": "Agentic Coding for Research",
+    "section": "What you’ll leave with",
+    "text": "What you’ll leave with\n\nA working agentic setup: git, a GitHub account, and Claude Code installed and verified.\nA mental model for what agentic coding is — and where it helps (and hurts) research.\nHands-on practice directing an agent through a git branch → pull request → review → merge loop.\nAt least one skill you wrote yourself that automates a task you actually do.\nA prototype workflow tailored to one of your own research projects."
+  },
+  {
+    "objectID": "index.html#agenda-at-a-glance",
+    "href": "index.html#agenda-at-a-glance",
+    "title": "Agentic Coding for Research",
+    "section": "Agenda at a glance",
+    "text": "Agenda at a glance\n\n\n\n\n\n\n\n\nTime\nBlock\nWhat happens\n\n\n\n\n8:35\nWelcome + live demo\nA “watch this” opening: dictate a task, an agent builds while we talk\n\n\n8:50\n1 · Foundations\nWhat agentic coding is: LLMs with tools, the agentic loop, the landscape\n\n\n9:20\n2 · Prompting & directing\nHow to prompt, scope context, and use CLAUDE.md — Exercise 1\n\n\n9:55\nBreak\n\n\n\n10:05\n3 · Git & GitHub\nVersion control as the operating system for safe agent collaboration — Exercise 2 & 3\n\n\n10:50\n4 · Skills & workflows\nCustomizing agents; anatomy of a skill — Exercise 4\n\n\n11:20\n5 · Build session\nPrototype a workflow for your own research — Exercise 5\n\n\n11:55\nWrap-up\nWhere to go next; sharing what you built\n\n\n\nThe detailed agenda has timing notes and links to each exercise."
+  },
+  {
+    "objectID": "index.html#before-we-start",
+    "href": "index.html#before-we-start",
+    "title": "Agentic Coding for Research",
+    "section": "Before we start",
+    "text": "Before we start\n\n\n\n\n\n\nImportantDo this before class\n\n\n\nComplete the Setup guide and run the verification checklist. It takes ~20 minutes and installs git, a GitHub account, and Claude Code. Doing it live on Zoom eats into build time — please arrive set up."
+  },
+  {
+    "objectID": "index.html#bring-a-research-task",
+    "href": "index.html#bring-a-research-task",
+    "title": "Agentic Coding for Research",
+    "section": "Bring a research task",
+    "text": "Bring a research task\nThe last hour is yours to build. Come with one concrete task in mind — a simulation model, a data-cleaning pipeline, a figure script, a reviewer response, anything you actually need to do. You’ll leave having started it with an agent."
+  },
+  {
+    "objectID": "prompting.html",
+    "href": "prompting.html",
+    "title": "2 · Prompting & Directing Agents",
+    "section": "",
+    "text": "Module goal: Learn the handful of prompting habits that separate a frustrating agent session from a productive one — and meet CLAUDE.md, the file that makes an agent behave like it knows your project. Ends with Exercise 1. · Slides",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "2 · Prompting & Directing"
+    ]
+  },
+  {
+    "objectID": "prompting.html#prompting-is-specification-not-incantation",
+    "href": "prompting.html#prompting-is-specification-not-incantation",
+    "title": "2 · Prompting & Directing Agents",
+    "section": "Prompting is specification, not incantation",
+    "text": "Prompting is specification, not incantation\nThere are no magic words. A good prompt is just a clear specification of intent, context, and constraints. The mental shift: talk to the agent the way you’d brief a capable new research assistant who is fast, literal, and doesn’t know your project yet.\nFour ingredients turn a vague ask into a good one:\n\n\n\n\n\n\n\n\nIngredient\nWeak\nStrong\n\n\n\n\nGoal\n“clean the data”\n“drop rows with missing age, and recode sex to a factor with labels Male/Female”\n\n\nContext\n(none)\n“the raw file is data/raw/cohort.csv; the cleaning script is R/01_clean.R”\n\n\nConstraints\n(none)\n“use tidyverse, keep it readable, don’t change the column names downstream code expects”\n\n\nDone-condition\n(none)\n“it works when 01_clean.R runs without warnings and writes data/clean/cohort.rds”",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "2 · Prompting & Directing"
+    ]
+  },
+  {
+    "objectID": "prompting.html#six-habits-that-make-agents-work",
+    "href": "prompting.html#six-habits-that-make-agents-work",
+    "title": "2 · Prompting & Directing Agents",
+    "section": "Six habits that make agents work",
+    "text": "Six habits that make agents work\n\nState the goal and the done-condition. “How do you know it’s finished?” is the single most useful sentence to add.\nPoint at the context. Name the files, the function, the error. Agents are great at reading your repo — tell them where to look instead of describing from memory.\nPlan before acting on anything non-trivial. Ask for a plan first: “Before editing, tell me your approach and which files you’ll change.” Then approve or redirect. Cheap to steer early, expensive to unwind later.\nWork in small steps. One change, review, next. Matches Jacob’s “small testable steps over big rewrites” default and keeps diffs reviewable.\nMake it show its work. “Run the tests.” “Show me the diff.” “Print the first 5 rows.” You’re verifying, not trusting.\nCorrect with specifics. Not “that’s wrong” but “the join dropped 12 rows — use a left join keyed on id.” Precise feedback closes the loop fast.\n\n\n\n\n\n\n\nTipDemo (do this live)\n\n\n\nTake a deliberately vague prompt (“make a figure of the results”) and a specified one (“plot mean cost by treatment arm as a grouped bar chart with 95% CIs, colorblind-safe palette, save to figs/cost_by_arm.png at 300 dpi”) — run both and compare. The difference sells the whole module.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "2 · Prompting & Directing"
+    ]
+  },
+  {
+    "objectID": "prompting.html#scope-the-context-deliberately",
+    "href": "prompting.html#scope-the-context-deliberately",
+    "title": "2 · Prompting & Directing Agents",
+    "section": "Scope the context deliberately",
+    "text": "Scope the context deliberately\nThe agent can only reason about what’s in its context window. Two failure modes:\n\nToo little: it guesses about files it hasn’t seen and invents column names. → Point it at the files.\nToo much / stale: a long, wandering session accumulates dead ends and the agent loses the thread. → Start a fresh session for a new task. A clean context is often the fix for a confused agent.\n\nRule of thumb: one session, one coherent task. When you switch to something unrelated, start over.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "2 · Prompting & Directing"
+    ]
+  },
+  {
+    "objectID": "prompting.html#plan-then-act-concretely",
+    "href": "prompting.html#plan-then-act-concretely",
+    "title": "2 · Prompting & Directing Agents",
+    "section": "Plan-then-act, concretely",
+    "text": "Plan-then-act, concretely\nFor anything beyond a one-liner, split the work in two:\nBefore you change any files: read R/01_clean.R and data/raw/cohort.csv,\nthen tell me your plan for the cleaning step and exactly which files\nyou'll create or modify. Wait for my OK.\nReview the plan. Then:\nLooks good — go ahead. Make the changes on a new branch and show me\nthe diff before we commit.\nThis is the loop we’ll formalize with git in the next module.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "2 · Prompting & Directing"
+    ]
+  },
+  {
+    "objectID": "prompting.html#claude.md-standing-instructions-for-your-project",
+    "href": "prompting.html#claude.md-standing-instructions-for-your-project",
+    "title": "2 · Prompting & Directing Agents",
+    "section": "CLAUDE.md: standing instructions for your project",
+    "text": "CLAUDE.md: standing instructions for your project\nRepeating “use tidyverse, keep it readable, the data lives in data/” every session is a waste. Put durable facts and preferences in a CLAUDE.md file at the root of your project. Claude Code reads it automatically at the start of every session — it’s persistent context.\nA good research CLAUDE.md covers:\n# Project: &lt;name&gt;\n\n## What this repo does\nOne paragraph: the research question and what the code produces.\n\n## Structure\n- `data/raw/`    — never edit; source data\n- `data/clean/`  — generated by scripts in R/\n- `R/`           — numbered pipeline: 01_clean.R, 02_model.R, 03_figs.R\n- `figs/`, `tables/` — outputs\n\n## How to run\n`source(\"R/00_run_all.R\")` reproduces everything from raw data.\n\n## Conventions\n- Language: R (tidyverse). Readable over clever.\n- Style: snake_case; one function per task; comment the *why*.\n- Figures: colorblind-safe palette; 300 dpi; labelled axes.\n\n## Guardrails\n- Never modify anything in data/raw/.\n- Don't install packages without asking.\n- Make changes on a branch; I review diffs before merging.\n\n\n\n\n\n\nNoteCLAUDE.md vs. a skill (preview)\n\n\n\nCLAUDE.md = standing context for this project, read every session. A skill (Module 4) = a reusable procedure for a recurring task, invoked when relevant. You’ll write one of each today.\n\n\nYou keep a global CLAUDE.md too (mine lives at ~/.claude/CLAUDE.md) with facts true across all your work — who you are, your stack, your figure preferences. Project files add the specifics.",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "2 · Prompting & Directing"
+    ]
+  },
+  {
+    "objectID": "prompting.html#reviewing-output-like-a-reviewer",
+    "href": "prompting.html#reviewing-output-like-a-reviewer",
+    "title": "2 · Prompting & Directing Agents",
+    "section": "Reviewing output like a reviewer",
+    "text": "Reviewing output like a reviewer\nTreat the agent’s output like a manuscript you’re reviewing:\n\nDoes it answer the question I asked? (Not a nearby one.)\nIs the diff minimal and legible? Big surprise diffs are a red flag.\nDid it verify? Tests run? Output sane? Row counts right?\nWould I be comfortable explaining this in a methods section? If not, ask why it did it that way.\n\n\n\n\n\n\n\nWarningHallucinated specifics\n\n\n\nAgents can invent a function argument, a package, a parameter value, or a citation that looks right. Any factual claim — a coefficient, a dose, a reference — gets verified against the source, not accepted because it’s fluent.\n\n\n\nWhat to remember\n\nA prompt = goal + context + constraints + done-condition.\nPlan before acting, work in small steps, and make the agent show its work.\nOne session, one task — start fresh when you switch.\nPut durable project facts in CLAUDE.md so you stop repeating yourself.\nReview output like a critical reviewer; verify every factual specific.\n\n\nNext: run Exercise 1 · Your first agent session →, then 3 · Git & GitHub →",
+    "crumbs": [
+      "Exercises",
+      "Modules",
+      "2 · Prompting & Directing"
+    ]
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Setup Guide",
+    "section": "",
+    "text": "ImportantPlease complete this before class\n\n\n\nWe’re fully remote on Zoom, and setup problems are slow to debug for 30 people at once. Work through every step below and run the verification checklist at the bottom. If something fails, note the error and bring it — we’ll have a few minutes at the start for stragglers.\nYou need four things: git, a GitHub account (with the gh CLI), Claude Code, and a working terminal. Here’s each, by operating system."
+  },
+  {
+    "objectID": "setup.html#a-terminal",
+    "href": "setup.html#a-terminal",
+    "title": "Setup Guide",
+    "section": "1. A terminal",
+    "text": "1. A terminal\n\nmacOS: open Terminal (Applications → Utilities → Terminal), or install iTerm2.\nWindows: install Git for Windows — it comes with Git Bash, which we’ll use as the terminal. (Alternatively, use Windows Terminal + WSL if you already have it.)\nLinux: your existing terminal is fine."
+  },
+  {
+    "objectID": "setup.html#git",
+    "href": "setup.html#git",
+    "title": "Setup Guide",
+    "section": "2. Git",
+    "text": "2. Git\n\nmacOSWindowsLinux\n\n\nGit ships with the Xcode command-line tools. Trigger the install:\nxcode-select --install\nOr via Homebrew:\nbrew install git\n\n\nInstalling Git for Windows (above) also installs git. Use Git Bash as your terminal.\n\n\nsudo apt-get update && sudo apt-get install -y git   # Debian/Ubuntu\n\n\n\nThen tell git who you are (use the email tied to your GitHub account):\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"you@example.com\"\ngit config --global init.defaultBranch main"
+  },
+  {
+    "objectID": "setup.html#github-account-the-gh-cli",
+    "href": "setup.html#github-account-the-gh-cli",
+    "title": "Setup Guide",
+    "section": "3. GitHub account + the gh CLI",
+    "text": "3. GitHub account + the gh CLI\n\nCreate a free account at github.com if you don’t have one.\nInstall the GitHub CLI (gh) — it’s the easiest way to authenticate and open pull requests:\n\n\nmacOSWindowsLinux\n\n\nbrew install gh\n\n\nwinget install --id GitHub.cli\n\n\nSee cli.github.com for your package manager.\n\n\n\n\nLog in — this also sets up git’s credentials for pushing:\n\ngh auth login\nChoose GitHub.com → HTTPS → Authenticate with a web browser, and follow the prompt."
+  },
+  {
+    "objectID": "setup.html#claude-code",
+    "href": "setup.html#claude-code",
+    "title": "Setup Guide",
+    "section": "4. Claude Code",
+    "text": "4. Claude Code\nClaude Code is the agent we’ll use. Install it and sign in:\nnpm install -g @anthropic-ai/claude-code\n\n\n\n\n\n\nNoteNo Node/npm?\n\n\n\nClaude Code needs Node.js (LTS). Install it first: brew install node (macOS), winget install OpenJS.NodeJS.LTS (Windows), or download from nodejs.org. Then re-run the install command.\n\n\nStart it once from any folder to sign in:\nclaude\nFollow the browser prompt to authenticate with your Anthropic account. You’ll need an account with access to Claude Code — see claude.com/claude-code for current options."
+  },
+  {
+    "objectID": "setup.html#verify-your-setup",
+    "href": "setup.html#verify-your-setup",
+    "title": "Setup Guide",
+    "section": "Verify your setup",
+    "text": "Verify your setup\nRun each command. You should get a version number or sensible output — not “command not found.”\ngit --version\ngh --version\ngh auth status\nnode --version\nclaude --version\nThen confirm you can create and push a repo (this is the exact loop we’ll use in class):\n# make a throwaway repo, commit, and push it to your GitHub\nmkdir agentic-warmup && cd agentic-warmup\ngit init\necho \"# Warmup\" &gt; README.md\ngit add README.md\ngit commit -m \"First commit\"\ngh repo create agentic-warmup --public --source=. --push\nIf that last command opened your new repo’s URL (or printed it), you’re fully set up. 🎉 You can delete the repo afterward with gh repo delete agentic-warmup --yes.\n\nSetup complete when: git, gh, node, and claude all report versions; gh auth status shows you’re logged in; and you successfully created + pushed a test repo."
+  },
+  {
+    "objectID": "setup.html#trouble",
+    "href": "setup.html#trouble",
+    "title": "Setup Guide",
+    "section": "Trouble?",
+    "text": "Trouble?\n\n\n\nSymptom\nFix\n\n\n\n\ncommand not found: git/gh/claude\nThe tool didn’t install or isn’t on your PATH. Reinstall; on Windows use Git Bash.\n\n\ngh auth login won’t open a browser\nChoose “paste an authentication token” and follow these steps.\n\n\nclaude says not authenticated\nRun claude (no args) and complete the browser sign-in.\n\n\nCorporate laptop blocks installs\nBring it up in the setup window at the start of class, or use a personal machine if possible."
+  },
+  {
+    "objectID": "slides/foundations.html#the-shift",
+    "href": "slides/foundations.html#the-shift",
+    "title": "Foundations of Agentic Coding",
+    "section": "The shift",
+    "text": "The shift\nFor decades: you type every line.\nAgentic coding: you describe what you want; the agent writes, runs, and fixes it; you review and decide what to keep.\n\nYour role: author → director.\n\n\nValue shifts from syntax recall to clear intent, critical review, and control."
+  },
+  {
+    "objectID": "slides/foundations.html#what-is-an-agent",
+    "href": "slides/foundations.html#what-is-an-agent",
+    "title": "Foundations of Agentic Coding",
+    "section": "What is an “agent”?",
+    "text": "What is an “agent”?\nThree things, no magic:\n\nAn LLM — turns descriptions into code\nTools — read/write files, run code, search\nA loop — act → observe → decide → repeat\n\n\nA chatbot answers. An agent acts, checks its work, and iterates — in your real project."
+  },
+  {
+    "objectID": "slides/foundations.html#the-agentic-loop",
+    "href": "slides/foundations.html#the-agentic-loop",
+    "title": "Foundations of Agentic Coding",
+    "section": "The agentic loop",
+    "text": "The agentic loop\n   you ─► LLM ─► pick a tool ─► run it ─► read result\n           ▲                                 │\n           └──────── decide next ◄───────────┘\n                  (repeat until done)\n\nThis loop is why an agent can debug a simulation or fix a broken join without you round-tripping every message."
+  },
+  {
+    "objectID": "slides/foundations.html#the-landscape-mid-2026",
+    "href": "slides/foundations.html#the-landscape-mid-2026",
+    "title": "Foundations of Agentic Coding",
+    "section": "The landscape (mid-2026)",
+    "text": "The landscape (mid-2026)\n\n\n\nCategory\nExamples\n\n\n\n\nTerminal / CLI agents\nClaude Code (this course)\n\n\nIDE-integrated\nVS Code / JetBrains, Cursor\n\n\nChat + code\nclaude.ai, ChatGPT\n\n\nCloud / async\nPR-based coding agents\n\n\n\n\nWe use Claude Code because it works in a real git repo — so we teach agents and version control together."
+  },
+  {
+    "objectID": "slides/foundations.html#vocabulary",
+    "href": "slides/foundations.html#vocabulary",
+    "title": "Foundations of Agentic Coding",
+    "section": "Vocabulary",
+    "text": "Vocabulary\n\nToken / context window — what the model reads; measures memory & cost\nPrompt — what you ask (and asking well)\nTool call — an action the agent takes\nCLAUDE.md — standing project instructions (Module 2)\nSkill — a reusable procedure (Module 4)\nHallucination — plausible-but-false output → why we review"
+  },
+  {
+    "objectID": "slides/foundations.html#where-it-helps-research",
+    "href": "slides/foundations.html#where-it-helps-research",
+    "title": "Foundations of Agentic Coding",
+    "section": "Where it helps research",
+    "text": "Where it helps research\n\nBoilerplate & data glue\nDebugging (it runs your code + reads errors)\nRefactoring scripts into pipelines\nSimulation scaffolding\nPublication-ready figures & tables\nMethods sections, READMEs, reviewer responses"
+  },
+  {
+    "objectID": "slides/foundations.html#handle-with-care",
+    "href": "slides/foundations.html#handle-with-care",
+    "title": "Foundations of Agentic Coding",
+    "section": "Handle with care",
+    "text": "Handle with care\n\nStatistical / causal judgment — the estimand is yours\nDomain correctness — invented parameters & citations\nIrreversible actions — deleting, force-pushing\nConfidential data — know your IRB / data-use rules"
+  },
+  {
+    "objectID": "slides/foundations.html#the-one-rule",
+    "href": "slides/foundations.html#the-one-rule",
+    "title": "Foundations of Agentic Coding",
+    "section": "The one rule",
+    "text": "The one rule\n\nNever merge what you haven’t reviewed.\n\n\nFast + confident + sometimes wrong → keep a review step. That’s why the next big module is git."
+  },
+  {
+    "objectID": "slides/foundations.html#recap",
+    "href": "slides/foundations.html#recap",
+    "title": "Foundations of Agentic Coding",
+    "section": "Recap",
+    "text": "Recap\n\nAgent = LLM + tools + a loop\nYou direct and review, you don’t type\nStrong on boilerplate/debugging/figures; weak on judgment you must own\nSafe only if you review before you keep\n\n\nNext: Prompting & Directing →"
+  },
+  {
+    "objectID": "slides/prompting.html#prompting-specification",
+    "href": "slides/prompting.html#prompting-specification",
+    "title": "Prompting & Directing Agents",
+    "section": "Prompting = specification",
+    "text": "Prompting = specification\nNo magic words. A good prompt is a clear spec of intent, context, constraints.\n\nBrief the agent like a fast, literal, capable RA who doesn’t know your project yet."
+  },
+  {
+    "objectID": "slides/prompting.html#four-ingredients",
+    "href": "slides/prompting.html#four-ingredients",
+    "title": "Prompting & Directing Agents",
+    "section": "Four ingredients",
+    "text": "Four ingredients\n\n\n\n\n\n\n\n\n\nWeak\nStrong\n\n\n\n\nGoal\n“clean the data”\n“drop rows missing age; recode sex to a labelled factor”\n\n\nContext\n—\n“raw: data/raw/cohort.csv; script: R/01_clean.R”\n\n\nConstraints\n—\n“tidyverse; keep column names downstream needs”\n\n\nDone\n—\n“runs w/o warnings; writes data/clean/cohort.rds”"
+  },
+  {
+    "objectID": "slides/prompting.html#six-habits",
+    "href": "slides/prompting.html#six-habits",
+    "title": "Prompting & Directing Agents",
+    "section": "Six habits",
+    "text": "Six habits\n\nState the goal and the done-condition\nPoint at the context (files, function, error)\nPlan before acting on anything non-trivial\nWork in small steps\nMake it show its work (diffs, tests, row counts)\nCorrect with specifics"
+  },
+  {
+    "objectID": "slides/prompting.html#scope-the-context",
+    "href": "slides/prompting.html#scope-the-context",
+    "title": "Prompting & Directing Agents",
+    "section": "Scope the context",
+    "text": "Scope the context\nThe agent reasons only over its context window.\n\nToo little → it guesses, invents column names → point it at files\nToo much / stale → long wandering session loses the thread → start fresh\n\n\nOne session, one task."
+  },
+  {
+    "objectID": "slides/prompting.html#plan-then-act",
+    "href": "slides/prompting.html#plan-then-act",
+    "title": "Prompting & Directing Agents",
+    "section": "Plan-then-act",
+    "text": "Plan-then-act\nBefore you change any files: read R/01_clean.R and\ndata/raw/cohort.csv, then tell me your plan and which\nfiles you'll modify. Wait for my OK.\n\nLooks good — go ahead. Make the changes on a new\nbranch and show me the diff before we commit."
+  },
+  {
+    "objectID": "slides/prompting.html#claude.md",
+    "href": "slides/prompting.html#claude.md",
+    "title": "Prompting & Directing Agents",
+    "section": "CLAUDE.md",
+    "text": "CLAUDE.md\nStop repeating “use tidyverse, data’s in data/…”\nA file at your project root that Claude Code reads every session:\n\nWhat the repo does\nStructure\nHow to run it\nConventions\nGuardrails\n\n\nGlobal facts → ~/.claude/CLAUDE.md. Project specifics → project CLAUDE.md."
+  },
+  {
+    "objectID": "slides/prompting.html#review-like-a-reviewer",
+    "href": "slides/prompting.html#review-like-a-reviewer",
+    "title": "Prompting & Directing Agents",
+    "section": "Review like a reviewer",
+    "text": "Review like a reviewer\n\nDoes it answer my question, not a nearby one?\nIs the diff minimal and legible?\nDid it verify (tests, row counts, output)?\nCould I explain this in a methods section?\n\n\nVerify every factual specific — coefficients, doses, citations."
+  },
+  {
+    "objectID": "slides/prompting.html#recap",
+    "href": "slides/prompting.html#recap",
+    "title": "Prompting & Directing Agents",
+    "section": "Recap",
+    "text": "Recap\n\nPrompt = goal + context + constraints + done-condition\nPlan → small steps → show its work\nOne session, one task\nDurable facts → CLAUDE.md\nReview critically; verify specifics\n\n\nNow: Exercise 1 — your first agent session →"
+  }
+]
