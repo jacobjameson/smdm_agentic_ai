@@ -77,7 +77,7 @@ Nine times out of ten the fix is one of: **(1)** start a fresh session (clean co
 | **Agent** | An LLM that can use tools (read/write files, run code, search) in a loop to complete tasks. |
 | **Agentic loop** | Act → observe result → decide next action → repeat, until done or it needs you. |
 | **Branch** | A parallel line of work in git; a sandbox that doesn't touch `main`. |
-| **`CLAUDE.md`** | A project (or global) file of standing instructions an agent reads each session. |
+| **`CLAUDE.md` / `AGENTS.md`** | A project (or global) file of standing instructions an agent reads each session. `AGENTS.md` is the cross-tool convention (Codex, Gemini CLI, Cursor, …); `CLAUDE.md` is Claude Code's name for it. |
 | **Commit** | A saved snapshot of your files in git, with a message. |
 | **Context window** | How much text (files, instructions, conversation) the model can "see" at once. |
 | **Diff** | The line-by-line difference between two versions — your review surface. |
@@ -95,11 +95,23 @@ Nine times out of ten the fix is one of: **(1)** start a fresh session (clean co
 
 ## Go deeper
 
-- [Claude Code documentation](https://docs.claude.com/en/docs/claude-code) — official guide, features, settings.
-- [Quarto](https://quarto.org) — the tool this site is built with (great for reproducible reports).
+**Agentic tools (the mechanisms transfer; pick any):**
+
+- [Claude Code documentation](https://docs.claude.com/en/docs/claude-code) — the tool we used today.
+- [OpenAI Codex CLI](https://developers.openai.com/codex/cli) — OpenAI's terminal agent; same mechanisms, different vendor.
+- [Gemini CLI](https://github.com/google-gemini/gemini-cli) — Google's open-source terminal agent.
+- [AGENTS.md](https://agents.md) — the cross-tool convention for standing agent instructions.
+
+**Agentic workflows for research:**
+
+- [Paul Goldsmith-Pinkham's NBER SI 2026 materials](https://github.com/paulgp/nber_hf_2026) — the "mechanisms, not tools" framing and the verification-infrastructure workflow this course draws on, from economics; his Substack video series goes deeper on each piece.
+
+**Git & reproducibility:**
+
 - [Pro Git book](https://git-scm.com/book) — free, thorough, well-written git reference.
 - [GitHub Skills](https://skills.github.com/) — short interactive git/GitHub tutorials.
 - [Happy Git with R](https://happygitwithr.com/) — git for R users, by Jenny Bryan (excellent for this audience).
+- [Quarto](https://quarto.org) — the tool this site is built with (great for reproducible reports).
 
 ::: {.callout-note}
 ## After today

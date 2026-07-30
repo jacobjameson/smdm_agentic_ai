@@ -1,6 +1,6 @@
 ---
 title: "Foundations of Agentic Coding"
-subtitle: "Module 1 · SMDM Short Course"
+subtitle: "Module 1 · Four mechanisms that outlive any tool"
 author: "Jacob Jameson, MS"
 format:
   revealjs:
@@ -27,7 +27,30 @@ Your role: **author → director.**
 Value shifts from *syntax recall* to *clear intent, critical review, and control.*
 :::
 
-## What is an "agent"? {.smaller}
+## Mechanisms, not tools {.smaller}
+
+We teach with **Claude Code** — but it's just the current instance.
+
+**Codex, Gemini CLI, Cursor, next year's tool:** same machinery underneath.
+
+. . .
+
+Tools and config syntax **age fast**. Mechanisms don't.
+
+. . .
+
+| # | Mechanism |
+|---|-----------|
+| **M1** | The agent loop |
+| **M2** | Context is the scarce resource |
+| **M3** | You are the principal |
+| **M4** | Verification asymmetry |
+
+::: aside
+Framing adapted from Paul Goldsmith-Pinkham, NBER SI 2026 (github.com/paulgp/nber_hf_2026)
+:::
+
+## M1 · The agent loop {.smaller}
 
 Three things, no magic:
 
@@ -37,58 +60,72 @@ Three things, no magic:
 
 . . .
 
-A chatbot *answers*. An agent *acts, checks its work, and iterates* — in your real project.
-
-## The agentic loop
-
 ```
    you ─► LLM ─► pick a tool ─► run it ─► read result
            ▲                                 │
            └──────── decide next ◄───────────┘
-                  (repeat until done)
 ```
 
 . . .
 
-This loop is why an agent can debug a simulation or fix a broken join *without* you round-tripping every message.
+A chatbot *answers*. An agent *acts, checks its work, and iterates* — in your real project.
 
-## The landscape (mid-2026) {.smaller}
+## M2 · Context is scarce {.smaller}
 
-| Category | Examples |
-|----------|----------|
-| **Terminal / CLI agents** | **Claude Code** (this course) |
-| IDE-integrated | VS Code / JetBrains, Cursor |
-| Chat + code | claude.ai, ChatGPT |
-| Cloud / async | PR-based coding agents |
+The model reasons only over its **context window** — what it currently *sees*.
+
+- **Too little** → it guesses, invents column names
+- **Too much / stale** → it loses the thread
 
 . . .
 
-We use Claude Code because it works in a **real git repo** — so we teach agents and version control together.
+The durable skill: **staging context** — the right files, the data dictionary, the error message, standing instructions written down once.
 
-## Vocabulary {.smaller}
+. . .
 
-- **Token / context window** — what the model reads; measures memory & cost
-- **Prompt** — what you ask (and asking *well*)
-- **Tool call** — an action the agent takes
-- **`CLAUDE.md`** — standing project instructions (Module 2)
-- **Skill** — a reusable procedure (Module 4)
-- **Hallucination** — plausible-but-false output → why we review
+This skill transfers to every tool. Config syntax doesn't.
 
-## Where it helps research
+## M3 · You are the principal {.smaller}
 
-- Boilerplate & data glue
-- Debugging (it runs your code + reads errors)
-- Refactoring scripts into pipelines
-- Simulation scaffolding
-- Publication-ready figures & tables
-- Methods sections, READMEs, reviewer responses
+Delegation economics — same as managing an RA:
 
-## Handle with care
+- **Specify** the task and the done-condition
+- **Decompose** into small, checkable steps
+- **Monitor** the diffs, not the vibes
+- **Verify** before you accept
 
-- **Statistical / causal judgment** — the estimand is *yours*
-- **Domain correctness** — invented parameters & citations
-- **Irreversible actions** — deleting, force-pushing
-- **Confidential data** — know your IRB / data-use rules
+. . .
+
+**Appreciating skills:** taste · specification · skepticism
+
+**Depreciating skill:** typing speed
+
+## M4 · Verification asymmetry {.center}
+
+::: {.r-fit-text}
+Agents excel exactly where
+checking their work is cheap.
+:::
+
+. . .
+
+Code runs or it doesn't. Tests pass or fail. Row counts match or they don't.
+
+That's why coding is *the* breakout agent application.
+
+## M4 predicts where agents help *you* {.smaller}
+
+| Cheap to verify ✓ | Expensive to verify ⚠ |
+|---|---|
+| Boilerplate & data glue | Causal / statistical judgment |
+| Debugging | Domain facts, parameters, citations |
+| Refactoring | Anything irreversible |
+| Figures & tables | Confidential data (IRB!) |
+| Simulation scaffolding | |
+
+. . .
+
+The estimand is **yours** — checking it requires exactly the expertise you hoped to save.
 
 ## The one rule {.center}
 
@@ -100,12 +137,26 @@ Never merge what you haven't reviewed.
 
 Fast + confident + sometimes wrong → keep a review step. That's why the next big module is **git**.
 
+## The catch: pain points move {.smaller}
+
+Execution got dramatically cheaper. Research didn't get easier — the pain **moved**:
+
+- **Verification debt** — production cost collapsed; verification cost didn't
+- **Judgment still king** — design, estimand, model structure; agents default to the well-trodden
+- **Ideas at a premium** — cheap execution raises the bar
+- **Data access doesn't budge** — no agent gets you a DUA
+
+. . .
+
+Winners **redeploy saved time** into verification, design, and ideas.
+
 ## Recap {.smaller}
 
-- Agent = **LLM + tools + a loop**
-- You **direct and review**, you don't type
-- Strong on boilerplate/debugging/figures; weak on judgment you must own
-- Safe only if you **review before you keep**
+- **M1:** agent = LLM + tools + a loop
+- **M2:** context is the scarce resource — stage it
+- **M3:** you're the principal — specify, decompose, monitor, verify
+- **M4:** agents excel where verification is cheap
+- Execution got cheap; **verification, judgment, ideas didn't** — spend the savings there
 
 . . .
 

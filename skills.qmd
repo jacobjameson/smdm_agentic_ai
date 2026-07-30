@@ -76,6 +76,11 @@ In Claude Code, skills live in a `skills/` (or `.claude/skills/`) folder — pro
 People use **workflow** loosely for *a repeatable multi-step process*. In practice you'll build workflows by combining: a `CLAUDE.md` (project context) + one or more skills (procedures) + the git branch→PR→merge loop (control). Today's build session is where you start assembling yours.
 :::
 
+::: {.callout-note}
+## Portability beyond Claude Code
+The `SKILL.md` format is Claude Code's, but the *asset* is tool-agnostic: a well-written procedure in plain Markdown. Codex and other tools have their own mechanisms for reusable instructions (custom prompts, `AGENTS.md` sections), and the same file usually ports with minutes of rearranging. The hard part — articulating *how you want the task done* — is the part you're writing today, and it survives every tool change.
+:::
+
 ## Good candidates from health-decision research
 
 Skills worth writing (steal these for Exercise 4):

@@ -99,6 +99,11 @@ One paragraph: the research question and what the code produces.
 `CLAUDE.md` = *standing context for this project*, read every session. A **skill** (Module 4) = *a reusable procedure for a recurring task*, invoked when relevant. You'll write one of each today.
 :::
 
+::: {.callout-note}
+## Not Claude-specific: `AGENTS.md`
+The idea is universal, only the filename differs. The cross-tool convention is **`AGENTS.md`** — read by OpenAI Codex, Gemini CLI, Cursor, and many others (and by Claude Code too). Everything on this page about *what to put in the file* applies verbatim; if you switch tools, your standing instructions come with you. Writing the file well is the M2 skill — engineering what the model sees — and that transfers everywhere.
+:::
+
 You keep a global `CLAUDE.md` too (mine lives at `~/.claude/CLAUDE.md`) with facts true across all your work — who you are, your stack, your figure preferences. Project files add the specifics.
 
 ## Reviewing output like a reviewer

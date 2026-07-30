@@ -97,12 +97,40 @@ PRs aren't just for teams.
 
 Even alone, the branch-and-PR loop gives you a **forced review step** and a **clean, documented history** — exactly the reproducibility you want when an agent writes the code.
 
+## Beyond the loop: verification infrastructure {.smaller}
+
+Four habits that make a repo *auditable*, not just versioned:
+
+1. **Verifiability goes in the prompt** — *before* the work: "every number from code; write attrition counts; log decisions"
+2. **`DECISIONS.md` + `LOG.md`** — the *why* and the *what*, committed as you go
+3. **Issues as the feedback loop** — file it → fresh agent session reads it, fixes, PR closes it
+4. **Every number flows from code** — no hand-typed results, ever
+
+::: aside
+From Paul Goldsmith-Pinkham's agentic research workflow (NBER SI 2026)
+:::
+
+## The payoff: provenance {.smaller}
+
+Reviewer: *"Where did this hazard ratio come from?"*
+
+. . .
+
+You, in five minutes:
+
+**number → table file → script → commit → logged rationale**
+
+. . .
+
+That's a methods supplement — and a reviewer response — that writes itself.
+
 ## Recap {.smaller}
 
 - commit = save · branch = sandbox · PR = gate · merge = "yes"
 - **branch → review the diff → merge what you approve**
 - Keep the agent off `main`; **read the diff** before every merge
 - Gate destructive commands in `CLAUDE.md`
+- Level up: verifiability in the prompt · `DECISIONS.md`/`LOG.md` · issues · every number from code
 
 . . .
 

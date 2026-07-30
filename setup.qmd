@@ -79,7 +79,9 @@ Choose **GitHub.com → HTTPS → Authenticate with a web browser**, and follow 
 
 ## 4. Claude Code
 
-Claude Code is the agent we'll use. Install it and sign in:
+Claude Code is the agent we'll use — but note it's *an* agentic tool, not *the* agentic tool. Everything we practice (prompting, context files, the git review loop, skills) works the same way in [OpenAI's Codex CLI](https://developers.openai.com/codex/cli), [Gemini CLI](https://github.com/google-gemini/gemini-cli), and similar tools; only command names and config files differ. We standardize on one tool so the hands-on parts run smoothly.
+
+Install it and sign in:
 
 ```bash
 npm install -g @anthropic-ai/claude-code

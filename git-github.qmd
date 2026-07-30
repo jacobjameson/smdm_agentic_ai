@@ -128,6 +128,37 @@ git switch main && git pull
 PRs aren't just for teams. Even working alone, the branch-and-PR loop gives you a **forced review step** and a clean, documented history — exactly the reproducibility and control you want when an agent is writing the code.
 :::
 
+## Beyond the loop: verification infrastructure
+
+The branch → PR → merge loop is the floor. Researchers who run whole projects this way add a few habits that turn a git repo into **verification infrastructure** — a system where every number can be traced and every decision is on the record. (These come from Paul Goldsmith-Pinkham's [agentic research workflow](https://github.com/paulgp/nber_hf_2026); they port beautifully to health decision science.)
+
+**1 · Ask for verifiability *in the prompt, before the work happens.***
+Don't inspect for auditability after the fact — make it part of the spec:
+
+```text
+Implement the cost model in R/02_model.R. Requirements: every number in
+the results table must be produced by code (no hand-typed values); write
+the sample-attrition counts at each exclusion step to tables/attrition.csv;
+and log any modeling decision you make in LOG.md with one line of rationale.
+```
+
+**2 · Keep `DECISIONS.md` and `LOG.md` in the repo.**
+Two plain-text files, committed like everything else:
+
+- `DECISIONS.md` — the *why* behind consequential choices ("used gamma frailty over lognormal because…"), written when the decision is made. Your future methods section and reviewer responses, pre-drafted.
+- `LOG.md` — a running lab notebook of what was done, by you *or* the agent. Cheap to write, priceless at revision time.
+
+**3 · Use GitHub issues as the feedback loop.**
+Instead of holding tasks in your head (or a wandering chat session), file them as issues — "validate the model against published Table 3", "cost totals look 10% high, investigate." Then point a *fresh* agent session at an issue: it reads the issue, orients in the repo, fixes, and the PR closes it. Issues give you a to-do list, a paper trail, and a clean way for coauthors (human or agent) to pick up work.
+
+**4 · Every number flows from code.**
+No copy-pasting results into the manuscript. Figures and tables are emitted as files by scripts; the document pulls them in. When a reviewer asks "where did this hazard ratio come from," the answer is a five-minute **provenance trace**: number → table file → script → commit → the logged rationale in `DECISIONS.md`.
+
+::: {.callout-tip}
+## Try it on the demo repo
+A good live test of all four at once: *"File an issue to restructure analysis.R into a pipeline. Then, in a fresh session, read the issue, do the work on a branch with every output written by code, log decisions in DECISIONS.md, and open a PR that closes the issue."*
+:::
+
 ::: {.recap}
 **What to remember**
 
@@ -135,6 +166,7 @@ PRs aren't just for teams. Even working alone, the branch-and-PR loop gives you 
 - The core loop: **agent works on a branch → you review the diff → you merge what you approve.**
 - Keep the agent *off* `main`. Read the diff before every merge.
 - Gate destructive commands (`reset --hard`, force push, `clean`) — put it in `CLAUDE.md`.
+- Level up: **ask for verifiability in the prompt**, keep `DECISIONS.md`/`LOG.md`, drive work through **issues**, and make **every number flow from code**.
 :::
 
 **Next:** [Exercise 2 · Git with an agent →](exercises/ex2-git-with-agent.qmd) and [Exercise 3 · Write a CLAUDE.md →](exercises/ex3-claude-md.qmd), then [4 · Skills & Workflows →](skills.qmd)
