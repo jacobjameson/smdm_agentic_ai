@@ -41,11 +41,7 @@ quarto render slides/foundations.qmd
 
 Pushing to `main` triggers `.github/workflows/publish.yml`, which renders the site in CI and publishes to the `gh-pages` branch — **no local Quarto install needed for deployment.**
 
-**One-time setup (do this once, in the browser):**
-1. Push this repo to `main`.
-2. Let the `publish` GitHub Action run once (it creates the `gh-pages` branch).
-3. In the repo: **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: `gh-pages` / `(root)`**.
-4. Site goes live at <https://jacobjameson.github.io/smdm_agentic_ai/>.
+The site is live at <https://jacobjameson.com/smdm_agentic_ai/> (the account's custom domain; `jacobjameson.github.io/smdm_agentic_ai` redirects there). Note: the `gh-pages` branch had to exist before the first CI publish — it was initialized once with an empty orphan commit.
 
 ## License
 

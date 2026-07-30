@@ -10,7 +10,7 @@ project:
 website:
   title: "Agentic Coding for Research"
   description: "SMDM short course: agentic coding, git/GitHub, and custom research workflows."
-  site-url: "https://jacobjameson.github.io/smdm_agentic_ai/"
+  site-url: "https://jacobjameson.com/smdm_agentic_ai/"
   repo-url: "https://github.com/jacobjameson/smdm_agentic_ai"
   repo-actions: [edit, issue]
   page-navigation: true
