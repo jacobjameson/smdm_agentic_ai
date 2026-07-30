@@ -1,0 +1,138 @@
+---
+title: "Setup Guide"
+subtitle: "Do this before the course — budget ~20 minutes"
+---
+
+::: {.callout-important}
+## Please complete this *before* class
+We're fully remote on Zoom, and setup problems are slow to debug for 30 people at once. Work through every step below and run the **[verification checklist](#verify-your-setup)** at the bottom. If something fails, note the error and bring it — we'll have a few minutes at the start for stragglers.
+:::
+
+You need four things: **git**, a **GitHub account** (with the `gh` CLI), **Claude Code**, and a working **terminal**. Here's each, by operating system.
+
+## 1. A terminal
+
+- **macOS:** open **Terminal** (Applications → Utilities → Terminal), or install [iTerm2](https://iterm2.com/).
+- **Windows:** install [**Git for Windows**](https://git-scm.com/download/win) — it comes with *Git Bash*, which we'll use as the terminal. (Alternatively, use [Windows Terminal](https://aka.ms/terminal) + WSL if you already have it.)
+- **Linux:** your existing terminal is fine.
+
+## 2. Git
+
+::: {.panel-tabset}
+### macOS
+Git ships with the Xcode command-line tools. Trigger the install:
+
+```bash
+xcode-select --install
+```
+
+Or via [Homebrew](https://brew.sh):
+
+```bash
+brew install git
+```
+
+### Windows
+Installing [Git for Windows](https://git-scm.com/download/win) (above) also installs git. Use **Git Bash** as your terminal.
+
+### Linux
+```bash
+sudo apt-get update && sudo apt-get install -y git   # Debian/Ubuntu
+```
+:::
+
+Then tell git who you are (use the email tied to your GitHub account):
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --global init.defaultBranch main
+```
+
+## 3. GitHub account + the `gh` CLI
+
+1. Create a free account at [github.com](https://github.com/join) if you don't have one.
+2. Install the **GitHub CLI** (`gh`) — it's the easiest way to authenticate and open pull requests:
+
+::: {.panel-tabset}
+### macOS
+```bash
+brew install gh
+```
+
+### Windows
+```bash
+winget install --id GitHub.cli
+```
+
+### Linux
+See [cli.github.com](https://cli.github.com/) for your package manager.
+:::
+
+3. Log in — this also sets up git's credentials for pushing:
+
+```bash
+gh auth login
+```
+
+Choose **GitHub.com → HTTPS → Authenticate with a web browser**, and follow the prompt.
+
+## 4. Claude Code
+
+Claude Code is the agent we'll use. Install it and sign in:
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+::: {.callout-note}
+## No Node/npm?
+Claude Code needs [Node.js](https://nodejs.org/) (LTS). Install it first: `brew install node` (macOS), `winget install OpenJS.NodeJS.LTS` (Windows), or download from [nodejs.org](https://nodejs.org/). Then re-run the install command.
+:::
+
+Start it once from any folder to sign in:
+
+```bash
+claude
+```
+
+Follow the browser prompt to authenticate with your Anthropic account. You'll need an account with access to Claude Code — see [claude.com/claude-code](https://claude.com/claude-code) for current options.
+
+## Verify your setup
+
+Run each command. You should get a version number or sensible output — **not** "command not found."
+
+```bash
+git --version
+gh --version
+gh auth status
+node --version
+claude --version
+```
+
+Then confirm you can create and push a repo (this is the exact loop we'll use in class):
+
+```bash
+# make a throwaway repo, commit, and push it to your GitHub
+mkdir agentic-warmup && cd agentic-warmup
+git init
+echo "# Warmup" > README.md
+git add README.md
+git commit -m "First commit"
+gh repo create agentic-warmup --public --source=. --push
+```
+
+If that last command opened your new repo's URL (or printed it), **you're fully set up.** 🎉 You can delete the repo afterward with `gh repo delete agentic-warmup --yes`.
+
+::: {.recap}
+Setup complete when: `git`, `gh`, `node`, and `claude` all report versions; `gh auth status` shows you're logged in; and you successfully created + pushed a test repo.
+:::
+
+## Trouble?
+
+| Symptom | Fix |
+|---------|-----|
+| `command not found: git/gh/claude` | The tool didn't install or isn't on your PATH. Reinstall; on Windows use **Git Bash**. |
+| `gh auth login` won't open a browser | Choose "paste an authentication token" and follow [these steps](https://cli.github.com/manual/gh_auth_login). |
+| `claude` says not authenticated | Run `claude` (no args) and complete the browser sign-in. |
+| Corporate laptop blocks installs | Bring it up in the setup window at the start of class, or use a personal machine if possible. |

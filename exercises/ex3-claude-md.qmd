@@ -1,0 +1,81 @@
+---
+title: "Exercise 3 · Write a CLAUDE.md"
+subtitle: "Give the agent standing context so you stop repeating yourself"
+---
+
+::: {.callout-note appearance="minimal"}
+**Time:** ~10 min · **Pairs with:** [Git & GitHub](../git-github.qmd) and [Prompting](../prompting.qmd) · **Goal:** a `CLAUDE.md` that makes the agent behave like it already knows your project.
+:::
+
+Now move onto a project that matters to you (or keep using `agentic-ex1`). You'll write the file Claude Code reads at the start of every session.
+
+## 1 · Start from the template (2 min)
+
+Open the [annotated `CLAUDE.md` template](../templates/CLAUDE.md) and copy it into your project root as `CLAUDE.md`. Or have the agent do the first draft:
+
+```text
+Read the files in this repo, then draft a CLAUDE.md that describes what
+this project does, its folder structure, how to run it, my coding
+conventions, and guardrails. Ask me anything you can't infer.
+```
+
+Letting the agent draft it from your actual repo is often the fastest start — then you correct it.
+
+## 2 · Make sure it covers the five things (5 min)
+
+A useful research `CLAUDE.md` answers:
+
+1. **What this repo does** — one paragraph: the question and what the code produces.
+2. **Structure** — what lives where (`data/raw`, `R/`, `figs/`, …).
+3. **How to run it** — the one command or script that reproduces everything.
+4. **Conventions** — language, style, figure preferences, naming.
+5. **Guardrails** — what the agent must *not* do without asking.
+
+::: {.callout-tip}
+## Guardrails are the highest-value lines
+The instructions that save you grief:
+
+```markdown
+## Guardrails
+- Never modify anything in data/raw/.
+- Never run destructive git commands (reset --hard, force push, clean) without asking.
+- Don't install packages without asking.
+- Make changes on a branch; show me the diff before committing.
+```
+:::
+
+## 3 · Test that it works (2 min)
+
+Commit the file, then **start a fresh session** and give a task that relies on the context:
+
+```text
+Where does cleaned data get written, and how do I reproduce the whole
+pipeline?
+```
+
+If the agent answers correctly *without you explaining*, your `CLAUDE.md` is doing its job. Commit it:
+
+```bash
+git add CLAUDE.md
+git commit -m "Add CLAUDE.md with project context and guardrails"
+```
+
+## 4 · (Bonus) your global CLAUDE.md
+
+Facts true across *all* your work — who you are, your stack, your figure preferences — belong in a global file at `~/.claude/CLAUDE.md`. Ask the agent:
+
+```text
+Help me draft a global ~/.claude/CLAUDE.md capturing that I'm a health
+policy researcher who works in R (tidyverse) and Python, cares about
+reproducibility and publication-ready figures, and prefers concise,
+direct responses.
+```
+
+## You're done when…
+
+- [ ] Your project has a `CLAUDE.md` covering the five things.
+- [ ] It includes explicit **guardrails**.
+- [ ] A **fresh** session correctly answered a project question using only that context.
+- [ ] The file is committed.
+
+**Next:** [Exercise 4 · Write your first skill →](ex4-first-skill.qmd)

@@ -1,0 +1,98 @@
+---
+title: "Exercise 4 · Write Your First Skill"
+subtitle: "Package a task you actually repeat — the course's core deliverable"
+---
+
+::: {.callout-note appearance="minimal"}
+**Time:** ~12 min · **Pairs with:** [Skills & Workflows](../skills.qmd) · **Goal:** a working, reusable skill that captures *how you like a recurring task done*. This is the thing you take home.
+:::
+
+## 1 · Pick a task you repeat (2 min)
+
+Choose one recurring task where you keep re-explaining your preferences. Steal one of these if nothing jumps out:
+
+- **Table 1 builder** — baseline characteristics to your house style.
+- **Figure formatter** — apply your (or a journal's) figure specs to a plot.
+- **Project scaffold** — set up a reproducible repo the way you always do.
+- **Reviewer-response drafter** — comments + notes → point-by-point response.
+- **Model diagnostics** — run your standard checks on a fitted model.
+
+## 2 · Draft it from the template (5 min)
+
+Open the [`SKILL.md` template](../templates/SKILL.md). Fill in the four parts:
+
+```markdown
+---
+name: <short-kebab-case-name>
+description: >
+  <ONE specific sentence: what it does and WHEN to use it. This is how
+  the agent decides to invoke it — be concrete.>
+---
+
+# <Skill title>
+
+## When to use
+<The situation that should trigger this skill.>
+
+## How to do it
+1. <step>
+2. <step>  (name the packages / functions you prefer)
+3. <where the output goes and what it looks like>
+
+## Conventions & guardrails
+- <your style choices>
+- Show me the result before saving. Never fabricate values.
+```
+
+::: {.callout-tip}
+## Let the agent help you write it
+You can bootstrap the skill by describing the task once and asking:
+```text
+Turn this into a skill file: I regularly build a Table 1 of baseline
+characteristics by treatment arm using gtsummary, median [IQR] for
+continuous and n (%) for categorical, saved as a gt table. Write it in
+the SKILL.md format with a specific description and guardrails.
+```
+Then refine the `description` and guardrails yourself.
+:::
+
+## 3 · Install it where Claude Code will find it (2 min)
+
+Save the file into your skills folder (project-level so it travels with the repo):
+
+```bash
+mkdir -p .claude/skills/table-one
+# save your file as .claude/skills/table-one/SKILL.md
+```
+
+(Adjust the name to your skill.) Commit it:
+
+```bash
+git add .claude/skills
+git commit -m "Add table-one skill"
+```
+
+## 4 · Test it on real input (3 min)
+
+Start a fresh session and trigger the skill with a natural request — **don't** name the skill explicitly; see if the `description` makes it fire:
+
+```text
+I have a cleaned data frame with age, sex, and treatment arm. Build me a
+baseline characteristics table.
+```
+
+Watch whether the agent applies *your* conventions from the skill. If it doesn't fire, your `description` probably isn't specific enough about *when* to use it — tighten it and retry.
+
+## You're done when…
+
+- [ ] You have a `SKILL.md` with a specific `description` and clear steps.
+- [ ] It includes at least one **guardrail** ("show me before saving" / "never fabricate").
+- [ ] It's saved in your skills folder and committed.
+- [ ] A natural-language request **triggered** the skill and produced output in your style.
+
+::: {.callout-note}
+## Share it
+A skill is just a file in git. `git push`, send a labmate the repo, and they `git pull` — now your lab shares an executable convention. This is how a workflow spreads.
+:::
+
+**Next:** [Exercise 5 · Your own workflow →](ex5-your-workflow.qmd)

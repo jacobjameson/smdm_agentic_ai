@@ -1,0 +1,106 @@
+---
+title: "Exercise 2 · Git with an Agent"
+subtitle: "Ship a change through branch → commit → pull request → merge"
+---
+
+::: {.callout-note appearance="minimal"}
+**Time:** ~15 min · **Pairs with:** [Git & GitHub](../git-github.qmd) · **Goal:** run the core control loop end-to-end, so you trust an agent with real code.
+:::
+
+We'll continue in the `agentic-ex1` folder from Exercise 1 (or make a fresh one). By the end you'll have a change reviewed and merged through a real pull request.
+
+## 1 · Make it a repo and put it on GitHub (3 min)
+
+```bash
+cd agentic-ex1          # or your Exercise 1 folder
+git init
+git add .
+git commit -m "Initial synthetic-data scripts"
+gh repo create agentic-ex1 --private --source=. --push
+```
+
+`gh repo create` makes the GitHub repo and pushes `main` in one step. (Use `--private` for a throwaway.)
+
+## 2 · Branch for the change (1 min)
+
+Never work on `main`. Ask the agent — or type it yourself:
+
+```bash
+git switch -c feature/add-summary-table
+```
+
+Or say to Claude Code: *"Create a branch called `feature/add-summary-table` and work there."*
+
+## 3 · Direct the change, in small commits (5 min)
+
+Give the agent a real task and have it commit as it goes:
+
+```text
+On this branch: add a script `table.R` that writes a summary table of
+mean and SD of cost by treatment arm to tables/summary.csv. Show me the
+diff, then commit it with a clear message.
+```
+
+Review what it shows you. Then:
+
+```text
+Also add a one-line note about this table to the README, and commit that
+separately.
+```
+
+Check your history:
+
+```bash
+git log --oneline
+```
+
+You should see two small, clearly-labelled commits.
+
+## 4 · Open a pull request (2 min)
+
+```bash
+git push -u origin feature/add-summary-table
+gh pr create --title "Add cost summary table" --fill
+```
+
+Or let the agent do it: *"Push this branch and open a pull request into main."*
+
+## 5 · Review the diff — the gate (2 min)
+
+This is the whole point. **Read the change before you accept it:**
+
+```bash
+gh pr diff
+```
+
+Ask yourself: is this *only* what I asked for? Any surprise edits? Right files?
+
+::: {.callout-tip}
+## Practice catching something
+Before merging, ask the agent to *"add a totals row to the summary table."* Re-run `gh pr diff` and find that new change in the diff. Seeing your review surface update is the muscle you're building.
+:::
+
+## 6 · Merge what you approve (1 min)
+
+```bash
+gh pr merge --squash --delete-branch
+git switch main && git pull
+```
+
+Your approved change is now on `main`; the branch is cleaned up; `main` never saw the messy middle.
+
+## You're done when…
+
+- [ ] Your repo is on GitHub with `main` pushed.
+- [ ] You made a change on a **branch**, in at least two small commits.
+- [ ] You opened a **pull request** and ran `gh pr diff` to review it.
+- [ ] You **merged** it and returned to a clean `main`.
+
+::: {.callout-warning}
+## If something breaks
+- `gh: not authenticated` → run `gh auth login` (see [Setup](../setup.qmd)).
+- Pushed to the wrong branch? You're on a throwaway repo — safe to experiment. Try `git switch main` and start the branch again.
+- **Don't** run `git push --force` or `git reset --hard` to "fix" things right now — ask a facilitator first.
+:::
+
+**Next:** [Exercise 3 · Write a CLAUDE.md →](ex3-claude-md.qmd)

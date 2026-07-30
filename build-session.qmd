@@ -1,0 +1,105 @@
+---
+title: "5 · Build Session"
+subtitle: "Prototype an agentic workflow for your own research"
+---
+
+::: {.callout-note appearance="minimal"}
+**Module goal:** Put it all together on *your* work. Leave with a repo, a `CLAUDE.md`, at least one skill, and a change you shipped through the branch→PR→merge loop. This module *is* [Exercise 5](exercises/ex5-your-workflow.qmd) — facilitators circulate to help.
+:::
+
+## The idea
+
+The rest of the course is hands-on. You'll take **one real task from your research** and start building an agentic workflow around it — combining everything from the morning:
+
+- **Foundations** → you know what the agent is doing.
+- **Prompting** → you specify tasks well and review critically.
+- **Git & GitHub** → you keep the agent on a branch and merge only what you approve.
+- **Skills** → you package the repeatable part so it pays off again next week.
+
+You won't *finish* a whole project in 35 minutes — that's not the goal. The goal is a **working prototype and momentum**: a repo set up correctly, one skill written, one change shipped, and a clear next step.
+
+## Pick a task (2 min)
+
+Choose something small enough to make real progress on but real enough to matter. Good candidates:
+
+- A **data-cleaning step** for a dataset you're working with now.
+- A **figure** you keep remaking — turn it into a formatter skill.
+- A **simulation or model** scaffold (Markov / microsimulation structure) you can flesh out later.
+- A **manuscript task**: methods section, reviewer response, README for a repo.
+- A **project scaffold**: set up a new analysis repo the way you always wish you had.
+
+::: {.callout-tip}
+## If you're stuck choosing
+Pick the task you most *dread repeating*. That's the one where a workflow pays off fastest — and dread is a great filter for "worth automating."
+:::
+
+## Suggested path (≈30 min)
+
+Work through as many as you can; each stands alone.
+
+### 1 · Set up the repo (5 min)
+```bash
+mkdir my-workflow && cd my-workflow
+git init
+claude
+```
+Then ask the agent to scaffold a reproducible structure:
+> "Set up a reproducible R (or Python) project: `data/raw`, `data/clean`, `R/` (or `src/`), `figs/`, a `.gitignore`, and a README. Make the first commit."
+
+### 2 · Write a `CLAUDE.md` (5 min)
+Use the [template](templates/CLAUDE.md) and [Exercise 3](exercises/ex3-claude-md.qmd). Capture what the project does, its structure, how to run it, your conventions, and your guardrails. Commit it.
+
+### 3 · Ship one change through a PR (10 min)
+Direct the agent to do your actual task **on a branch**, review the diff, and merge it — the loop from [Module 3](git-github.qmd):
+```bash
+git switch -c feature/first-task
+# ... direct the agent; review; commit ...
+git push -u origin feature/first-task   # (after gh repo create if needed)
+gh pr create --fill
+gh pr diff        # review!
+gh pr merge --squash --delete-branch
+```
+
+### 4 · Write a skill (10 min)
+Find the part of your task you'll repeat and package it as a skill ([Exercise 4](exercises/ex4-first-skill.qmd), [template](templates/SKILL.md)). Commit it into the repo so it travels with the project.
+
+## Checkpoints — where you should be
+
+| Time | You should have… |
+|------|------------------|
+| +5 min | A git repo with a scaffolded structure and a first commit |
+| +10 min | A `CLAUDE.md` describing the project and your guardrails |
+| +20 min | One change shipped through a branch → PR → merge |
+| +30 min | One skill written and committed |
+
+## "Done" for today
+
+You're done when you can answer **yes** to all of these:
+
+- [ ] I have a repo (local, ideally pushed to GitHub) for a real task.
+- [ ] It has a `CLAUDE.md` an agent reads at the start of each session.
+- [ ] I directed an agent through **at least one** branch → PR → review → merge.
+- [ ] I wrote **at least one** skill that captures something I'll do again.
+- [ ] I know my **next step** to keep developing this after today.
+
+::: {.callout-note}
+## Getting help
+Drop questions in the Zoom chat and facilitators will jump into breakout rooms. Stuck on git? Show your `git status` and `gh pr diff`. Stuck on the agent? Share the prompt you used — usually the fix is a more specific prompt.
+:::
+
+## Where to go next
+
+- Grow your `CLAUDE.md` and skills as you notice yourself re-explaining things.
+- Share a skill with a labmate (`git push`) — build a shared team library.
+- Bring the branch→PR→merge loop to your existing repos, not just new ones.
+- Revisit the [Resources](resources.qmd) page for cheat sheets and deeper reading.
+
+::: {.recap}
+**What to remember**
+
+- A workflow = **project scaffold + `CLAUDE.md` + skills + the git review loop**, assembled around a real task.
+- Aim for a **working prototype and momentum**, not a finished project.
+- Automate the task you most **dread repeating** — that's where it pays off first.
+:::
+
+**Wrap-up:** share what you built, and see [Resources](resources.qmd) to keep going.

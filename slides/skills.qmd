@@ -1,0 +1,110 @@
+---
+title: "Skills & Custom Workflows"
+subtitle: "Module 4 · SMDM Short Course"
+author: "Jacob Jameson, MS"
+format:
+  revealjs:
+    theme: [default, ../assets/theme.scss]
+    slide-number: true
+    incremental: true
+    code-copy: true
+    highlight-style: github
+    width: 1200
+    footer: "Agentic Coding for Research · Module 4"
+---
+
+## Researchers repeat themselves {.smaller}
+
+Same tasks, over and over:
+
+- Clean each new wave of a dataset the same way
+- Build the same style of Table 1
+- Format figures to a journal's specs
+- Run the same model diagnostics
+
+. . .
+
+Retyping the instructions each time is waste. A **skill** fixes it.
+
+## `CLAUDE.md` vs. skill {.smaller}
+
+| | `CLAUDE.md` | **Skill** |
+|--|-------------|-----------|
+| Answers | "know about *this project*" | "how to do *this task*" |
+| Read | every session | when the task comes up |
+| Scope | one project | reusable anywhere |
+
+. . .
+
+A skill = **a named, packaged procedure for a recurring task.**
+
+## Anatomy {.smaller}
+
+```markdown
+---
+name: table-one
+description: >
+  Build a publication-ready Table 1 (baseline
+  characteristics by group) from a data frame. Use
+  when the user asks for a descriptive/baseline table.
+---
+# Table One
+## When to use
+## How to do it   (name your packages, formatting, output)
+## Conventions & guardrails
+```
+
+## The `description` is everything {.smaller}
+
+The agent decides **whether to fire a skill** by reading its `description`.
+
+- **Vague** ("helps with tables") → ignored or misfired
+- **Specific** ("build a baseline Table 1 from a data frame") → fires at the right moment
+
+## A good research skill {.smaller}
+
+1. **One clear job**
+2. **Encodes your standards** (palette, table style, conventions)
+3. **Has a done-condition**
+4. **Includes guardrails** ("read from data, never fabricate")
+5. **Is reviewable** — a plain file in git
+
+## Skills live in git {.smaller}
+
+`.claude/skills/` — project-level (in the repo) or personal (everywhere).
+
+. . .
+
+Share a skill = `git push`. Adopt one = `git pull`.
+
+**Your lab's conventions become executable.**
+
+## Candidates to steal {.smaller}
+
+- Table 1 builder
+- Journal-figure formatter
+- Reproducible-pipeline scaffold
+- Reviewer-response drafter
+- Model diagnostics
+- Simulation calibration report
+
+## But: judgment stays with you {.smaller}
+
+::: {.callout-warning}
+A skill makes a *procedure* repeatable — not a *decision* correct.
+
+A "run my causal analysis" skill will faithfully run the **wrong estimand**.
+:::
+
+Bake in "show me before you commit."
+
+## Recap {.smaller}
+
+- Skill = reusable procedure; the **`description`** decides when it fires
+- One job · your standards · done-condition · guardrails
+- Plain files in git → versioned, diffable, shareable
+- Workflow = **`CLAUDE.md` + skills + the git loop**
+
+. . .
+
+**Now:** Exercise 4 — write your first skill →

@@ -1,0 +1,73 @@
+---
+title: "Facilitator Notes"
+subtitle: "Run-of-show, the opening demo, timing, and fallbacks"
+---
+
+::: {.callout-important}
+Internal notes for teaching the course — not part of the participant path. (You may want to remove this from the navbar before sharing the site publicly, or leave it; it's harmless.)
+:::
+
+## The opening "watch this" demo (8:35–8:50)
+
+The goal is *shock value before theory* — let people feel an agent working before you define anything. Inspired by dictate-and-go live demos.
+
+**Script:**
+
+1. Screen-share a terminal in a real (but disposable) project folder. Have a `git init`'d repo ready.
+2. Say out loud, dictating as you type into Claude Code, something ambitious but bounded — e.g.:
+   > "Build me a small Shiny (or Streamlit) app that loads this CSV, lets me filter by treatment arm, and shows a cost distribution plot. Set it up as a proper project, work on a branch, and show me your plan first."
+3. Approve the plan, let it start, then **leave it running** and pivot to Module 1. Glance back occasionally: "notice it's still going while we talk."
+4. Around the end of Module 1 or start of Module 2, return to it and **review together** — model the *reviewing* behavior, don't just admire it. Point out one thing you'd push back on.
+
+**Prep checklist:**
+
+- [ ] Disposable repo created and `git init`'d.
+- [ ] A sample CSV in the folder.
+- [ ] Claude Code signed in; a fresh session.
+- [ ] Terminal font size large enough for Zoom (18pt+).
+- [ ] A fallback recording of the demo in case live fails (see below).
+
+## Timing plan (8:35–12:00, 205 min)
+
+| Start | Min | Block | Notes |
+|-------|-----|-------|-------|
+| 8:35 | 15 | Welcome + live demo | Start the background task; set expectations; confirm everyone is set up |
+| 8:50 | 30 | Module 1 · Foundations | Slides; keep it conceptual; return to the demo mid-way |
+| 9:20 | 35 | Module 2 · Prompting + **Ex 1** | ~15 lecture, ~15 exercise, 5 buffer |
+| 9:55 | 10 | **Break** | Post the Ex 2 link in chat before the break |
+| 10:05 | 45 | Module 3 · Git + **Ex 2 & 3** | Biggest block; protect the exercise time |
+| 10:50 | 30 | Module 4 · Skills + **Ex 4** | ~12 lecture, ~15 exercise |
+| 11:20 | 35 | Module 5 · Build + **Ex 5** | Breakout rooms; facilitators circulate |
+| 11:55 | 5 | Wrap-up | Share-out in chat; point to Resources |
+
+**If you're running behind:** compress Module 1 (it's the most lecture-heavy) and protect Exercises 2 and 5 — the git loop and the personal build are the deliverables.
+
+## Zoom logistics
+
+- Ask everyone to complete [Setup](setup.qmd) beforehand; open a 5-min setup-triage window at the start.
+- Use **breakout rooms** for Exercises 2, 4, and 5 so facilitators can help small groups.
+- Post the current exercise link in chat at the start of each hands-on block.
+- Encourage cameras optional, chat active. Ask people to paste `git status` / `gh pr diff` / the prompt they used when stuck — it's faster to diagnose than a verbal description.
+- Have a co-facilitator watching chat if possible.
+
+## Common participant sticking points
+
+| Symptom | Quick fix |
+|---------|-----------|
+| `gh` not authenticated | `gh auth login` → HTTPS → browser |
+| Agent edited `main` directly | Not fatal on a throwaway; teach `git switch -c` and re-do on a branch |
+| Agent "did too much" | Model starting a fresh session + a smaller, specific prompt |
+| Can't push (permission) | Check `gh auth status`; repo owner mismatch |
+| Windows path/terminal issues | Confirm they're using **Git Bash**, not PowerShell/CMD |
+| Overwhelmed by git | Reassure: for today, four commands — `switch -c`, `add`, `commit`, and `gh pr create/merge` |
+
+## Fallbacks
+
+- **Live demo fails:** cut to a pre-recorded screen capture of the same flow.
+- **A participant can't install anything (locked laptop):** pair them into a breakout with someone who's set up; they still learn the concepts and can build later.
+- **`gh`/GitHub down or blocked:** the local git loop (branch → commit → review the diff with `git diff`) still teaches the core idea without a PR. Note it and move on.
+- **Time collapses:** the minimum viable outcome is Exercise 2 (the git loop) + Exercise 4 (one skill). Everything else is bonus.
+
+## Deliverables to reinforce
+
+By the end, each participant should have: a repo, a `CLAUDE.md`, one skill, and one merged PR. Remind them in the wrap-up that these four things *are* the prototype workflow — and that the way to keep learning is to use the loop on a real project this week.

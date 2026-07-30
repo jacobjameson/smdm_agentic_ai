@@ -1,0 +1,107 @@
+---
+title: "Resources & Cheat Sheets"
+subtitle: "Everything to copy-paste, plus where to go deeper"
+---
+
+Keep this page open during the course and after. Every code block has a copy button (hover the top-right corner).
+
+## Git cheat sheet
+
+```bash
+# --- daily loop ---
+git status                       # what's changed?
+git switch -c feature/thing      # new branch + move to it
+git add .                        # stage everything
+git commit -m "Describe change"  # save a snapshot
+git switch main                  # back to main
+git pull                         # get latest from GitHub
+git log --oneline                # history
+
+# --- undo (safe) ---
+git restore <file>               # discard un-staged changes to a file
+git restore --staged <file>      # unstage (keep the edit)
+git switch -                     # jump back to previous branch
+
+# --- undo (careful — ask first) ---
+git reset --hard <commit>        # DESTRUCTIVE: discards work
+git push --force                 # DESTRUCTIVE on shared branches
+git clean -fd                    # DESTRUCTIVE: deletes untracked files
+```
+
+## GitHub (`gh`) cheat sheet
+
+```bash
+gh auth login                    # sign in (once)
+gh auth status                   # am I logged in?
+gh repo create NAME --private --source=. --push   # repo from current folder
+git push -u origin BRANCH        # push a branch
+gh pr create --fill              # open a PR (auto title/body from commits)
+gh pr create --title "T" --body "B"
+gh pr diff                       # REVIEW the change — do this before merging
+gh pr merge --squash --delete-branch   # merge and tidy up
+gh repo delete NAME --yes        # delete a throwaway repo
+```
+
+## Claude Code cheat sheet
+
+```bash
+claude                           # start a session in the current folder
+claude --version                 # check it's installed
+```
+
+Inside a session, useful things to say:
+
+| Say this | To… |
+|----------|-----|
+| "Before editing, tell me your plan and which files you'll change." | Get plan-then-act |
+| "Show me the diff." / "Run the tests." | Force it to show its work |
+| "Make a branch called `x` and work there." | Keep it off `main` |
+| "Commit this with a clear message." | Delegate the git mechanics |
+| "Push and open a PR into main." | Delegate the PR |
+| "Start over" / open a new session | Clear a confused/overlong context |
+
+::: {.callout-tip}
+## When an agent gets confused
+Nine times out of ten the fix is one of: **(1)** start a fresh session (clean context), **(2)** give a more specific prompt with file paths, or **(3)** break the task into smaller steps.
+:::
+
+## Templates to copy
+
+- [**`CLAUDE.md` template**](templates/CLAUDE.md) — annotated project-context file.
+- [**`SKILL.md` template**](templates/SKILL.md) — fill-in-the-blank skill.
+
+## Glossary {#glossary}
+
+| Term | Meaning |
+|------|---------|
+| **Agent** | An LLM that can use tools (read/write files, run code, search) in a loop to complete tasks. |
+| **Agentic loop** | Act → observe result → decide next action → repeat, until done or it needs you. |
+| **Branch** | A parallel line of work in git; a sandbox that doesn't touch `main`. |
+| **`CLAUDE.md`** | A project (or global) file of standing instructions an agent reads each session. |
+| **Commit** | A saved snapshot of your files in git, with a message. |
+| **Context window** | How much text (files, instructions, conversation) the model can "see" at once. |
+| **Diff** | The line-by-line difference between two versions — your review surface. |
+| **`gh`** | The GitHub command-line tool, used for auth and pull requests. |
+| **Hallucination** | A plausible-but-false statement from a model; the reason we verify. |
+| **LLM** | Large language model — the model underneath the agent. |
+| **MCP** | Model Context Protocol — a standard for giving agents extra tools/data sources. |
+| **Merge** | Combining an approved branch into `main`; your explicit "keep this." |
+| **Prompt** | What you ask the agent (and the skill of asking well). |
+| **Pull request (PR)** | A proposal on GitHub to merge a branch, with a reviewable diff. |
+| **Repository (repo)** | A folder tracked by git. |
+| **Skill** | A reusable, packaged procedure for a recurring task. |
+| **Token** | The unit LLMs read/write text in (~¾ of a word); measures context and cost. |
+| **Workflow** | A repeatable multi-step process, assembled from `CLAUDE.md` + skills + the git loop. |
+
+## Go deeper
+
+- [Claude Code documentation](https://docs.claude.com/en/docs/claude-code) — official guide, features, settings.
+- [Quarto](https://quarto.org) — the tool this site is built with (great for reproducible reports).
+- [Pro Git book](https://git-scm.com/book) — free, thorough, well-written git reference.
+- [GitHub Skills](https://skills.github.com/) — short interactive git/GitHub tutorials.
+- [Happy Git with R](https://happygitwithr.com/) — git for R users, by Jenny Bryan (excellent for this audience).
+
+::: {.callout-note}
+## After today
+The best next step is *usage*: pick one real repo, add a `CLAUDE.md`, and start running the branch → PR → merge loop with an agent. Grow your skills folder each time you catch yourself re-explaining something.
+:::

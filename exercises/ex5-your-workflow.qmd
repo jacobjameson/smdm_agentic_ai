@@ -1,0 +1,54 @@
+---
+title: "Exercise 5 · Your Own Workflow"
+subtitle: "Assemble everything into a prototype for a real research task"
+---
+
+::: {.callout-note appearance="minimal"}
+**Time:** ~30 min · **Pairs with:** [Build Session](../build-session.qmd) · **Goal:** a working prototype workflow for one of your own research tasks, and a clear next step.
+:::
+
+This is the capstone. You'll combine the repo, `CLAUDE.md`, a skill, and the git review loop around **one real task** from your work. Full guidance — checkpoints, path, and the "done" definition — lives on the [Build Session](../build-session.qmd) page. This page is your quick checklist.
+
+## The four moves
+
+1. **Scaffold a repo** for a real task (`git init`; have the agent set up a reproducible structure; first commit).
+2. **Write a `CLAUDE.md`** ([Ex 3](ex3-claude-md.qmd)) so the agent understands the project.
+3. **Ship one change** through **branch → PR → review → merge** ([Ex 2](ex2-git-with-agent.qmd)).
+4. **Write one skill** ([Ex 4](ex4-first-skill.qmd)) for the repeatable part, committed into the repo.
+
+## Checkpoints
+
+| Time | You should have… |
+|------|------------------|
+| +5 min | A git repo with a scaffolded structure and a first commit |
+| +10 min | A `CLAUDE.md` with project context and guardrails |
+| +20 min | One change shipped through a pull request you reviewed |
+| +30 min | One skill written and committed |
+
+## You're done when… (the take-home checklist)
+
+- [ ] A repo for a real task, ideally pushed to GitHub.
+- [ ] A `CLAUDE.md` the agent reads each session.
+- [ ] At least one change shipped through **branch → PR → review → merge**.
+- [ ] At least one **skill** capturing something you'll do again.
+- [ ] A written **next step** (put it at the bottom of your `CLAUDE.md` under `## TODO`).
+
+::: {.callout-tip}
+## Capture your next step in the repo
+End by asking the agent:
+```text
+Add a "## Next steps" section to the README listing the 3 things I
+should do next to develop this workflow further. Commit it.
+```
+Now your momentum is saved in the repo, not just your head.
+:::
+
+## Share out (last 5 min)
+
+Post one of these in the Zoom chat:
+
+- The **skill** you wrote (its `description` line), or
+- The **task** you scaffolded and what surprised you, or
+- One thing you'll **change about how you work** starting Monday.
+
+**Back to:** [Build Session](../build-session.qmd) · [Resources & next steps →](../resources.qmd)

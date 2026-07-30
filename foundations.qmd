@@ -1,0 +1,111 @@
+---
+title: "1 · Foundations of Agentic Coding"
+subtitle: "What it is, why it's different, and where it fits research"
+---
+
+::: {.callout-note appearance="minimal"}
+**Module goal:** Leave with an accurate mental model of what an agent *is* (an LLM that uses tools in a loop), the vocabulary you'll hear, and honest judgment about where this helps research and where it doesn't. · [Slides](slides/foundations.qmd)
+:::
+
+## The shift: from writing to directing
+
+For decades, programming meant typing every line yourself. Agentic coding changes the unit of work. You describe **what you want**; the agent reads your files, writes code, runs it, reads the errors, and fixes them — then you **review and decide** what to keep.
+
+You move from *author* to *director*. Your value shifts from remembering syntax to **specifying intent clearly, reviewing critically, and keeping control.** That last part is what the rest of this course is really about.
+
+::: {.callout-tip}
+## Demo (do this live)
+This is the moment to point back at the task you dictated at 8:35. It's been running while we talked. We'll look at what it did — and immediately practice *reviewing* rather than trusting.
+:::
+
+## What is an "agent," precisely?
+
+Strip away the hype and an agent is three things:
+
+1. **A large language model (LLM)** — a model that predicts text, and is very good at turning descriptions into code.
+2. **Tools** — the model can call functions: read a file, write a file, run a shell command, search the web, run your tests.
+3. **A loop** — the model takes an action, *observes the result*, and decides the next action, repeating until the task is done or it needs you.
+
+```
+        ┌─────────────────────────────────────────┐
+        │                                           │
+   you ─┴─► LLM ──► pick a tool ──► run it ──► read the result
+             ▲                                     │
+             └──────────── decide next ◄───────────┘
+                        (repeat until done)
+```
+
+The "agentic" part is the loop plus tools. A plain chatbot answers; an agent **acts, checks its work, and iterates** in your actual project.
+
+::: {.callout-note}
+## Why the loop matters for research
+Because the agent runs your code and reads the errors, it can debug a simulation that won't converge, fix a data-join that drops rows, or iterate on a `ggplot` until the figure looks right — without you round-tripping every message. That feedback loop is where the productivity gain comes from.
+:::
+
+## The landscape (as of mid-2026)
+
+You don't need to know every tool — you need to know the *categories* so you can place whatever you encounter.
+
+| Category | What it is | Examples |
+|----------|-----------|----------|
+| **Terminal / CLI agents** | An agent that lives in your terminal and works on your files and repos directly | **Claude Code** (this course), and similar CLI agents |
+| **IDE-integrated** | Agents inside your editor | VS Code / JetBrains extensions, Cursor |
+| **Chat + code** | General chat assistants that can write code but don't run in your project | claude.ai, ChatGPT |
+| **Cloud / async agents** | Agents that run on a server, e.g. on a pull request | GitHub-based coding agents |
+
+We use **Claude Code** because it works directly in a real git repo — which lets us teach agentic coding and version control *together*, the way you'll actually work.
+
+## Vocabulary you'll hear today
+
+Keep this handy; we'll use these all morning. (Full [glossary](resources.qmd#glossary) in Resources.)
+
+| Term | Plain-English meaning |
+|------|----------------------|
+| **LLM** | The underlying model (e.g., Claude) that turns your words into code and decisions. |
+| **Token** | The unit an LLM reads/writes text in (~¾ of a word). "Context" and cost are measured in tokens. |
+| **Context window** | How much text the model can "see" at once — your files, instructions, and the conversation so far. |
+| **Prompt** | What you ask for. Also the skill of *asking well*. |
+| **Tool / tool call** | An action the agent can take (read, edit, run, search). |
+| **Agentic loop** | Act → observe → decide → repeat. |
+| **`CLAUDE.md`** | A project file of standing instructions the agent reads every session (Module 2). |
+| **Skill** | A reusable, packaged instruction set for a recurring task (Module 4). |
+| **Hallucination** | When a model states something plausible but false — the reason we *review*. |
+| **MCP** | "Model Context Protocol" — a standard way to give agents extra tools/data sources. |
+
+## Where this helps research — and where it doesn't
+
+::: {.panel-tabset}
+### Strong fits
+- **Boilerplate & glue:** reshaping data, writing `read_csv`/join pipelines, wiring scripts together.
+- **Debugging:** paste an error; the agent reproduces and fixes it in-repo.
+- **Refactoring:** turning a 400-line script into functions, adding a config, improving runtime.
+- **Simulation scaffolding:** setting up a Markov/microsimulation structure you then verify.
+- **Figures & tables:** iterating on publication-ready `ggplot`/`matplotlib` from a description.
+- **Writing support:** methods sections, READMEs, reviewer responses, documentation.
+
+### Handle with care
+- **Statistical / causal judgment:** the agent will happily run a model that's *wrong for your question*. The estimand is yours to own.
+- **Domain correctness:** it can invent a plausible-but-wrong parameter or citation. Verify.
+- **Anything irreversible:** deleting files, force-pushing, touching real data — gate these (Module 3).
+- **Confidential data:** know your IRB/data-use rules before pointing an agent at PHI.
+:::
+
+::: {.callout-warning}
+## The one rule that makes all of this safe
+**Never merge what you haven't reviewed.** Agents are fast and confident, and sometimes confidently wrong. The productivity gain is real *only* if you keep a review step — which is exactly why we spend a whole module on git.
+:::
+
+## Reproducibility: an underrated win
+
+Because an agent works in a repo, everything it does is **inspectable and versioned**. Done well, agentic coding pushes you toward *better* reproducibility than typing everything yourself: scripted pipelines, committed history, and prose (in `CLAUDE.md` and skills) that documents how the project is meant to be run — the kind of thing you can drop straight into a methods supplement.
+
+::: {.recap}
+**What to remember**
+
+- An agent = **LLM + tools + a loop**. It acts, checks, and iterates in your real project.
+- Your job shifts from *typing* to **directing and reviewing**.
+- It's strongest on boilerplate, debugging, refactoring, and figures; weakest on judgment you must own.
+- The whole approach is only safe if you **review before you keep** — that's what git gives us.
+:::
+
+**Next:** [2 · Prompting & Directing →](prompting.qmd)

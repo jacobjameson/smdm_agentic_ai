@@ -1,0 +1,54 @@
+---
+title: "Agenda"
+subtitle: "28 June 2026 · 8:35 AM – 12:00 PM (local time) · Zoom"
+---
+
+A half-day course that alternates **short lectures**, **live demonstrations**, and **hands-on exercises**. Timings are targets — we'll flex to keep the hands-on blocks intact.
+
+::: {.callout-tip}
+## How we'll navigate
+We'll run the course from this website — I'll share my screen and click through pages so you can copy-paste along. For the lecture blocks I'll switch to [slides](slides/foundations.qmd); when we build, we come back here.
+:::
+
+## Run of show
+
+### [8:35]{.chip} Welcome & the "watch this" demo · 15 min
+Before any theory, I'll open Claude Code, **dictate a task out loud**, and set it working on a real project in the background — then we start the lecture while it runs. The point is to *feel* what "directing an agent" means before we define it.
+
+### [8:50]{.chip} Module 1 · Foundations · 30 min
+[Foundations →](foundations.qmd) · [slides](slides/foundations.qmd)
+
+What agentic coding actually is: an LLM that can use **tools** (read files, run code, edit, search) in a loop. The landscape of tools. The vocabulary you'll hear. Where this helps research — and where to be careful.
+
+### [9:20]{.chip} Module 2 · Prompting & directing · 35 min
+[Prompting →](prompting.qmd) · [slides](slides/prompting.qmd) · **Exercise 1**
+
+How to prompt effectively, scope context, plan before acting, and review output. Meet `CLAUDE.md`. Then you run your **[first agent session](exercises/ex1-first-session.qmd)**.
+
+### [9:55]{.chip} Break · 10 min
+
+### [10:05]{.chip} Module 3 · Git & GitHub · 45 min
+[Git & GitHub →](git-github.qmd) · [slides](slides/git-github.qmd) · **Exercises 2 & 3**
+
+Version control reframed as the **operating system for safe agent collaboration**: commits, branches, pull requests, and merging only what you approve. You'll direct an agent through a full **[branch → PR → review → merge](exercises/ex2-git-with-agent.qmd)** loop, then **[write a `CLAUDE.md`](exercises/ex3-claude-md.qmd)** for a project.
+
+### [10:50]{.chip} Module 4 · Skills & workflows · 30 min
+[Skills & workflows →](skills.qmd) · [slides](slides/skills.qmd) · **Exercise 4**
+
+Customizing an agent for *your* recurring tasks. What a skill is, when to write one, and the anatomy of a good one. You'll **[write your first skill](exercises/ex4-first-skill.qmd)** — the course's core deliverable.
+
+### [11:20]{.chip} Module 5 · Build session · 35 min
+[Build session →](build-session.qmd) · **Exercise 5**
+
+The rest is yours. Bring a research task and **[prototype a workflow](exercises/ex5-your-workflow.qmd)** for it, with me and others available to help.
+
+### [11:55]{.chip} Wrap-up · 5 min
+Share what you built, where to go deeper, and how to keep developing your workflow after today.
+
+## What to have open
+
+- This website.
+- A terminal in a folder where you can make a scratch project.
+- Claude Code (`claude`), signed in.
+- Your GitHub account in a browser tab.
+- A research task in mind for the build session.

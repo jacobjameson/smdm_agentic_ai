@@ -1,0 +1,112 @@
+---
+title: "Foundations of Agentic Coding"
+subtitle: "Module 1 · SMDM Short Course"
+author: "Jacob Jameson, MS"
+format:
+  revealjs:
+    theme: [default, ../assets/theme.scss]
+    slide-number: true
+    incremental: true
+    code-copy: true
+    highlight-style: github
+    width: 1200
+    footer: "Agentic Coding for Research · Module 1"
+---
+
+## The shift {.smaller}
+
+For decades: **you type every line.**
+
+Agentic coding: **you describe what you want; the agent writes, runs, and fixes it; you review and decide what to keep.**
+
+::: {.fragment}
+Your role: **author → director.**
+:::
+
+::: {.fragment}
+Value shifts from *syntax recall* to *clear intent, critical review, and control.*
+:::
+
+## What is an "agent"? {.smaller}
+
+Three things, no magic:
+
+1. **An LLM** — turns descriptions into code
+2. **Tools** — read/write files, run code, search
+3. **A loop** — act → observe → decide → repeat
+
+. . .
+
+A chatbot *answers*. An agent *acts, checks its work, and iterates* — in your real project.
+
+## The agentic loop
+
+```
+   you ─► LLM ─► pick a tool ─► run it ─► read result
+           ▲                                 │
+           └──────── decide next ◄───────────┘
+                  (repeat until done)
+```
+
+. . .
+
+This loop is why an agent can debug a simulation or fix a broken join *without* you round-tripping every message.
+
+## The landscape (mid-2026) {.smaller}
+
+| Category | Examples |
+|----------|----------|
+| **Terminal / CLI agents** | **Claude Code** (this course) |
+| IDE-integrated | VS Code / JetBrains, Cursor |
+| Chat + code | claude.ai, ChatGPT |
+| Cloud / async | PR-based coding agents |
+
+. . .
+
+We use Claude Code because it works in a **real git repo** — so we teach agents and version control together.
+
+## Vocabulary {.smaller}
+
+- **Token / context window** — what the model reads; measures memory & cost
+- **Prompt** — what you ask (and asking *well*)
+- **Tool call** — an action the agent takes
+- **`CLAUDE.md`** — standing project instructions (Module 2)
+- **Skill** — a reusable procedure (Module 4)
+- **Hallucination** — plausible-but-false output → why we review
+
+## Where it helps research
+
+- Boilerplate & data glue
+- Debugging (it runs your code + reads errors)
+- Refactoring scripts into pipelines
+- Simulation scaffolding
+- Publication-ready figures & tables
+- Methods sections, READMEs, reviewer responses
+
+## Handle with care
+
+- **Statistical / causal judgment** — the estimand is *yours*
+- **Domain correctness** — invented parameters & citations
+- **Irreversible actions** — deleting, force-pushing
+- **Confidential data** — know your IRB / data-use rules
+
+## The one rule {.center}
+
+::: {.r-fit-text}
+Never merge what you haven't reviewed.
+:::
+
+. . .
+
+Fast + confident + sometimes wrong → keep a review step. That's why the next big module is **git**.
+
+## Recap {.smaller}
+
+- Agent = **LLM + tools + a loop**
+- You **direct and review**, you don't type
+- Strong on boilerplate/debugging/figures; weak on judgment you must own
+- Safe only if you **review before you keep**
+
+. . .
+
+**Next:** Prompting & Directing →

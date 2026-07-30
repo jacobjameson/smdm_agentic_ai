@@ -1,0 +1,104 @@
+---
+title: "4 · Skills & Custom Workflows"
+subtitle: "Teaching an agent to do *your* recurring tasks the way you want"
+---
+
+::: {.callout-note appearance="minimal"}
+**Module goal:** Understand what a skill is, when it's worth writing one, and how to author a good one — then write your own in [Exercise 4](exercises/ex4-first-skill.qmd), the course's core deliverable. · [Slides](slides/skills.qmd)
+:::
+
+## From one-off prompts to reusable procedures
+
+By now you can direct an agent through a task. But researchers do the *same kinds* of tasks over and over: clean a new wave of a dataset the same way, build the same style of Table 1, format a manuscript to a journal's requirements, run the same diagnostic checks on a model.
+
+Retyping the instructions each time is exactly the repetition `CLAUDE.md` solved for project context. A **skill** solves it for *procedures*.
+
+| | `CLAUDE.md` | **Skill** |
+|--|-------------|-----------|
+| **Answers** | "What should the agent always know about *this project*?" | "How do I do *this recurring task*, anywhere?" |
+| **When read** | Every session, automatically | When the task comes up |
+| **Scope** | One project | Reusable across projects |
+| **Example** | "Data lives in `data/`; use tidyverse" | "Build a CONSORT-style participant-flow diagram" |
+
+A skill is, at its simplest, **a named, packaged set of instructions for one recurring task** — a description of *when* to use it and *how* to do it, written once and reused.
+
+## Anatomy of a skill
+
+A skill is a Markdown file with a bit of structured front matter. The two parts that matter most:
+
+```markdown
+---
+name: table-one
+description: >
+  Build a publication-ready "Table 1" (baseline characteristics by
+  group) from a data frame. Use when the user asks for a descriptive
+  or baseline characteristics table.
+---
+
+# Table One
+
+## When to use
+The user has a cleaned data frame and wants baseline characteristics
+compared across a grouping variable (e.g., treatment arm).
+
+## How to do it
+1. Confirm the grouping variable and which covariates to include.
+2. Use the `gtsummary` package (`tbl_summary()` + `add_p()` only if asked).
+3. Continuous vars: median [IQR] unless clearly normal; categorical: n (%).
+4. Label variables with human-readable names.
+5. Output as a `gt` table saved to `tables/table1.html` and `.docx`.
+6. Never fabricate values — read them from the data.
+
+## Conventions
+- Match the project's figure/table style in CLAUDE.md.
+- Show me the code and the rendered table before saving.
+```
+
+::: {.callout-tip}
+## The `description` is the most important line
+The agent decides *whether to use a skill* by reading its `description`. Make it specific about **when** the skill applies and what it produces. Vague descriptions ("helps with tables") get ignored or misfired; concrete ones ("build a baseline-characteristics Table 1 from a data frame") get invoked at the right moment.
+:::
+
+## What makes a *good* research skill
+
+1. **One clear job.** A skill that does one thing well beats a kitchen-sink skill. "Format to JAMA figure specs" not "do all my figures."
+2. **Encodes your standards.** The whole point is that it captures *how you like it done* — your palette, your table style, your statistical conventions — so you stop re-explaining.
+3. **Has a done-condition.** Say what the finished output looks like and where it goes.
+4. **Includes guardrails.** "Read values from the data, never fabricate." "Show me before saving." Judgment stays with you.
+5. **Is reviewable.** Because it's a plain Markdown file in your repo, you can version it, diff it, and share it — a skill is itself reproducible documentation of a procedure.
+
+## Where skills live
+
+In Claude Code, skills live in a `skills/` (or `.claude/skills/`) folder — project-level (shared via the repo) or personal (across all your projects). Because they're just files in git, sharing a skill with a collaborator is a `git push`; adopting theirs is a `git pull`. Your lab's conventions become *executable*.
+
+::: {.callout-note}
+## Skill vs. "workflow"
+People use **workflow** loosely for *a repeatable multi-step process*. In practice you'll build workflows by combining: a `CLAUDE.md` (project context) + one or more skills (procedures) + the git branch→PR→merge loop (control). Today's build session is where you start assembling yours.
+:::
+
+## Good candidates from health-decision research
+
+Skills worth writing (steal these for Exercise 4):
+
+- **Table 1 builder** — baseline characteristics to your house style.
+- **Journal-figure formatter** — apply JAMA/NEJM/Annals figure specs to a `ggplot`.
+- **Reproducible-pipeline scaffold** — set up `data/`, `R/`, numbered scripts, a `00_run_all.R`, and a README, the way you always structure a project.
+- **Reviewer-response drafter** — turn reviewer comments + your notes into a structured point-by-point response.
+- **Model diagnostics** — run your standard set of checks (convergence, balance, sensitivity) on a fitted model and summarize.
+- **Simulation calibration report** — compare simulated outputs to targets and flag mismatches.
+
+::: {.callout-warning}
+## Skills don't remove your judgment
+A skill makes a *procedure* repeatable — it does not make the *decision* correct. A "run my causal analysis" skill will faithfully run the wrong estimand if you point it at the wrong question. Bake verification and "show me before you commit" into every skill.
+:::
+
+::: {.recap}
+**What to remember**
+
+- A **skill** = a named, reusable procedure for a recurring task; the **`description`** decides when it fires.
+- Good skills do **one job**, encode **your standards**, state a **done-condition**, and include **guardrails**.
+- Skills are plain files in git — **versioned, diffable, shareable** with your lab.
+- Assemble **workflows** from `CLAUDE.md` + skills + the git review loop.
+:::
+
+**Next:** [Exercise 4 · Write your first skill →](exercises/ex4-first-skill.qmd), then [5 · Build Session →](build-session.qmd)

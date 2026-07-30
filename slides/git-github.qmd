@@ -1,0 +1,109 @@
+---
+title: "Git & GitHub"
+subtitle: "Module 3 · The operating system for safe agent collaboration"
+author: "Jacob Jameson, MS"
+format:
+  revealjs:
+    theme: [default, ../assets/theme.scss]
+    slide-number: true
+    incremental: true
+    code-copy: true
+    highlight-style: github
+    width: 1200
+    footer: "Agentic Coding for Research · Module 3"
+---
+
+## Why git *first* {.smaller}
+
+An agent rewrites twelve files in thirty seconds.
+
+- **Without version control:** terrifying — can't see, undo, or separate changes
+- **With git:** the same speed is **safe**
+
+## Reframe the tools {.smaller}
+
+| Git | For agent work |
+|-----|----------------|
+| **Commit** | A save point — undo is free |
+| **Branch** | A sandbox the agent plays in |
+| **Diff** | Exactly what changed — your review surface |
+| **Pull request** | The **gate**: nothing lands until you approve |
+| **Merge** | Your explicit "keep this" |
+
+## The core loop {.center}
+
+::: {.r-fit-text}
+branch → review the diff → merge what you approve
+:::
+
+. . .
+
+Everything else is detail.
+
+## Git in one slide {.smaller}
+
+```bash
+git init                      # track this folder
+git status                    # what changed?
+git add R/01_clean.R          # stage
+git commit -m "Clean cohort"  # snapshot
+git log --oneline             # history
+```
+
+. . .
+
+Small, frequent commits > rare giant ones. Imperative messages: "Fix join dropping rows."
+
+## Branches: the sandbox {.smaller}
+
+```bash
+git switch -c feature/clean-data   # create + move
+# ... agent works, you commit ...
+git switch main                    # untouched, safe
+```
+
+. . .
+
+Branch goes sideways? Throw it away — `main` never saw it.
+
+**Keep the agent off `main`.**
+
+## PRs: the review gate {.smaller}
+
+```bash
+git push -u origin feature/clean-data
+gh pr create --fill
+gh pr diff      # ← READ THIS
+gh pr merge --squash --delete-branch
+```
+
+. . .
+
+`gh pr diff` is where you catch the dropped rows and the thing you didn't ask for. Merging = "I reviewed this."
+
+## Destructive — gate these {.smaller}
+
+::: {.callout-warning}
+- `git reset --hard` — discards uncommitted work
+- `git push --force` — overwrites shared history
+- `git clean -fd` — deletes untracked files
+:::
+
+Put in `CLAUDE.md`: *"Never run destructive git commands without asking."*
+
+## Solo? Still yes. {.smaller}
+
+PRs aren't just for teams.
+
+Even alone, the branch-and-PR loop gives you a **forced review step** and a **clean, documented history** — exactly the reproducibility you want when an agent writes the code.
+
+## Recap {.smaller}
+
+- commit = save · branch = sandbox · PR = gate · merge = "yes"
+- **branch → review the diff → merge what you approve**
+- Keep the agent off `main`; **read the diff** before every merge
+- Gate destructive commands in `CLAUDE.md`
+
+. . .
+
+**Now:** Exercises 2 & 3 →

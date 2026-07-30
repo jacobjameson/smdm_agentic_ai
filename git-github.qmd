@@ -1,0 +1,140 @@
+---
+title: "3 · Git & GitHub"
+subtitle: "Version control as the operating system for safe agent collaboration"
+---
+
+::: {.callout-note appearance="minimal"}
+**Module goal:** Learn just enough git to work *safely* with an agent: commits as save points, branches as sandboxes, and pull requests as the review gate where you decide what to keep. Ends with [Exercise 2](exercises/ex2-git-with-agent.qmd) and [Exercise 3](exercises/ex3-claude-md.qmd). · [Slides](slides/git-github.qmd)
+:::
+
+## Why git *first*, before turning an agent loose
+
+An agent is fast and will happily rewrite twelve files in thirty seconds. Without version control, that's terrifying: you can't tell what changed, can't undo cleanly, and can't separate its work from yours.
+
+With git, the same speed is **safe**. Reframe the tools:
+
+| Git concept | Reframed for agent work |
+|-------------|-------------------------|
+| **Commit** | A save point you can always return to. Undo is free. |
+| **Branch** | A sandbox where the agent can experiment without touching your working code. |
+| **Diff** | The exact, line-by-line record of what the agent changed — your review surface. |
+| **Pull request (PR)** | The **gate**: nothing reaches your main code until *you* approve the diff. |
+| **Merge** | Your explicit "yes, keep this" decision. |
+
+::: {.callout-important}
+## The core loop of this whole course
+**agent works on a branch → you review the diff in a pull request → you merge only what you approve.**
+
+Everything else is detail. This loop is what lets you move fast *and* stay in control.
+:::
+
+## Git in ten minutes
+
+A **repository** ("repo") is a folder git is tracking. Work flows through three places: your files → the *staging area* (what you're about to save) → a *commit* (a saved snapshot).
+
+```bash
+git init                      # start tracking this folder
+git status                    # what's changed / staged?
+git add R/01_clean.R          # stage a file for the next commit
+git add .                     # stage everything changed
+git commit -m "Clean cohort"  # save a snapshot with a message
+git log --oneline             # history of commits
+```
+
+**Commit messages** are notes to your future self (and reviewers). Write them in the imperative: "Add cost-effectiveness model", "Fix join dropping rows". Small, frequent commits beat rare giant ones — they make history readable and undo precise.
+
+::: {.callout-tip}
+## You can have the agent do the git for you
+You don't have to type these. In Claude Code you can say *"commit this with a sensible message"* or *"make a branch called `clean-data` and work there."* You still **decide** when to commit and merge — the agent just does the mechanics. Learn the commands anyway, so you understand what it's doing.
+:::
+
+## Branches: the agent's sandbox
+
+A branch is a parallel line of work. `main` stays stable; the agent plays on a branch.
+
+```bash
+git switch -c feature/clean-data   # create + move to a new branch
+# ... agent makes changes, you commit them ...
+git switch main                    # your safe, untouched main
+git switch feature/clean-data      # back to the work
+```
+
+If the branch goes sideways, you throw it away — `main` never saw it. This is the single most important habit for working with agents: **let them work on a branch, not on `main`.**
+
+## GitHub & pull requests: the review gate
+
+**GitHub** is where repos live online — for backup, collaboration, and (crucially) **pull requests**. A PR says: *"here's a branch; here's the diff; should we merge it into `main`?"* It's a purpose-built review surface with line-by-line comments.
+
+Using the `gh` CLI (installed in [Setup](setup.qmd)):
+
+```bash
+# push your branch to GitHub
+git push -u origin feature/clean-data
+
+# open a pull request from that branch into main
+gh pr create --title "Clean cohort data" --body "Adds R/01_clean.R; drops missing age; recodes sex."
+
+# review the change — read the diff!
+gh pr diff
+
+# when you're satisfied, merge and tidy up
+gh pr merge --squash --delete-branch
+```
+
+The `gh pr diff` step is the one that matters. **Read it.** This is where you catch the dropped rows, the renamed column, the thing you didn't ask for. Merging is you saying *"I've reviewed this and I approve."*
+
+::: {.callout-warning}
+## Destructive commands — gate these
+Some git operations are hard or impossible to undo. Don't let an agent run them unprompted, and be sure you understand them yourself:
+
+- `git reset --hard` — discards uncommitted work permanently.
+- `git push --force` — can overwrite others' history on a shared branch.
+- `git clean -fd` — deletes untracked files from disk.
+
+A good rule for your `CLAUDE.md`: *"Never run destructive git commands (reset --hard, force push, clean) without asking."*
+:::
+
+## A complete session, start to finish
+
+Here's the whole loop in one place — the pattern for every agent-assisted change:
+
+```bash
+# 1. start clean, on main
+git switch main && git pull
+
+# 2. branch for the task
+git switch -c feature/cost-model
+
+# 3. direct the agent to do the work (in Claude Code), review each step,
+#    and commit in small pieces:
+#    "Add the Markov cost model in R/02_model.R. Show me the diff, then commit."
+
+# 4. push and open a PR
+git push -u origin feature/cost-model
+gh pr create --fill
+
+# 5. REVIEW the diff — the gate
+gh pr diff
+
+# 6. approve by merging; delete the branch
+gh pr merge --squash --delete-branch
+
+# 7. back to a clean main with your approved change
+git switch main && git pull
+```
+
+::: {.callout-note}
+## Solo researcher? You still want this.
+PRs aren't just for teams. Even working alone, the branch-and-PR loop gives you a **forced review step** and a clean, documented history — exactly the reproducibility and control you want when an agent is writing the code.
+:::
+
+::: {.recap}
+**What to remember**
+
+- **Commit** = save point · **branch** = sandbox · **PR** = review gate · **merge** = your "yes."
+- The core loop: **agent works on a branch → you review the diff → you merge what you approve.**
+- Keep the agent *off* `main`. Read the diff before every merge.
+- Gate destructive commands (`reset --hard`, force push, `clean`) — put it in `CLAUDE.md`.
+:::
+
+**Next:** [Exercise 2 · Git with an agent →](exercises/ex2-git-with-agent.qmd) and [Exercise 3 · Write a CLAUDE.md →](exercises/ex3-claude-md.qmd), then [4 · Skills & Workflows →](skills.qmd)

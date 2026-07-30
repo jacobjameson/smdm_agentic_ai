@@ -1,0 +1,71 @@
+---
+title: "Exercise 1 · Your First Agent Session"
+subtitle: "Specify a task, watch the agent work, review the result"
+---
+
+::: {.callout-note appearance="minimal"}
+**Time:** ~10 min · **Pairs with:** [Prompting & Directing](../prompting.qmd) · **Goal:** feel the specify → act → review loop on a small, real task.
+:::
+
+## Setup (1 min)
+
+Make a fresh scratch folder and start the agent:
+
+```bash
+mkdir agentic-ex1 && cd agentic-ex1
+claude
+```
+
+## Task (do it twice — vague, then specified)
+
+We'll generate a tiny synthetic dataset and a summary, so everyone has something concrete to review.
+
+### Round 1 — a vague prompt
+Type this to the agent, exactly as-is:
+
+```text
+make me some fake patient data and summarize it
+```
+
+Watch what it does. It will *work* — but notice all the choices it made *for* you (columns, size, format, what "summarize" means).
+
+### Round 2 — a specified prompt
+Now ask for what you actually want:
+
+```text
+Create an R script `make_data.R` that generates a synthetic dataset of
+200 patients with columns: id, age (18–90), sex (M/F), treatment
+(control/drug), and cost (positive, right-skewed). Save it to
+data/patients.csv. Then create `summarize.R` that prints mean cost by
+treatment arm and saves a colorblind-safe bar chart of it to
+figs/cost_by_arm.png. Show me each script before running it.
+```
+
+## Practice the loop
+
+- When it proposes a script, **read it** before you let it run. Does it do what you asked?
+- Ask it to **run** the scripts and show you the output and the figure path.
+- Give one piece of **specific feedback**, e.g.:
+  ```text
+  Make the cost distribution more skewed (use rgamma), and add
+  value labels on the bars.
+  ```
+- Notice how a precise correction lands in one turn.
+
+::: {.callout-tip}
+## Try a plan-first prompt
+Before round 2, you can add: *"Before writing anything, tell me your plan and which files you'll create."* Approve it, then let it go. This is the habit we formalize with git next.
+:::
+
+## You're done when…
+
+- [ ] You ran both the vague and the specified prompt and can articulate the difference in results.
+- [ ] `data/patients.csv` and `figs/cost_by_arm.png` exist and look right.
+- [ ] You gave at least one specific correction and the agent applied it.
+- [ ] You **read** at least one script *before* it ran.
+
+## Reflect (30 sec)
+
+What did the vague prompt get wrong that the specified one fixed? That gap is the value you add as the director.
+
+**Next:** [Exercise 2 · Git with an agent →](ex2-git-with-agent.qmd)

@@ -1,0 +1,28 @@
+---
+title: "Hands-on Exercises"
+subtitle: "Five short builds, each with clear success criteria"
+---
+
+The course is built around doing, not watching. Each exercise is self-contained, time-boxed, and has a concrete "you're done when…" check. They map onto the modules and build on each other.
+
+| # | Exercise | Pairs with | Time | You'll leave with |
+|---|----------|-----------|------|-------------------|
+| 1 | [First agent session](exercises/ex1-first-session.qmd) | [Prompting](prompting.qmd) | ~10 min | A task done by an agent that you specified and reviewed |
+| 2 | [Git with an agent](exercises/ex2-git-with-agent.qmd) | [Git & GitHub](git-github.qmd) | ~15 min | A change shipped through branch → PR → merge |
+| 3 | [Write a `CLAUDE.md`](exercises/ex3-claude-md.qmd) | [Git & GitHub](git-github.qmd) | ~10 min | A project the agent understands on sight |
+| 4 | [Write your first skill](exercises/ex4-first-skill.qmd) | [Skills](skills.qmd) | ~12 min | A reusable skill — the core deliverable |
+| 5 | [Your own workflow](exercises/ex5-your-workflow.qmd) | [Build session](build-session.qmd) | ~30 min | A prototype workflow for your research |
+
+: {.striped}
+
+::: {.callout-tip}
+## Working style
+Keep this site, your terminal, and Claude Code side by side. Copy-paste the starter commands, but **read the diffs and outputs** — the learning is in the reviewing, not the running. Stuck for more than a couple of minutes? Post in the Zoom chat.
+:::
+
+::: {.callout-note}
+## A shared warm-up repo
+For Exercises 1–2 you don't need your own project yet — we'll create a small throwaway repo so everyone starts from the same place. Exercises 3–5 move onto a project that matters to you.
+:::
+
+Start with [Exercise 1 →](exercises/ex1-first-session.qmd).

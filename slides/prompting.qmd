@@ -1,0 +1,105 @@
+---
+title: "Prompting & Directing Agents"
+subtitle: "Module 2 · SMDM Short Course"
+author: "Jacob Jameson, MS"
+format:
+  revealjs:
+    theme: [default, ../assets/theme.scss]
+    slide-number: true
+    incremental: true
+    code-copy: true
+    highlight-style: github
+    width: 1200
+    footer: "Agentic Coding for Research · Module 2"
+---
+
+## Prompting = specification {.smaller}
+
+No magic words. A good prompt is a **clear spec** of intent, context, constraints.
+
+. . .
+
+Brief the agent like a **fast, literal, capable RA** who doesn't know your project yet.
+
+## Four ingredients {.smaller}
+
+| | Weak | Strong |
+|--|------|--------|
+| **Goal** | "clean the data" | "drop rows missing `age`; recode `sex` to a labelled factor" |
+| **Context** | — | "raw: `data/raw/cohort.csv`; script: `R/01_clean.R`" |
+| **Constraints** | — | "tidyverse; keep column names downstream needs" |
+| **Done** | — | "runs w/o warnings; writes `data/clean/cohort.rds`" |
+
+## Six habits
+
+1. State the **goal** and the **done-condition**
+2. **Point at the context** (files, function, error)
+3. **Plan before acting** on anything non-trivial
+4. Work in **small steps**
+5. Make it **show its work** (diffs, tests, row counts)
+6. **Correct with specifics**
+
+## Scope the context {.smaller}
+
+The agent reasons only over its **context window**.
+
+- **Too little** → it guesses, invents column names → *point it at files*
+- **Too much / stale** → long wandering session loses the thread → *start fresh*
+
+. . .
+
+**One session, one task.**
+
+## Plan-then-act {.smaller}
+
+```text
+Before you change any files: read R/01_clean.R and
+data/raw/cohort.csv, then tell me your plan and which
+files you'll modify. Wait for my OK.
+```
+
+. . .
+
+```text
+Looks good — go ahead. Make the changes on a new
+branch and show me the diff before we commit.
+```
+
+## `CLAUDE.md` {.smaller}
+
+Stop repeating "use tidyverse, data's in `data/`…"
+
+A file at your project root that Claude Code **reads every session**:
+
+- What the repo does
+- Structure
+- How to run it
+- Conventions
+- **Guardrails**
+
+. . .
+
+Global facts → `~/.claude/CLAUDE.md`. Project specifics → project `CLAUDE.md`.
+
+## Review like a reviewer
+
+- Does it answer *my* question, not a nearby one?
+- Is the diff **minimal and legible**?
+- Did it **verify** (tests, row counts, output)?
+- Could I explain this in a **methods section**?
+
+. . .
+
+Verify every *factual* specific — coefficients, doses, citations.
+
+## Recap {.smaller}
+
+- Prompt = **goal + context + constraints + done-condition**
+- **Plan → small steps → show its work**
+- **One session, one task**
+- Durable facts → **`CLAUDE.md`**
+- Review critically; verify specifics
+
+. . .
+
+**Now:** Exercise 1 — your first agent session →
