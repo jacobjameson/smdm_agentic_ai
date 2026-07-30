@@ -528,8 +528,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>A parallel line of work in git; a sandbox that doesn’t touch <code>main</code>.</td>
 </tr>
 <tr class="even">
-<td><strong><code>CLAUDE.md</code></strong></td>
-<td>A project (or global) file of standing instructions an agent reads each session.</td>
+<td><strong><code>CLAUDE.md</code> / <code>AGENTS.md</code></strong></td>
+<td>A project (or global) file of standing instructions an agent reads each session. <code>AGENTS.md</code> is the cross-tool convention (Codex, Gemini CLI, Cursor, …); <code>CLAUDE.md</code> is Claude Code’s name for it.</td>
 </tr>
 <tr class="odd">
 <td><strong>Commit</strong></td>
@@ -592,12 +592,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="go-deeper" class="level2">
 <h2 class="anchored" data-anchor-id="go-deeper">Go deeper</h2>
+<p><strong>Agentic tools (the mechanisms transfer; pick any):</strong></p>
 <ul>
-<li><a href="https://docs.claude.com/en/docs/claude-code">Claude Code documentation</a> — official guide, features, settings.</li>
-<li><a href="https://quarto.org">Quarto</a> — the tool this site is built with (great for reproducible reports).</li>
+<li><a href="https://docs.claude.com/en/docs/claude-code">Claude Code documentation</a> — the tool we used today.</li>
+<li><a href="https://developers.openai.com/codex/cli">OpenAI Codex CLI</a> — OpenAI’s terminal agent; same mechanisms, different vendor.</li>
+<li><a href="https://github.com/google-gemini/gemini-cli">Gemini CLI</a> — Google’s open-source terminal agent.</li>
+<li><a href="https://agents.md">AGENTS.md</a> — the cross-tool convention for standing agent instructions.</li>
+</ul>
+<p><strong>Agentic workflows for research:</strong></p>
+<ul>
+<li><a href="https://github.com/paulgp/nber_hf_2026">Paul Goldsmith-Pinkham’s NBER SI 2026 materials</a> — the “mechanisms, not tools” framing and the verification-infrastructure workflow this course draws on, from economics; his Substack video series goes deeper on each piece.</li>
+</ul>
+<p><strong>Git &amp; reproducibility:</strong></p>
+<ul>
 <li><a href="https://git-scm.com/book">Pro Git book</a> — free, thorough, well-written git reference.</li>
 <li><a href="https://skills.github.com/">GitHub Skills</a> — short interactive git/GitHub tutorials.</li>
 <li><a href="https://happygitwithr.com/">Happy Git with R</a> — git for R users, by Jenny Bryan (excellent for this audience).</li>
+<li><a href="https://quarto.org">Quarto</a> — the tool this site is built with (great for reproducible reports).</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">

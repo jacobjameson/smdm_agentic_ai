@@ -318,6 +318,30 @@ Jacob Jameson, MS
 <p>PRs aren’t just for teams.</p>
 <p>Even alone, the branch-and-PR loop gives you a <strong>forced review step</strong> and a <strong>clean, documented history</strong> — exactly the reproducibility you want when an agent writes the code.</p>
 </section>
+<section id="beyond-the-loop-verification-infrastructure" class="slide level2 smaller">
+<h2>Beyond the loop: verification infrastructure</h2>
+<p>Four habits that make a repo <em>auditable</em>, not just versioned:</p>
+<ol type="1">
+<li class="fragment"><strong>Verifiability goes in the prompt</strong> — <em>before</em> the work: “every number from code; write attrition counts; log decisions”</li>
+<li class="fragment"><strong><code>DECISIONS.md</code> + <code>LOG.md</code></strong> — the <em>why</em> and the <em>what</em>, committed as you go</li>
+<li class="fragment"><strong>Issues as the feedback loop</strong> — file it → fresh agent session reads it, fixes, PR closes it</li>
+<li class="fragment"><strong>Every number flows from code</strong> — no hand-typed results, ever</li>
+</ol>
+
+<aside><div>
+<p>From Paul Goldsmith-Pinkham’s agentic research workflow (NBER SI 2026)</p>
+</div></aside></section>
+<section id="the-payoff-provenance" class="slide level2 smaller">
+<h2>The payoff: provenance</h2>
+<p>Reviewer: <em>“Where did this hazard ratio come from?”</em></p>
+<div class="fragment">
+<p>You, in five minutes:</p>
+<p><strong>number → table file → script → commit → logged rationale</strong></p>
+</div>
+<div class="fragment">
+<p>That’s a methods supplement — and a reviewer response — that writes itself.</p>
+</div>
+</section>
 <section id="recap" class="slide level2 smaller">
 <h2>Recap</h2>
 <ul>
@@ -325,6 +349,7 @@ Jacob Jameson, MS
 <li class="fragment"><strong>branch → review the diff → merge what you approve</strong></li>
 <li class="fragment">Keep the agent off <code>main</code>; <strong>read the diff</strong> before every merge</li>
 <li class="fragment">Gate destructive commands in <code>CLAUDE.md</code></li>
+<li class="fragment">Level up: verifiability in the prompt · <code>DECISIONS.md</code>/<code>LOG.md</code> · issues · every number from code</li>
 </ul>
 <div class="fragment">
 <p><strong>Now:</strong> Exercises 2 &amp; 3 →</p>

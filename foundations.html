@@ -336,11 +336,14 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#the-shift-from-writing-to-directing" id="toc-the-shift-from-writing-to-directing" class="nav-link active" data-scroll-target="#the-shift-from-writing-to-directing">The shift: from writing to directing</a></li>
-  <li><a href="#what-is-an-agent-precisely" id="toc-what-is-an-agent-precisely" class="nav-link" data-scroll-target="#what-is-an-agent-precisely">What is an “agent,” precisely?</a></li>
-  <li><a href="#the-landscape-as-of-mid-2026" id="toc-the-landscape-as-of-mid-2026" class="nav-link" data-scroll-target="#the-landscape-as-of-mid-2026">The landscape (as of mid-2026)</a></li>
-  <li><a href="#vocabulary-youll-hear-today" id="toc-vocabulary-youll-hear-today" class="nav-link" data-scroll-target="#vocabulary-youll-hear-today">Vocabulary you’ll hear today</a></li>
-  <li><a href="#where-this-helps-research-and-where-it-doesnt" id="toc-where-this-helps-research-and-where-it-doesnt" class="nav-link" data-scroll-target="#where-this-helps-research-and-where-it-doesnt">Where this helps research — and where it doesn’t</a></li>
+  <li><a href="#mechanisms-not-tools" id="toc-mechanisms-not-tools" class="nav-link" data-scroll-target="#mechanisms-not-tools">Mechanisms, not tools</a></li>
+  <li><a href="#m1-the-agent-loop" id="toc-m1-the-agent-loop" class="nav-link" data-scroll-target="#m1-the-agent-loop">M1 · The agent loop</a></li>
+  <li><a href="#m2-context-is-the-scarce-resource" id="toc-m2-context-is-the-scarce-resource" class="nav-link" data-scroll-target="#m2-context-is-the-scarce-resource">M2 · Context is the scarce resource</a></li>
+  <li><a href="#m3-you-are-the-principal" id="toc-m3-you-are-the-principal" class="nav-link" data-scroll-target="#m3-you-are-the-principal">M3 · You are the principal</a></li>
+  <li><a href="#m4-verification-asymmetry" id="toc-m4-verification-asymmetry" class="nav-link" data-scroll-target="#m4-verification-asymmetry">M4 · Verification asymmetry</a></li>
+  <li><a href="#the-catch-the-pain-points-move" id="toc-the-catch-the-pain-points-move" class="nav-link" data-scroll-target="#the-catch-the-pain-points-move">The catch: the pain points move</a></li>
   <li><a href="#reproducibility-an-underrated-win" id="toc-reproducibility-an-underrated-win" class="nav-link" data-scroll-target="#reproducibility-an-underrated-win">Reproducibility: an underrated win</a></li>
+  <li><a href="#vocabulary-youll-hear-today" id="toc-vocabulary-youll-hear-today" class="nav-link" data-scroll-target="#vocabulary-youll-hear-today">Vocabulary you’ll hear today</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jacobjameson/smdm_agentic_ai/edit/main/foundations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/jacobjameson/smdm_agentic_ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -350,7 +353,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./foundations.html">Modules</a></li><li class="breadcrumb-item"><a href="./foundations.html">1 · Foundations</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">1 · Foundations of Agentic Coding</h1>
-<p class="subtitle lead">What it is, why it’s different, and where it fits research</p>
+<p class="subtitle lead">Four mechanisms that outlive any particular tool</p>
 </div>
 
 
@@ -373,7 +376,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>Module goal:</strong> Leave with an accurate mental model of what an agent <em>is</em> (an LLM that uses tools in a loop), the vocabulary you’ll hear, and honest judgment about where this helps research and where it doesn’t. · <a href="./slides/foundations.html">Slides</a></p>
+<p><strong>Module goal:</strong> Leave with a durable mental model — four <em>mechanisms</em> that explain what agents are, why they work where they work, and what they change about doing research. Tools will age out; these won’t. · <a href="./slides/foundations.html">Slides</a></p>
 </div>
 </div>
 </div>
@@ -381,52 +384,21 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="the-shift-from-writing-to-directing">The shift: from writing to directing</h2>
 <p>For decades, programming meant typing every line yourself. Agentic coding changes the unit of work. You describe <strong>what you want</strong>; the agent reads your files, writes code, runs it, reads the errors, and fixes them — then you <strong>review and decide</strong> what to keep.</p>
 <p>You move from <em>author</em> to <em>director</em>. Your value shifts from remembering syntax to <strong>specifying intent clearly, reviewing critically, and keeping control.</strong> That last part is what the rest of this course is really about.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
+</section>
+<section id="mechanisms-not-tools" class="level2">
+<h2 class="anchored" data-anchor-id="mechanisms-not-tools">Mechanisms, not tools</h2>
+<p>This course teaches with <strong>Claude Code</strong>, but Claude Code is just the current instance. <strong>OpenAI’s Codex</strong>, <strong>Gemini CLI</strong>, <strong>Cursor</strong>, and whatever ships next year all work the same way underneath. The specific tools and their config syntax will age quickly; the <em>mechanisms</em> below won’t. Learn the mechanisms, and every new tool is a five-minute adjustment.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Demo (do this live)
+<div class="callout-body-container">
+<p>This framing — and much of this module — is adapted from Paul Goldsmith-Pinkham’s excellent <a href="https://github.com/paulgp/nber_hf_2026">NBER SI 2026 materials on agentic AI for research</a>, reworked for health decision science.</p>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>This is the moment to point back at the task you dictated at 8:35. It’s been running while we talked. We’ll look at what it did — and immediately practice <em>reviewing</em> rather than trusting.</p>
 </div>
-</div>
-</section>
-<section id="what-is-an-agent-precisely" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-an-agent-precisely">What is an “agent,” precisely?</h2>
-<p>Strip away the hype and an agent is three things:</p>
-<ol type="1">
-<li><strong>A large language model (LLM)</strong> — a model that predicts text, and is very good at turning descriptions into code.</li>
-<li><strong>Tools</strong> — the model can call functions: read a file, write a file, run a shell command, search the web, run your tests.</li>
-<li><strong>A loop</strong> — the model takes an action, <em>observes the result</em>, and decides the next action, repeating until the task is done or it needs you.</li>
-</ol>
-<pre><code>        ┌─────────────────────────────────────────┐
-        │                                           │
-   you ─┴─► LLM ──► pick a tool ──► run it ──► read the result
-             ▲                                     │
-             └──────────── decide next ◄───────────┘
-                        (repeat until done)</code></pre>
-<p>The “agentic” part is the loop plus tools. A plain chatbot answers; an agent <strong>acts, checks its work, and iterates</strong> in your actual project.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Why the loop matters for research
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Because the agent runs your code and reads the errors, it can debug a simulation that won’t converge, fix a data-join that drops rows, or iterate on a <code>ggplot</code> until the figure looks right — without you round-tripping every message. That feedback loop is where the productivity gain comes from.</p>
-</div>
-</div>
-</section>
-<section id="the-landscape-as-of-mid-2026" class="level2">
-<h2 class="anchored" data-anchor-id="the-landscape-as-of-mid-2026">The landscape (as of mid-2026)</h2>
-<p>You don’t need to know every tool — you need to know the <em>categories</em> so you can place whatever you encounter.</p>
+<p>The landscape, so you can place whatever you encounter:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 32%">
@@ -437,37 +409,174 @@ ul.task-list li input[type="checkbox"] {
 <tr class="header">
 <th>Category</th>
 <th>What it is</th>
-<th>Examples</th>
+<th>Examples (mid-2026)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><strong>Terminal / CLI agents</strong></td>
-<td>An agent that lives in your terminal and works on your files and repos directly</td>
-<td><strong>Claude Code</strong> (this course), and similar CLI agents</td>
+<td>An agent in your terminal, working on your files and repos directly</td>
+<td><strong>Claude Code</strong> (this course), <strong>OpenAI Codex CLI</strong>, <strong>Gemini CLI</strong></td>
 </tr>
 <tr class="even">
 <td><strong>IDE-integrated</strong></td>
 <td>Agents inside your editor</td>
-<td>VS Code / JetBrains extensions, Cursor</td>
+<td>VS Code extensions (Claude Code, Codex), Cursor, JetBrains</td>
 </tr>
 <tr class="odd">
 <td><strong>Chat + code</strong></td>
-<td>General chat assistants that can write code but don’t run in your project</td>
-<td>claude.ai, ChatGPT</td>
+<td>Chat assistants that write code but don’t run in your project</td>
+<td>claude.ai, ChatGPT, Gemini</td>
 </tr>
 <tr class="even">
 <td><strong>Cloud / async agents</strong></td>
-<td>Agents that run on a server, e.g.&nbsp;on a pull request</td>
-<td>GitHub-based coding agents</td>
+<td>Agents that run on a server, e.g., picking up a GitHub issue or PR</td>
+<td>Codex (cloud), Claude Code (web), GitHub coding agents</td>
 </tr>
 </tbody>
 </table>
-<p>We use <strong>Claude Code</strong> because it works directly in a real git repo — which lets us teach agentic coding and version control <em>together</em>, the way you’ll actually work.</p>
+<p>Every one of these — and whatever replaces them — runs on the same four mechanisms:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 36%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Mechanism</th>
+<th>One-line claim</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>M1</strong></td>
+<td><strong>The agent loop</strong></td>
+<td>LLM + tools + feedback ≠ chatbot: it acts, observes, iterates</td>
+</tr>
+<tr class="even">
+<td><strong>M2</strong></td>
+<td><strong>Context is the scarce resource</strong></td>
+<td>The durable skill is engineering <em>what the model sees</em></td>
+</tr>
+<tr class="odd">
+<td><strong>M3</strong></td>
+<td><strong>You are the principal</strong></td>
+<td>This is delegation: specify, decompose, monitor, verify</td>
+</tr>
+<tr class="even">
+<td><strong>M4</strong></td>
+<td><strong>Verification asymmetry</strong></td>
+<td>Agents excel exactly where checking their work is cheap</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="m1-the-agent-loop" class="level2">
+<h2 class="anchored" data-anchor-id="m1-the-agent-loop">M1 · The agent loop</h2>
+<p>Strip away the hype and an agent is three things:</p>
+<ol type="1">
+<li><strong>A large language model (LLM)</strong> — a model that predicts text, and is very good at turning descriptions into code.</li>
+<li><strong>Tools</strong> — the model can call functions: read a file, write a file, run a shell command, search, run your tests.</li>
+<li><strong>A loop</strong> — the model takes an action, <em>observes the result</em>, and decides the next action, repeating until the task is done or it needs you.</li>
+</ol>
+<pre><code>        ┌─────────────────────────────────────────┐
+        │                                           │
+   you ─┴─► LLM ──► pick a tool ──► run it ──► read the result
+             ▲                                     │
+             └──────────── decide next ◄───────────┘
+                        (repeat until done)</code></pre>
+<p>A chatbot <em>answers</em>; an agent <strong>acts, checks its work, and iterates</strong> in your actual project. This is why an agent can debug a simulation that won’t converge or fix a data-join that drops rows <em>without</em> you round-tripping every message: it runs your code, reads the error, and tries again.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Demo (do this live)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Point back at the task dictated at 8:35 — it’s been looping while we talked: acting, hitting errors, reading them, fixing. We’ll review its work shortly — <em>reviewing</em>, not admiring.</p>
+</div>
+</div>
+</section>
+<section id="m2-context-is-the-scarce-resource" class="level2">
+<h2 class="anchored" data-anchor-id="m2-context-is-the-scarce-resource">M2 · Context is the scarce resource</h2>
+<p>The model can only reason about what’s in its <strong>context window</strong> — the files, instructions, and conversation it currently “sees.” Almost every frustrating agent session traces back to context: too little (it guesses and invents column names) or too much and stale (it loses the thread).</p>
+<p>The durable skill is <strong>staging context deliberately</strong>: pointing the agent at the right files, providing the data dictionary, the relevant paper, the error message — and writing standing context down once (<code>CLAUDE.md</code>, Module 2) instead of re-explaining every session. Tools differ in config syntax; <em>this</em> skill transfers to all of them.</p>
+</section>
+<section id="m3-you-are-the-principal" class="level2">
+<h2 class="anchored" data-anchor-id="m3-you-are-the-principal">M3 · You are the principal</h2>
+<p>Working with an agent is a <strong>delegation problem</strong> — the same one you face with a research assistant. The economics are familiar:</p>
+<ul>
+<li><strong>Specify</strong> the task and the done-condition (Module 2)</li>
+<li><strong>Decompose</strong> big asks into small, checkable steps</li>
+<li><strong>Monitor</strong> while it works (watch the diffs, not the vibes)</li>
+<li><strong>Verify</strong> before you accept (Module 3 makes this structural)</li>
+</ul>
+<p>The skills that <em>appreciate</em> in value as agents get better: <strong>taste</strong> (what’s worth doing), <strong>specification</strong> (saying precisely what you want), and <strong>skepticism</strong> (knowing when to distrust the output). The skill that depreciates: typing speed.</p>
+</section>
+<section id="m4-verification-asymmetry" class="level2">
+<h2 class="anchored" data-anchor-id="m4-verification-asymmetry">M4 · Verification asymmetry</h2>
+<p>The most useful predictive rule in this course: <strong>agents excel exactly where checking their work is cheap.</strong></p>
+<p>Code is unusually verifiable — it runs or it doesn’t, tests pass or fail, the figure renders or it doesn’t, row counts match or they don’t. That’s why coding is <em>the</em> breakout agent application. And it predicts, task by task, where agents will help your research:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Cheap to verify → strong fits</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Expensive to verify → handle with care</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ul>
+<li><strong>Boilerplate &amp; glue:</strong> reshaping data, join pipelines — check the row counts.</li>
+<li><strong>Debugging:</strong> the error either goes away or it doesn’t.</li>
+<li><strong>Refactoring:</strong> same outputs before and after — diffable, testable.</li>
+<li><strong>Simulation scaffolding:</strong> structure you then inspect and parameterize.</li>
+<li><strong>Figures &amp; tables:</strong> you can <em>see</em> whether it’s right.</li>
+<li><strong>Documentation &amp; READMEs:</strong> quick to read and correct.</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<ul>
+<li><strong>Statistical / causal judgment:</strong> the agent will happily run a model that’s <em>wrong for your question</em>. The estimand is yours to own — checking it requires exactly the expertise you were hoping to save.</li>
+<li><strong>Domain facts:</strong> a plausible-but-wrong parameter, transition probability, or citation <em>looks identical</em> to a right one. Verify against sources.</li>
+<li><strong>Anything irreversible:</strong> deleting files, force-pushing, touching real data — gate these (Module 3).</li>
+<li><strong>Confidential data:</strong> know your IRB/data-use rules before pointing any agent at PHI.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>The one rule that makes all of this safe
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Never merge what you haven’t reviewed.</strong> Agents are fast and confident, and sometimes confidently wrong. The productivity gain is real <em>only</em> if you keep a review step — which is exactly why we spend a whole module on git.</p>
+</div>
+</div>
+</section>
+<section id="the-catch-the-pain-points-move" class="level2">
+<h2 class="anchored" data-anchor-id="the-catch-the-pain-points-move">The catch: the pain points move</h2>
+<p>Honesty for researchers: agentic coding makes <em>execution</em> dramatically cheaper — but that doesn’t make <em>research</em> easier overall. The pain moves:</p>
+<ul>
+<li><strong>Verification debt.</strong> Production cost collapsed; verification cost didn’t. Understanding what your agent did is itself costly time — and if you skip it, you’re accumulating debt that comes due at revision, replication, or retraction time.</li>
+<li><strong>Judgment is still king.</strong> Study design, estimand choice, model structure, what sensitivity analyses matter — none of it got easier, and agents actively gravitate toward the well-trodden default over the <em>right</em> choice for your question.</li>
+<li><strong>Ideas at a premium.</strong> When execution is cheap, the bar rises for <em>how far you push the analysis</em> — and for having questions worth asking in the first place.</li>
+<li><strong>Data access doesn’t budge.</strong> An agent can’t get you a claims-data DUA or IRB approval.</li>
+</ul>
+<p>The researchers who benefit most aren’t the ones who delegate everything — they’re the ones who <strong>redeploy the saved execution time into verification, design, and ideas.</strong></p>
+</section>
+<section id="reproducibility-an-underrated-win" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility-an-underrated-win">Reproducibility: an underrated win</h2>
+<p>Because an agent works in a repo, everything it does is <strong>inspectable and versioned</strong>. Done well, agentic coding pushes you toward <em>better</em> reproducibility than typing everything yourself: scripted pipelines, committed history, and prose (in <code>CLAUDE.md</code> and skills) that documents how the project is meant to be run — the kind of thing you can drop straight into a methods supplement.</p>
 </section>
 <section id="vocabulary-youll-hear-today" class="level2">
 <h2 class="anchored" data-anchor-id="vocabulary-youll-hear-today">Vocabulary you’ll hear today</h2>
-<p>Keep this handy; we’ll use these all morning. (Full <a href="./resources.html#glossary">glossary</a> in Resources.)</p>
+<p>Keep this handy; full <a href="./resources.html#glossary">glossary</a> in Resources.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 21%">
@@ -482,7 +591,7 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td><strong>LLM</strong></td>
-<td>The underlying model (e.g., Claude) that turns your words into code and decisions.</td>
+<td>The underlying model (e.g., Claude, GPT) that turns your words into code and decisions.</td>
 </tr>
 <tr class="even">
 <td><strong>Token</strong></td>
@@ -502,11 +611,11 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td><strong>Agentic loop</strong></td>
-<td>Act → observe → decide → repeat.</td>
+<td>Act → observe → decide → repeat (M1).</td>
 </tr>
 <tr class="odd">
-<td><strong><code>CLAUDE.md</code></strong></td>
-<td>A project file of standing instructions the agent reads every session (Module 2).</td>
+<td><strong><code>CLAUDE.md</code> / <code>AGENTS.md</code></strong></td>
+<td>A project file of standing instructions the agent reads every session (Module 2). <code>AGENTS.md</code> is the cross-tool convention; <code>CLAUDE.md</code> is Claude Code’s.</td>
 </tr>
 <tr class="even">
 <td><strong>Skill</strong></td>
@@ -522,56 +631,14 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="where-this-helps-research-and-where-it-doesnt" class="level2">
-<h2 class="anchored" data-anchor-id="where-this-helps-research-and-where-it-doesnt">Where this helps research — and where it doesn’t</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Strong fits</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Handle with care</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<ul>
-<li><strong>Boilerplate &amp; glue:</strong> reshaping data, writing <code>read_csv</code>/join pipelines, wiring scripts together.</li>
-<li><strong>Debugging:</strong> paste an error; the agent reproduces and fixes it in-repo.</li>
-<li><strong>Refactoring:</strong> turning a 400-line script into functions, adding a config, improving runtime.</li>
-<li><strong>Simulation scaffolding:</strong> setting up a Markov/microsimulation structure you then verify.</li>
-<li><strong>Figures &amp; tables:</strong> iterating on publication-ready <code>ggplot</code>/<code>matplotlib</code> from a description.</li>
-<li><strong>Writing support:</strong> methods sections, READMEs, reviewer responses, documentation.</li>
-</ul>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<ul>
-<li><strong>Statistical / causal judgment:</strong> the agent will happily run a model that’s <em>wrong for your question</em>. The estimand is yours to own.</li>
-<li><strong>Domain correctness:</strong> it can invent a plausible-but-wrong parameter or citation. Verify.</li>
-<li><strong>Anything irreversible:</strong> deleting files, force-pushing, touching real data — gate these (Module 3).</li>
-<li><strong>Confidential data:</strong> know your IRB/data-use rules before pointing an agent at PHI.</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>The one rule that makes all of this safe
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Never merge what you haven’t reviewed.</strong> Agents are fast and confident, and sometimes confidently wrong. The productivity gain is real <em>only</em> if you keep a review step — which is exactly why we spend a whole module on git.</p>
-</div>
-</div>
-</section>
-<section id="reproducibility-an-underrated-win" class="level2">
-<h2 class="anchored" data-anchor-id="reproducibility-an-underrated-win">Reproducibility: an underrated win</h2>
-<p>Because an agent works in a repo, everything it does is <strong>inspectable and versioned</strong>. Done well, agentic coding pushes you toward <em>better</em> reproducibility than typing everything yourself: scripted pipelines, committed history, and prose (in <code>CLAUDE.md</code> and skills) that documents how the project is meant to be run — the kind of thing you can drop straight into a methods supplement.</p>
 <div class="recap">
 <p><strong>What to remember</strong></p>
 <ul>
-<li>An agent = <strong>LLM + tools + a loop</strong>. It acts, checks, and iterates in your real project.</li>
-<li>Your job shifts from <em>typing</em> to <strong>directing and reviewing</strong>.</li>
-<li>It’s strongest on boilerplate, debugging, refactoring, and figures; weakest on judgment you must own.</li>
-<li>The whole approach is only safe if you <strong>review before you keep</strong> — that’s what git gives us.</li>
+<li><strong>M1:</strong> an agent = LLM + tools + a loop — it acts, checks, and iterates in your real project.</li>
+<li><strong>M2:</strong> context is the scarce resource; staging it well is the durable skill.</li>
+<li><strong>M3:</strong> you’re the principal — specify, decompose, monitor, verify. Taste and skepticism appreciate.</li>
+<li><strong>M4:</strong> agents excel where verification is cheap — that predicts, task by task, where they’ll help you.</li>
+<li>Execution got cheaper; <strong>verification, judgment, and ideas didn’t.</strong> Spend the savings there.</li>
 </ul>
 </div>
 <p><strong>Next:</strong> <a href="./prompting.html">2 · Prompting &amp; Directing →</a></p>

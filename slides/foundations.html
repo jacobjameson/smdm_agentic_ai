@@ -134,7 +134,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Foundations of Agentic Coding</h1>
-  <p class="subtitle">Module 1 · SMDM Short Course</p>
+  <p class="subtitle">Module 1 · Four mechanisms that outlive any tool</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -156,8 +156,47 @@ Jacob Jameson, MS
 <p>Value shifts from <em>syntax recall</em> to <em>clear intent, critical review, and control.</em></p>
 </div>
 </section>
-<section id="what-is-an-agent" class="slide level2 smaller">
-<h2>What is an “agent”?</h2>
+<section id="mechanisms-not-tools" class="slide level2 smaller">
+<h2>Mechanisms, not tools</h2>
+<p>We teach with <strong>Claude Code</strong> — but it’s just the current instance.</p>
+<p><strong>Codex, Gemini CLI, Cursor, next year’s tool:</strong> same machinery underneath.</p>
+<div class="fragment">
+<p>Tools and config syntax <strong>age fast</strong>. Mechanisms don’t.</p>
+</div>
+<div class="fragment">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>M1</strong></td>
+<td>The agent loop</td>
+</tr>
+<tr class="even">
+<td><strong>M2</strong></td>
+<td>Context is the scarce resource</td>
+</tr>
+<tr class="odd">
+<td><strong>M3</strong></td>
+<td>You are the principal</td>
+</tr>
+<tr class="even">
+<td><strong>M4</strong></td>
+<td>Verification asymmetry</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<aside><div>
+<p>Framing adapted from Paul Goldsmith-Pinkham, NBER SI 2026 (github.com/paulgp/nber_hf_2026)</p>
+</div></aside></section>
+<section id="m1-the-agent-loop" class="slide level2 smaller">
+<h2>M1 · The agent loop</h2>
 <p>Three things, no magic:</p>
 <ol type="1">
 <li class="fragment"><strong>An LLM</strong> — turns descriptions into code</li>
@@ -165,81 +204,87 @@ Jacob Jameson, MS
 <li class="fragment"><strong>A loop</strong> — act → observe → decide → repeat</li>
 </ol>
 <div class="fragment">
+<pre><code>   you ─► LLM ─► pick a tool ─► run it ─► read result
+           ▲                                 │
+           └──────── decide next ◄───────────┘</code></pre>
+</div>
+<div class="fragment">
 <p>A chatbot <em>answers</em>. An agent <em>acts, checks its work, and iterates</em> — in your real project.</p>
 </div>
 </section>
-<section id="the-agentic-loop" class="slide level2">
-<h2>The agentic loop</h2>
-<pre><code>   you ─► LLM ─► pick a tool ─► run it ─► read result
-           ▲                                 │
-           └──────── decide next ◄───────────┘
-                  (repeat until done)</code></pre>
+<section id="m2-context-is-scarce" class="slide level2 smaller">
+<h2>M2 · Context is scarce</h2>
+<p>The model reasons only over its <strong>context window</strong> — what it currently <em>sees</em>.</p>
+<ul>
+<li class="fragment"><strong>Too little</strong> → it guesses, invents column names</li>
+<li class="fragment"><strong>Too much / stale</strong> → it loses the thread</li>
+</ul>
 <div class="fragment">
-<p>This loop is why an agent can debug a simulation or fix a broken join <em>without</em> you round-tripping every message.</p>
+<p>The durable skill: <strong>staging context</strong> — the right files, the data dictionary, the error message, standing instructions written down once.</p>
+</div>
+<div class="fragment">
+<p>This skill transfers to every tool. Config syntax doesn’t.</p>
 </div>
 </section>
-<section id="the-landscape-mid-2026" class="slide level2 smaller">
-<h2>The landscape (mid-2026)</h2>
+<section id="m3-you-are-the-principal" class="slide level2 smaller">
+<h2>M3 · You are the principal</h2>
+<p>Delegation economics — same as managing an RA:</p>
+<ul>
+<li class="fragment"><strong>Specify</strong> the task and the done-condition</li>
+<li class="fragment"><strong>Decompose</strong> into small, checkable steps</li>
+<li class="fragment"><strong>Monitor</strong> the diffs, not the vibes</li>
+<li class="fragment"><strong>Verify</strong> before you accept</li>
+</ul>
+<div class="fragment">
+<p><strong>Appreciating skills:</strong> taste · specification · skepticism</p>
+<p><strong>Depreciating skill:</strong> typing speed</p>
+</div>
+</section>
+<section id="m4-verification-asymmetry" class="slide level2 center">
+<h2>M4 · Verification asymmetry</h2>
+<div class="r-fit-text">
+<p>Agents excel exactly where checking their work is cheap.</p>
+</div>
+<div class="fragment">
+<p>Code runs or it doesn’t. Tests pass or fail. Row counts match or they don’t.</p>
+<p>That’s why coding is <em>the</em> breakout agent application.</p>
+</div>
+</section>
+<section id="m4-predicts-where-agents-help-you" class="slide level2 smaller">
+<h2>M4 predicts where agents help <em>you</em></h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th>Category</th>
-<th>Examples</th>
+<th>Cheap to verify ✓</th>
+<th>Expensive to verify ⚠</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Terminal / CLI agents</strong></td>
-<td><strong>Claude Code</strong> (this course)</td>
+<td>Boilerplate &amp; data glue</td>
+<td>Causal / statistical judgment</td>
 </tr>
 <tr class="even">
-<td>IDE-integrated</td>
-<td>VS Code / JetBrains, Cursor</td>
+<td>Debugging</td>
+<td>Domain facts, parameters, citations</td>
 </tr>
 <tr class="odd">
-<td>Chat + code</td>
-<td>claude.ai, ChatGPT</td>
+<td>Refactoring</td>
+<td>Anything irreversible</td>
 </tr>
 <tr class="even">
-<td>Cloud / async</td>
-<td>PR-based coding agents</td>
+<td>Figures &amp; tables</td>
+<td>Confidential data (IRB!)</td>
+</tr>
+<tr class="odd">
+<td>Simulation scaffolding</td>
+<td></td>
 </tr>
 </tbody>
 </table>
 <div class="fragment">
-<p>We use Claude Code because it works in a <strong>real git repo</strong> — so we teach agents and version control together.</p>
+<p>The estimand is <strong>yours</strong> — checking it requires exactly the expertise you hoped to save.</p>
 </div>
-</section>
-<section id="vocabulary" class="slide level2 smaller">
-<h2>Vocabulary</h2>
-<ul>
-<li class="fragment"><strong>Token / context window</strong> — what the model reads; measures memory &amp; cost</li>
-<li class="fragment"><strong>Prompt</strong> — what you ask (and asking <em>well</em>)</li>
-<li class="fragment"><strong>Tool call</strong> — an action the agent takes</li>
-<li class="fragment"><strong><code>CLAUDE.md</code></strong> — standing project instructions (Module 2)</li>
-<li class="fragment"><strong>Skill</strong> — a reusable procedure (Module 4)</li>
-<li class="fragment"><strong>Hallucination</strong> — plausible-but-false output → why we review</li>
-</ul>
-</section>
-<section id="where-it-helps-research" class="slide level2">
-<h2>Where it helps research</h2>
-<ul>
-<li class="fragment">Boilerplate &amp; data glue</li>
-<li class="fragment">Debugging (it runs your code + reads errors)</li>
-<li class="fragment">Refactoring scripts into pipelines</li>
-<li class="fragment">Simulation scaffolding</li>
-<li class="fragment">Publication-ready figures &amp; tables</li>
-<li class="fragment">Methods sections, READMEs, reviewer responses</li>
-</ul>
-</section>
-<section id="handle-with-care" class="slide level2">
-<h2>Handle with care</h2>
-<ul>
-<li class="fragment"><strong>Statistical / causal judgment</strong> — the estimand is <em>yours</em></li>
-<li class="fragment"><strong>Domain correctness</strong> — invented parameters &amp; citations</li>
-<li class="fragment"><strong>Irreversible actions</strong> — deleting, force-pushing</li>
-<li class="fragment"><strong>Confidential data</strong> — know your IRB / data-use rules</li>
-</ul>
 </section>
 <section id="the-one-rule" class="slide level2 center">
 <h2>The one rule</h2>
@@ -250,13 +295,27 @@ Jacob Jameson, MS
 <p>Fast + confident + sometimes wrong → keep a review step. That’s why the next big module is <strong>git</strong>.</p>
 </div>
 </section>
+<section id="the-catch-pain-points-move" class="slide level2 smaller">
+<h2>The catch: pain points move</h2>
+<p>Execution got dramatically cheaper. Research didn’t get easier — the pain <strong>moved</strong>:</p>
+<ul>
+<li class="fragment"><strong>Verification debt</strong> — production cost collapsed; verification cost didn’t</li>
+<li class="fragment"><strong>Judgment still king</strong> — design, estimand, model structure; agents default to the well-trodden</li>
+<li class="fragment"><strong>Ideas at a premium</strong> — cheap execution raises the bar</li>
+<li class="fragment"><strong>Data access doesn’t budge</strong> — no agent gets you a DUA</li>
+</ul>
+<div class="fragment">
+<p>Winners <strong>redeploy saved time</strong> into verification, design, and ideas.</p>
+</div>
+</section>
 <section id="recap" class="slide level2 smaller">
 <h2>Recap</h2>
 <ul>
-<li class="fragment">Agent = <strong>LLM + tools + a loop</strong></li>
-<li class="fragment">You <strong>direct and review</strong>, you don’t type</li>
-<li class="fragment">Strong on boilerplate/debugging/figures; weak on judgment you must own</li>
-<li class="fragment">Safe only if you <strong>review before you keep</strong></li>
+<li class="fragment"><strong>M1:</strong> agent = LLM + tools + a loop</li>
+<li class="fragment"><strong>M2:</strong> context is the scarce resource — stage it</li>
+<li class="fragment"><strong>M3:</strong> you’re the principal — specify, decompose, monitor, verify</li>
+<li class="fragment"><strong>M4:</strong> agents excel where verification is cheap</li>
+<li class="fragment">Execution got cheap; <strong>verification, judgment, ideas didn’t</strong> — spend the savings there</li>
 </ul>
 <div class="fragment">
 <p><strong>Next:</strong> Prompting &amp; Directing →</p>

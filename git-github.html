@@ -376,6 +376,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#branches-the-agents-sandbox" id="toc-branches-the-agents-sandbox" class="nav-link" data-scroll-target="#branches-the-agents-sandbox">Branches: the agent’s sandbox</a></li>
   <li><a href="#github-pull-requests-the-review-gate" id="toc-github-pull-requests-the-review-gate" class="nav-link" data-scroll-target="#github-pull-requests-the-review-gate">GitHub &amp; pull requests: the review gate</a></li>
   <li><a href="#a-complete-session-start-to-finish" id="toc-a-complete-session-start-to-finish" class="nav-link" data-scroll-target="#a-complete-session-start-to-finish">A complete session, start to finish</a></li>
+  <li><a href="#beyond-the-loop-verification-infrastructure" id="toc-beyond-the-loop-verification-infrastructure" class="nav-link" data-scroll-target="#beyond-the-loop-verification-infrastructure">Beyond the loop: verification infrastructure</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jacobjameson/smdm_agentic_ai/edit/main/git-github.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/jacobjameson/smdm_agentic_ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -572,6 +573,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>PRs aren’t just for teams. Even working alone, the branch-and-PR loop gives you a <strong>forced review step</strong> and a clean, documented history — exactly the reproducibility and control you want when an agent is writing the code.</p>
 </div>
 </div>
+</section>
+<section id="beyond-the-loop-verification-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="beyond-the-loop-verification-infrastructure">Beyond the loop: verification infrastructure</h2>
+<p>The branch → PR → merge loop is the floor. Researchers who run whole projects this way add a few habits that turn a git repo into <strong>verification infrastructure</strong> — a system where every number can be traced and every decision is on the record. (These come from Paul Goldsmith-Pinkham’s <a href="https://github.com/paulgp/nber_hf_2026">agentic research workflow</a>; they port beautifully to health decision science.)</p>
+<p><strong>1 · Ask for verifiability <em>in the prompt, before the work happens.</em></strong> Don’t inspect for auditability after the fact — make it part of the spec:</p>
+<pre class="text"><code>Implement the cost model in R/02_model.R. Requirements: every number in
+the results table must be produced by code (no hand-typed values); write
+the sample-attrition counts at each exclusion step to tables/attrition.csv;
+and log any modeling decision you make in LOG.md with one line of rationale.</code></pre>
+<p><strong>2 · Keep <code>DECISIONS.md</code> and <code>LOG.md</code> in the repo.</strong> Two plain-text files, committed like everything else:</p>
+<ul>
+<li><code>DECISIONS.md</code> — the <em>why</em> behind consequential choices (“used gamma frailty over lognormal because…”), written when the decision is made. Your future methods section and reviewer responses, pre-drafted.</li>
+<li><code>LOG.md</code> — a running lab notebook of what was done, by you <em>or</em> the agent. Cheap to write, priceless at revision time.</li>
+</ul>
+<p><strong>3 · Use GitHub issues as the feedback loop.</strong> Instead of holding tasks in your head (or a wandering chat session), file them as issues — “validate the model against published Table 3”, “cost totals look 10% high, investigate.” Then point a <em>fresh</em> agent session at an issue: it reads the issue, orients in the repo, fixes, and the PR closes it. Issues give you a to-do list, a paper trail, and a clean way for coauthors (human or agent) to pick up work.</p>
+<p><strong>4 · Every number flows from code.</strong> No copy-pasting results into the manuscript. Figures and tables are emitted as files by scripts; the document pulls them in. When a reviewer asks “where did this hazard ratio come from,” the answer is a five-minute <strong>provenance trace</strong>: number → table file → script → commit → the logged rationale in <code>DECISIONS.md</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it on the demo repo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A good live test of all four at once: <em>“File an issue to restructure analysis.R into a pipeline. Then, in a fresh session, read the issue, do the work on a branch with every output written by code, log decisions in DECISIONS.md, and open a PR that closes the issue.”</em></p>
+</div>
+</div>
 <div class="recap">
 <p><strong>What to remember</strong></p>
 <ul>
@@ -579,6 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>The core loop: <strong>agent works on a branch → you review the diff → you merge what you approve.</strong></li>
 <li>Keep the agent <em>off</em> <code>main</code>. Read the diff before every merge.</li>
 <li>Gate destructive commands (<code>reset --hard</code>, force push, <code>clean</code>) — put it in <code>CLAUDE.md</code>.</li>
+<li>Level up: <strong>ask for verifiability in the prompt</strong>, keep <code>DECISIONS.md</code>/<code>LOG.md</code>, drive work through <strong>issues</strong>, and make <strong>every number flow from code</strong>.</li>
 </ul>
 </div>
 <p><strong>Next:</strong> <a href="./exercises/ex2-git-with-agent.html">Exercise 2 · Git with an agent →</a> and <a href="./exercises/ex3-claude-md.html">Exercise 3 · Write a CLAUDE.md →</a>, then <a href="./skills.html">4 · Skills &amp; Workflows →</a></p>
