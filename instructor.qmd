@@ -21,8 +21,7 @@ The goal is *shock value before theory* — let people feel an agent working bef
 
 **Prep checklist:**
 
-- [ ] Disposable repo created and `git init`'d.
-- [ ] A sample CSV in the folder.
+- [ ] The **companion sandbox repo** (`agentic-demo`) cloned fresh — it has 500 synthetic patients (`data/patients.csv`) and a deliberately messy `analysis.R` (cost/QALY comparison, naive ICER, toy Markov model) that runs but begs to be restructured. Its README lists ready-made demo prompts and a reset procedure.
 - [ ] Claude Code signed in; a fresh session.
 - [ ] Terminal font size large enough for Zoom (18pt+).
 - [ ] A fallback recording of the demo in case live fails (see below).
