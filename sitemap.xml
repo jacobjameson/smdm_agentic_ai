@@ -1,87 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/slides/skills.html</loc>
-    <lastmod>2026-08-03T19:13:21.100Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/slides/git-github.html</loc>
-    <lastmod>2026-08-03T19:13:21.100Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/skills.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/resources.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/instructor.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/git-github.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/foundations.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/exercises/ex4-first-skill.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/exercises/ex2-git-with-agent.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/exercises.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/agenda.html</loc>
-    <lastmod>2026-08-03T19:13:21.098Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/build-session.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/exercises/ex1-first-session.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/exercises/ex3-claude-md.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/exercises/ex5-your-workflow.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/game.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/index.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/prompting.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
+    <loc>https://jacobjameson.com/smdm_agentic_ai/git-basics.html</loc>
+    <lastmod>2026-08-03T19:30:55.285Z</lastmod>
   </url>
   <url>
     <loc>https://jacobjameson.com/smdm_agentic_ai/setup.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
+    <lastmod>2026-08-03T19:30:55.285Z</lastmod>
   </url>
   <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/slides/foundations.html</loc>
-    <lastmod>2026-08-03T19:13:21.099Z</lastmod>
+    <loc>https://jacobjameson.com/smdm_agentic_ai/index.html</loc>
+    <lastmod>2026-08-03T19:30:55.285Z</lastmod>
   </url>
   <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/slides/prompting.html</loc>
-    <lastmod>2026-08-03T19:13:21.100Z</lastmod>
+    <loc>https://jacobjameson.com/smdm_agentic_ai/game.html</loc>
+    <lastmod>2026-08-03T19:30:55.285Z</lastmod>
   </url>
 </urlset>
