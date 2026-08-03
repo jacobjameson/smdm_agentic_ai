@@ -17,8 +17,9 @@ You need: git, a GitHub account (with the `gh` CLI), and Claude Code — the pag
 https://jacobjameson.com/smdm_agentic_ai/game.html
 20 minutes, in your browser, nothing to install: 9 missions that take you from `pwd` all the way through your first pull request. When you beat it, post your :trophy: here!
 
-**:three: Take the 4-question baseline poll** :point_down:
-Posted below — react with the emoji that matches. Takes 20 seconds and shapes how I pitch the course.
+**:three: Take the 2-minute baseline survey** :pencil:
+https://jacobjameson.com/smdm_agentic_ai/survey.html
+Anonymous, 5 questions. Shapes how I pitch the course — the results make an appearance in the opening session.
 
 **:four: Bring a research task**
 The final hour is a hands-on build on *your* work. Come with one concrete task in mind — a simulation model, a data-cleaning pipeline, a figure you keep remaking, a reviewer response. If you want a suggestion, post a sentence about your project here and I'll help you pick.

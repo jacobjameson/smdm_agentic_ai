@@ -7,16 +7,14 @@ toc: false
 Before course day, tell me where you're starting from. Responses shape how much time we spend on basics versus advanced material — and the anonymized results make an appearance in the opening session.
 
 ```{=html}
-<!-- REPLACE_WITH_FORM: swap FORM_EMBED_URL below with the Google Form embed URL
-     (Send → < > embed → copy the src), then add survey.qmd to _quarto.yml render list -->
 <iframe
-  src="FORM_EMBED_URL"
+  src="https://docs.google.com/forms/d/e/1FAIpQLSfPCyGJ7acxzQknVjE3JQO3h57j1lTv8qTMQZTAIKU7yN3GQg/viewform?embedded=true"
   width="100%" height="1400" frameborder="0" marginheight="0" marginwidth="0"
   style="border: 1.5px solid #dfe7ee; border-radius: 0.75rem;">
   Loading…
 </iframe>
 ```
 
-Prefer not to use the embedded form? [Open it in a new tab instead](FORM_DIRECT_URL).
+Prefer not to use the embedded form? [Open it in a new tab instead](https://docs.google.com/forms/d/e/1FAIpQLSfPCyGJ7acxzQknVjE3JQO3h57j1lTv8qTMQZTAIKU7yN3GQg/viewform).
 
 **Done?** Continue with the pre-work: [① Setup](setup.qmd) · [② Terminal Trainer 🎮](game.qmd) · [③ Git Basics](git-basics.qmd)

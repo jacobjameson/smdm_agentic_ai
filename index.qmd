@@ -20,6 +20,8 @@ This three-hour, hands-on SMDM short course teaches you to work with AI agents l
 
 The course is hands-on from the first hour, so arriving set up is everything. Work through these three steps in order — budget about an hour total. When you finish each one, post in the [course Slack channel](https://join.slack.com/t/agenticaiworkinggroup/shared_invite/zt-45afgdq1j-R8PNZz3SqUZuzgamkYDttQ).
 
+*First, though:* take the **[2-minute baseline survey](survey.qmd)** — it shapes how I pitch the course.
+
 ::: {.grid}
 ::: {.g-col-12 .g-col-md-4}
 ::: {.path-card}
