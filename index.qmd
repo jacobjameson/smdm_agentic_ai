@@ -11,7 +11,7 @@ toc: false
 The future of research programming is shifting from writing every line to **directing, reviewing, and iterating with intelligent agents.**
 :::
 
-This three-hour, hands-on SMDM short course teaches you to work with AI agents like **Claude Code** — with **git & GitHub** as your safety layer — and ends with you building a custom workflow for your own research.
+This three-hour, hands-on SMDM short course teaches you to work with AI agents like **Claude Code** and **OpenAI's Codex** — with **git & GitHub** as your safety layer — and ends with you building a custom workflow for your own research.
 
 [Start the pre-work →](setup.qmd){.btn-course} [Join the Slack community](https://join.slack.com/t/agenticaiworkinggroup/shared_invite/zt-45afgdq1j-R8PNZz3SqUZuzgamkYDttQ){.btn-course .ghost}
 :::
@@ -27,7 +27,7 @@ The course is hands-on from the first hour, so arriving set up is everything. Wo
 ::: {.path-card}
 **① Set up your machine**
 
-~30 min, done once. Install git, create a GitHub account, connect them with SSH keys, and install the `gh` CLI and Claude Code. Ends with a verification checklist.
+~30 min, done once. Install git, create a GitHub account, connect them with SSH keys, and install the `gh` CLI plus an AI agent — **Claude Code or Codex, your choice**. Ends with a verification checklist.
 
 [Setup guide →](setup.qmd)
 :::

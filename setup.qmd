@@ -13,7 +13,7 @@ We're fully remote on Zoom, and setup problems are slow to debug for 30 people a
 If commands like `cd` and `git commit` are new to you, spend 15 minutes in the [**Terminal Trainer**](game.qmd) 🎮 — a safe, in-browser terminal that teaches every command this page uses. Then come back here and do it for real.
 :::
 
-You'll set up five things, in order: a **terminal**, **git**, a **GitHub account** (connected by **SSH**), the **`gh` CLI**, and **Claude Code**.
+You'll set up five things, in order: a **terminal**, **git**, a **GitHub account** (connected by **SSH**), the **`gh` CLI**, and **an AI coding agent** — Claude Code *or* OpenAI's Codex, whichever you have access to. The course works identically with either.
 
 ## Part 0 · A terminal
 
@@ -172,27 +172,42 @@ Then log in (choose **GitHub.com → SSH → your key** when prompted — it'll 
 gh auth login
 ```
 
-### Claude Code
+### An AI coding agent — pick one (or both)
 
-Claude Code is the AI agent we'll use on course day. It needs [Node.js](https://nodejs.org/) (LTS) first:
+The course is **agent-agnostic**: everything we do works the same in **Claude Code** (Anthropic) and **Codex** (OpenAI). Install whichever you have access to through your subscription, institution, or preference. Both need [Node.js](https://nodejs.org/) (LTS) first:
 
 ```bash
 brew install node          # macOS
 # or: winget install OpenJS.NodeJS.LTS   (Windows)
 ```
 
-Then install and start it once to sign in:
+::: {.panel-tabset}
+### Claude Code
+
+Install, then start it once to sign in:
 
 ```bash
 npm install -g @anthropic-ai/claude-code
 claude
 ```
 
-Follow the browser prompt to authenticate with your Anthropic account. You'll need an account with access to Claude Code — see [claude.com/claude-code](https://claude.com/claude-code) for current options.
+Follow the browser prompt to authenticate with your Anthropic account (Claude Pro/Max subscriptions include Claude Code; see [claude.com/claude-code](https://claude.com/claude-code) for current options).
+
+### Codex (OpenAI)
+
+Install, then start it once to sign in:
+
+```bash
+npm install -g @openai/codex
+codex
+```
+
+Choose **"Sign in with ChatGPT"** and follow the browser prompt (ChatGPT Plus/Pro/Team subscriptions include Codex; see [developers.openai.com/codex](https://developers.openai.com/codex/cli) for current options).
+:::
 
 ::: {.callout-note}
-## Using a different agent?
-The course teaches with Claude Code, but the mechanics are the same in [OpenAI's Codex CLI](https://developers.openai.com/codex/cli) and similar tools. We standardize on one so the hands-on parts run smoothly — install Claude Code even if you use something else day-to-day.
+## Which should I choose?
+Whichever you already pay for or can access — they're interchangeable for this course. Live demos will be shown in Claude Code, but every prompt and workflow transfers directly to Codex (the only visible difference: Codex reads its standing instructions from a file called `AGENTS.md` where Claude Code uses `CLAUDE.md` — we'll cover this on course day). Other agentic CLIs (e.g., [Gemini CLI](https://github.com/google-gemini/gemini-cli)) work the same way too.
 :::
 
 ## Verify your setup
@@ -205,7 +220,7 @@ ssh -T git@github.com
 gh --version
 gh auth status
 node --version
-claude --version
+claude --version    # or:  codex --version  (whichever agent you installed)
 ```
 
 Then confirm the full loop — create a repo, commit, and push it to your GitHub:
@@ -222,7 +237,7 @@ gh repo create agentic-warmup --public --source=. --push
 If that last command printed your new repo's URL, **you're fully set up.** 🎉 Post a ✅ in the [Slack channel](https://join.slack.com/t/agenticaiworkinggroup/shared_invite/zt-45afgdq1j-R8PNZz3SqUZuzgamkYDttQ). (You can delete the test repo afterward with `gh repo delete agentic-warmup --yes`.)
 
 ::: {.recap}
-Setup complete when: `git`, `gh`, `node`, and `claude` all report versions; `ssh -T git@github.com` greets you by username; `gh auth status` shows you're logged in; and you created + pushed a test repo.
+Setup complete when: `git`, `gh`, `node`, and your agent (`claude` or `codex`) all report versions; `ssh -T git@github.com` greets you by username; `gh auth status` shows you're logged in; and you created + pushed a test repo.
 :::
 
 ## Trouble?
@@ -232,7 +247,7 @@ Setup complete when: `git`, `gh`, `node`, and `claude` all report versions; `ssh
 | `command not found: git/gh/claude` | The tool didn't install or isn't on your PATH. Reinstall; on Windows make sure you're in **Git Bash**. |
 | `Permission denied (publickey)` | Your SSH key isn't on GitHub (redo Part IV Step 3), or you created it under a different name. |
 | `gh auth login` won't open a browser | Choose "paste an authentication token" and follow [these steps](https://cli.github.com/manual/gh_auth_login). |
-| `claude` says not authenticated | Run `claude` (no args) and complete the browser sign-in. |
+| `claude` / `codex` says not authenticated | Run it with no arguments and complete the browser sign-in. |
 | Corporate laptop blocks installs | Post in the Slack channel — we'll find a workaround, or use a personal machine if possible. |
 
 **Next up:** [② Terminal Trainer 🎮](game.qmd) · [③ Git & GitHub Basics](git-basics.qmd)

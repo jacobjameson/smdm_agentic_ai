@@ -11,7 +11,7 @@ This channel is home base for our SMDM short course on **[DATE] · 8:35 AM–12:
 
 **:one: Do the setup before course day (~20 min, please don't skip)**
 Everything is here: https://jacobjameson.com/smdm_agentic_ai/setup.html
-You need: git, a GitHub account (with the `gh` CLI), and Claude Code — the page has step-by-step instructions per OS and a **verification checklist** at the bottom. Run the checklist; if anything fails, post the error in this channel and we'll debug before class instead of during it.
+You need: git, a GitHub account (with the `gh` CLI), and an AI coding agent — **Claude Code or OpenAI's Codex, whichever you have access to; the course works identically with either**. The page has step-by-step instructions per OS and a **verification checklist** at the bottom. Run the checklist; if anything fails, post the error in this channel and we'll debug before class instead of during it.
 
 **:two: New to the terminal? Play the Terminal Trainer** :video_game:
 https://jacobjameson.com/smdm_agentic_ai/game.html
