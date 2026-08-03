@@ -232,7 +232,7 @@
     "href": "index.html",
     "title": "Agentic Coding for Research",
     "section": "",
-    "text": "The future of research programming is shifting from writing every line to directing, reviewing, and iterating with intelligent agents.\n\nThis half-day, hands-on SMDM short course teaches you to work with AI coding agents like Claude Code — with git & GitHub as your safety layer — and ends with you building a custom workflow for your own research.\nStart the pre-work →",
+    "text": "The future of research programming is shifting from writing every line to directing, reviewing, and iterating with intelligent agents.\n\nThis three-hour, hands-on SMDM short course teaches you to work with AI agents like Claude Code — with git & GitHub as your safety layer — and ends with you building a custom workflow for your own research.\nStart the pre-work → Join the Slack community",
     "crumbs": [
       "① Setup",
       "Pre-work",
@@ -256,7 +256,7 @@
     "href": "index.html#who-this-is-for",
     "title": "Agentic Coding for Research",
     "section": "Who this is for",
-    "text": "Who this is for\nHealth researchers and academics who use R or Python for simulation models, data pipelines, or analysis scripts — and want to work faster and more reproducibly with AI agents. No advanced programming experience required. If you can write a basic R or Python script, you’re ready.",
+    "text": "Who this is for\nResearchers and academics who want to work faster and more reproducibly with AI agents — whether that’s building simulation models, cleaning data, producing figures and tables, managing analysis pipelines, or drafting and revising manuscripts. No programming experience required. Agents meet you where you are: if you can describe what you want, you can direct one. The pre-work below covers every technical skill the course assumes.",
     "crumbs": [
       "① Setup",
       "Pre-work",
@@ -268,7 +268,7 @@
     "href": "index.html#what-to-expect-on-course-day",
     "title": "Agentic Coding for Research",
     "section": "What to expect on course day",
-    "text": "What to expect on course day\nDetails will unlock here on course day — but the shape is: short lectures, live demonstrations, and hands-on exercises, ending with a build session where you prototype an agentic workflow around your own research task. You’ll leave with working skills and a real prototype.\n\n\n\n\n\n\nImportantTwo things to bring\n\n\n\n\nA set-up laptop — all three pre-work steps done, verification checklist passing.\nA research task in mind — a simulation model, a data-cleaning pipeline, a figure you keep remaking, a reviewer response. The last hour is yours to build on it.",
+    "text": "What to expect on course day\nDetails will unlock here on course day — but the shape is: short lectures, live demonstrations, and hands-on exercises, ending with a build session where you prototype an agentic workflow around your own research task. You’ll leave with working skills and a real prototype.\n\n\n\n\n\n\nImportantTwo things to bring\n\n\n\n\nA set-up laptop — all three pre-work steps done, verification checklist passing.\nA research task in mind — a simulation model, a data-cleaning pipeline, a figure you keep remaking, a reviewer response. The last part of the course is yours to build on it.",
     "crumbs": [
       "① Setup",
       "Pre-work",
@@ -276,11 +276,11 @@
     ]
   },
   {
-    "objectID": "index.html#questions-before-then",
-    "href": "index.html#questions-before-then",
+    "objectID": "index.html#join-the-community",
+    "href": "index.html#join-the-community",
     "title": "Agentic Coding for Research",
-    "section": "Questions before then?",
-    "text": "Questions before then?\nPost in the course Slack channel — for setup trouble, include the exact error message and your operating system.",
+    "section": "Join the community",
+    "text": "Join the community\nThe course has a Slack workspace that doubles as an ongoing community for researchers working with agentic AI — pre-course support, skill sharing, and news:\n→ Join the Agentic AI Working Group Slack\nQuestions before course day go there — for setup trouble, include the exact error message and your operating system.",
     "crumbs": [
       "① Setup",
       "Pre-work",
