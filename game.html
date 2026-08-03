@@ -190,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Pre-work</a></li><li class="breadcrumb-item"><a href="./game.html">② Terminal Trainer 🎮</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Terminal Trainer</h1>
-<p class="subtitle lead">Learn the terminal by playing — 8 missions, ~15 minutes, nothing to install</p>
+<p class="subtitle lead">Learn the terminal by playing — 9 missions, ~20 minutes, nothing to install</p>
 </div>
 
 
@@ -269,8 +269,9 @@ ul.task-list li input[type="checkbox"] {
   const screen = document.getElementById("tt-screen");
   const progressEl = document.getElementById("tt-progress");
 
-  const COMMANDS = ["pwd","ls","cd","mkdir","touch","cat","echo","rm","git","clear","help","hint","missions"];
-  const GIT_SUBS = ["init","status","add","commit","log","branch","switch","merge"];
+  const COMMANDS = ["pwd","ls","cd","mkdir","touch","cat","echo","rm","git","gh","clear","help","hint","missions"];
+  const GIT_SUBS = ["init","status","add","commit","log","branch","switch","push","pull","merge"];
+  const GH_SUBS = ["pr","create","diff","merge"];
   let history = [], hIdx = -1;
 
   function print(lines) {
@@ -294,10 +295,9 @@ ul.task-list li input[type="checkbox"] {
   function refresh() {
     promptEl.textContent = game.promptStr();
     const mi = game._state.missions();
-    const total = 8;
     progressEl.textContent = game._state.isComplete()
       ? "🏆 complete!"
-      : "mission " + (mi + 1) + "/" + total;
+      : "mission " + (mi + 1) + "/" + game.missionCount;
     screen.scrollTop = screen.scrollHeight;
   }
 
@@ -326,6 +326,7 @@ ul.task-list li input[type="checkbox"] {
       let pool;
       if (parts.length === 1) pool = COMMANDS;
       else if (parts[0] === "git") pool = GIT_SUBS.concat(game.cwdEntries());
+      else if (parts[0] === "gh") pool = GH_SUBS;
       else pool = game.cwdEntries();
       const matches = pool.filter((c) => c.startsWith(last));
       if (matches.length === 1) {
@@ -348,6 +349,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="what-this-covered-your-cheat-sheet" class="level2">
 <h2 class="anchored" data-anchor-id="what-this-covered-your-cheat-sheet">What this covered (your cheat sheet)</h2>
 <table class="table-striped caption-top table">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 60%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Command</th>
@@ -408,8 +413,24 @@ ul.task-list li input[type="checkbox"] {
 <td>Create + move to a new branch</td>
 </tr>
 <tr class="even">
-<td><code>git merge &lt;name&gt;</code></td>
-<td>Bring a branch’s work into the current one</td>
+<td><code>git push -u origin &lt;name&gt;</code></td>
+<td>Publish a branch to GitHub the first time (<code>git push</code> after that)</td>
+</tr>
+<tr class="odd">
+<td><code>git pull</code></td>
+<td>Fetch the latest from GitHub into your current branch</td>
+</tr>
+<tr class="even">
+<td><code>gh pr create</code></td>
+<td>Open a pull request proposing your branch into <code>main</code></td>
+</tr>
+<tr class="odd">
+<td><code>gh pr diff</code></td>
+<td><strong>Read the change</strong> — the review step; never skip it</td>
+</tr>
+<tr class="even">
+<td><code>gh pr merge</code></td>
+<td>Merge what you approved</td>
 </tr>
 </tbody>
 </table>
