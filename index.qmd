@@ -11,19 +11,21 @@ toc: false
 The future of research programming is shifting from writing every line to **directing, reviewing, and iterating with intelligent agents.**
 :::
 
-This half-day, hands-on course introduces agentic coding with tools like **Claude Code**, uses **git & GitHub** as your safety layer for collaborating with agents, and ends with you building a **custom workflow for your own research**.
+This half-day, hands-on SMDM short course teaches you to work with AI coding agents like **Claude Code** — with **git & GitHub** as your safety layer — and ends with you building a custom workflow for your own research.
 
-[Start with Setup →](setup.qmd){.btn-course} [See the agenda](agenda.qmd){.btn-course .ghost}
+[Start the pre-work →](setup.qmd){.btn-course}
 :::
 
-## Your path
+## Get ready: three pieces of pre-work
+
+The course is hands-on from the first hour, so arriving set up is everything. Work through these three steps in order — budget about an hour total. When you finish each one, post in the course Slack channel.
 
 ::: {.grid}
 ::: {.g-col-12 .g-col-md-4}
 ::: {.path-card}
 **① Set up your machine**
 
-~20 min. Install git, GitHub, and Claude Code, then run the verification checklist. Do this *before* course day.
+~30 min, done once. Install git, create a GitHub account, connect them with SSH keys, and install the `gh` CLI and Claude Code. Ends with a verification checklist.
 
 [Setup guide →](setup.qmd)
 :::
@@ -32,18 +34,18 @@ This half-day, hands-on course introduces agentic coding with tools like **Claud
 ::: {.path-card}
 **② Play the Terminal Trainer** 🎮
 
-~15 min, nothing to install. New to the terminal? Learn every command we'll use by playing 8 short missions in your browser.
+~15 min, in your browser, nothing to install. Eight missions that teach every terminal and git command we'll use — safely. Win the 🏆.
 
 [Play now →](game.qmd)
 :::
 :::
 ::: {.g-col-12 .g-col-md-4}
 ::: {.path-card}
-**③ Course day**
+**③ Git & GitHub Basics**
 
-Bring a research task. We go from "what is an agent" to shipping your own agentic workflow through pull requests.
+~20 min read + 15 min practice. What version control actually is, the mental model of a repository, and the branch → pull request → merge workflow the whole course runs on.
 
-[See the agenda →](agenda.qmd)
+[Read it →](git-basics.qmd)
 :::
 :::
 :::
@@ -52,38 +54,16 @@ Bring a research task. We go from "what is an agent" to shipping your own agenti
 
 Health researchers and academics who use R or Python for simulation models, data pipelines, or analysis scripts — and want to work faster and more reproducibly with AI agents. **No advanced programming experience required.** If you can write a basic R or Python script, you're ready.
 
-## What you'll leave with
+## What to expect on course day
 
-- A **working agentic setup**: git, a GitHub account, and Claude Code installed and verified.
-- A **mental model** for what agentic coding is — and where it helps (and hurts) research.
-- Hands-on practice **directing an agent through a git branch → pull request → review → merge** loop.
-- At least **one skill you wrote yourself** that automates a task you actually do.
-- A **prototype workflow** tailored to one of your own research projects.
-
-## Agenda at a glance
-
-| Time | Block | What happens |
-|------|-------|--------------|
-| 8:35 | Welcome + live demo | A "watch this" opening: dictate a task, an agent builds while we talk |
-| 8:50 | **1 · Foundations** | What agentic coding *is*: LLMs with tools, the agentic loop, the landscape |
-| 9:20 | **2 · Prompting & directing** | How to prompt, scope context, and use `CLAUDE.md` — *Exercise 1* |
-| 9:55 | *Break* | |
-| 10:05 | **3 · Git & GitHub** | Version control as the operating system for safe agent collaboration — *Exercise 2 & 3* |
-| 10:50 | **4 · Skills & workflows** | Customizing agents; anatomy of a skill — *Exercise 4* |
-| 11:20 | **5 · Build session** | Prototype a workflow for your own research — *Exercise 5* |
-| 11:55 | Wrap-up | Where to go next; sharing what you built |
-
-: {.striped}
-
-The [detailed agenda](agenda.qmd) has timing notes and links to each exercise.
-
-## Before we start
+Details will unlock here on course day — but the shape is: short lectures, live demonstrations, and hands-on exercises, ending with a build session where you prototype an agentic workflow around **your own research task**. You'll leave with working skills and a real prototype.
 
 ::: {.callout-important}
-## Do this *before* class
-Complete the [**Setup guide**](setup.qmd) and run the verification checklist. It takes ~20 minutes and installs git, a GitHub account, and Claude Code. Doing it live on Zoom eats into build time — please arrive set up.
+## Two things to bring
+1. **A set-up laptop** — all three pre-work steps done, verification checklist passing.
+2. **A research task in mind** — a simulation model, a data-cleaning pipeline, a figure you keep remaking, a reviewer response. The last hour is yours to build on it.
 :::
 
-## Bring a research task
+## Questions before then?
 
-The last hour is yours to build. Come with **one concrete task** in mind — a simulation model, a data-cleaning pipeline, a figure script, a reviewer response, anything you actually need to do. You'll leave having started it with an agent.
+Post in the course Slack channel — for setup trouble, include the exact error message and your operating system.

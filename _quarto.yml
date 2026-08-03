@@ -1,10 +1,19 @@
 project:
   type: website
   output-dir: _site
+  # ── PRE-WORK MODE ─────────────────────────────────────────────
+  # Only the pre-work pages are rendered/published for now.
+  # On course day, restore the full render list:
+  #   - "*.qmd"
+  #   - "exercises/*.qmd"
+  #   - "slides/*.qmd"
+  #   - "!templates/"
+  # ...and restore the full sidebar (see git history for this file).
   render:
-    - "*.qmd"
-    - "exercises/*.qmd"
-    - "slides/*.qmd"
+    - index.qmd
+    - setup.qmd
+    - game.qmd
+    - git-basics.qmd
     - "!templates/"
 
 website:
@@ -20,14 +29,12 @@ website:
     background: primary
     pinned: true
     left:
-      - text: "Setup"
+      - text: "① Setup"
         file: setup.qmd
-      - text: "Terminal Game"
+      - text: "② Terminal Trainer"
         file: game.qmd
-      - text: "Exercises"
-        file: exercises.qmd
-      - text: "Resources"
-        file: resources.qmd
+      - text: "③ Git Basics"
+        file: git-basics.qmd
     right:
       - icon: github
         href: https://github.com/jacobjameson/smdm_agentic_ai
@@ -36,7 +43,7 @@ website:
     style: "docked"
     collapse-level: 2
     contents:
-      - section: "Start here"
+      - section: "Pre-work"
         contents:
           - text: "Home"
             file: index.qmd
@@ -44,40 +51,8 @@ website:
             file: setup.qmd
           - text: "② Terminal Trainer 🎮"
             file: game.qmd
-          - text: "Agenda"
-            file: agenda.qmd
-      - section: "Course modules"
-        contents:
-          - text: "1 · Foundations"
-            file: foundations.qmd
-          - text: "2 · Prompting & Directing"
-            file: prompting.qmd
-          - text: "3 · Git & GitHub"
-            file: git-github.qmd
-          - text: "4 · Skills & Workflows"
-            file: skills.qmd
-          - text: "5 · Build Session"
-            file: build-session.qmd
-      - section: "Exercises"
-        contents:
-          - text: "All exercises"
-            file: exercises.qmd
-          - text: "1 · First agent session"
-            file: exercises/ex1-first-session.qmd
-          - text: "2 · Git with an agent"
-            file: exercises/ex2-git-with-agent.qmd
-          - text: "3 · Write a CLAUDE.md"
-            file: exercises/ex3-claude-md.qmd
-          - text: "4 · Write your first skill"
-            file: exercises/ex4-first-skill.qmd
-          - text: "5 · Your own workflow"
-            file: exercises/ex5-your-workflow.qmd
-      - section: "Reference"
-        contents:
-          - text: "Resources & cheat sheets"
-            file: resources.qmd
-          - text: "Facilitator notes"
-            file: instructor.qmd
+          - text: "③ Git & GitHub Basics"
+            file: git-basics.qmd
   page-footer:
     left: "SMDM Short Course · Jacob Jameson, MS · Harvard University"
     right:
