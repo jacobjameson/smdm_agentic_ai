@@ -10,6 +10,11 @@ We're fully remote on Zoom, and setup problems are slow to debug for 30 people a
 
 You need four things: **git**, a **GitHub account** (with the `gh` CLI), **Claude Code**, and a working **terminal**. Here's each, by operating system.
 
+::: {.callout-tip}
+## Never used a terminal? Play first.
+If commands like `cd` and `git commit` are new to you, spend 15 minutes in the [**Terminal Trainer**](game.qmd) 🎮 — a safe, in-browser terminal that teaches every command this page (and the course) uses. Then come back here and do it for real.
+:::
+
 ## 1. A terminal
 
 - **macOS:** open **Terminal** (Applications → Utilities → Terminal), or install [iTerm2](https://iterm2.com/).

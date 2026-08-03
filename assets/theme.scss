@@ -89,6 +89,26 @@ thead th { border-bottom: 2px solid $primary; }
 }
 .recap p:first-child { margin-top: 0; font-weight: 700; color: #{$primary}; }
 
+// Homepage path cards
+.path-card {
+  border: 1.5px solid #dfe7ee;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.25rem 1rem 1.25rem;
+  height: 100%;
+  background: #fff;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.path-card:hover {
+  border-color: #{$primary};
+  box-shadow: 0 6px 18px rgba(31, 78, 121, 0.12);
+}
+.path-card p:first-child {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+  color: #{$primary};
+}
+.path-card p:last-child { margin-bottom: 0; font-weight: 600; }
+
 // Small time chips for the agenda
 .chip {
   display: inline-block;

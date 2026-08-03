@@ -13,13 +13,17 @@ This channel is home base for our SMDM short course on **[DATE] · 8:35 AM–12:
 Everything is here: https://jacobjameson.com/smdm_agentic_ai/setup.html
 You need: git, a GitHub account (with the `gh` CLI), and Claude Code — the page has step-by-step instructions per OS and a **verification checklist** at the bottom. Run the checklist; if anything fails, post the error in this channel and we'll debug before class instead of during it.
 
-**:two: Take the 4-question baseline poll** :point_down:
+**:two: New to the terminal? Play the Terminal Trainer** :video_game:
+https://jacobjameson.com/smdm_agentic_ai/game.html
+15 minutes, in your browser, nothing to install: 8 missions that teach every terminal and git command we'll use. When you beat it, post your :trophy: here!
+
+**:three: Take the 4-question baseline poll** :point_down:
 Posted below — react with the emoji that matches. Takes 20 seconds and shapes how I pitch the course.
 
-**:three: Bring a research task**
+**:four: Bring a research task**
 The final hour is a hands-on build on *your* work. Come with one concrete task in mind — a simulation model, a data-cleaning pipeline, a figure you keep remaking, a reviewer response. If you want a suggestion, post a sentence about your project here and I'll help you pick.
 
-**:four: Skim the course site (optional)**
+**:five: Skim the course site (optional)**
 https://jacobjameson.com/smdm_agentic_ai/ — we'll navigate it together live; everything is copy-paste friendly.
 
 **Channel norms:** questions welcome at any level (the course assumes beginners) · share what you build — especially skills — so others can steal it · news/links about agentic AI in research very welcome.

@@ -16,6 +16,38 @@ This half-day, hands-on course introduces agentic coding with tools like **Claud
 [Start with Setup →](setup.qmd){.btn-course} [See the agenda](agenda.qmd){.btn-course .ghost}
 :::
 
+## Your path
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-4}
+::: {.path-card}
+**① Set up your machine**
+
+~20 min. Install git, GitHub, and Claude Code, then run the verification checklist. Do this *before* course day.
+
+[Setup guide →](setup.qmd)
+:::
+:::
+::: {.g-col-12 .g-col-md-4}
+::: {.path-card}
+**② Play the Terminal Trainer** 🎮
+
+~15 min, nothing to install. New to the terminal? Learn every command we'll use by playing 8 short missions in your browser.
+
+[Play now →](game.qmd)
+:::
+:::
+::: {.g-col-12 .g-col-md-4}
+::: {.path-card}
+**③ Course day**
+
+Bring a research task. We go from "what is an agent" to shipping your own agentic workflow through pull requests.
+
+[See the agenda →](agenda.qmd)
+:::
+:::
+:::
+
 ## Who this is for
 
 Health researchers and academics who use R or Python for simulation models, data pipelines, or analysis scripts — and want to work faster and more reproducibly with AI agents. **No advanced programming experience required.** If you can write a basic R or Python script, you're ready.

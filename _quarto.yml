@@ -20,13 +20,10 @@ website:
     background: primary
     pinned: true
     left:
-      - text: "Home"
-        file: index.qmd
       - text: "Setup"
         file: setup.qmd
-      - text: "Agenda"
-        file: agenda.qmd
-      - sidebar:course
+      - text: "Terminal Game"
+        file: game.qmd
       - text: "Exercises"
         file: exercises.qmd
       - text: "Resources"
@@ -36,43 +33,51 @@ website:
         href: https://github.com/jacobjameson/smdm_agentic_ai
         aria-label: GitHub
   sidebar:
-    - id: course
-      title: "Course"
-      style: "docked"
-      collapse-level: 2
-      contents:
-        - section: "Modules"
-          contents:
-            - text: "1 · Foundations"
-              file: foundations.qmd
-            - text: "2 · Prompting & Directing"
-              file: prompting.qmd
-            - text: "3 · Git & GitHub"
-              file: git-github.qmd
-            - text: "4 · Skills & Workflows"
-              file: skills.qmd
-            - text: "5 · Build Session"
-              file: build-session.qmd
-        - section: "Hands-on"
-          contents:
-            - text: "All exercises"
-              file: exercises.qmd
-            - text: "1 · First agent session"
-              file: exercises/ex1-first-session.qmd
-            - text: "2 · Git with an agent"
-              file: exercises/ex2-git-with-agent.qmd
-            - text: "3 · Write a CLAUDE.md"
-              file: exercises/ex3-claude-md.qmd
-            - text: "4 · Write your first skill"
-              file: exercises/ex4-first-skill.qmd
-            - text: "5 · Your own workflow"
-              file: exercises/ex5-your-workflow.qmd
-        - section: "Reference"
-          contents:
-            - text: "Resources & cheat sheets"
-              file: resources.qmd
-            - text: "Facilitator notes"
-              file: instructor.qmd
+    style: "docked"
+    collapse-level: 2
+    contents:
+      - section: "Start here"
+        contents:
+          - text: "Home"
+            file: index.qmd
+          - text: "① Setup guide"
+            file: setup.qmd
+          - text: "② Terminal Trainer 🎮"
+            file: game.qmd
+          - text: "Agenda"
+            file: agenda.qmd
+      - section: "Course modules"
+        contents:
+          - text: "1 · Foundations"
+            file: foundations.qmd
+          - text: "2 · Prompting & Directing"
+            file: prompting.qmd
+          - text: "3 · Git & GitHub"
+            file: git-github.qmd
+          - text: "4 · Skills & Workflows"
+            file: skills.qmd
+          - text: "5 · Build Session"
+            file: build-session.qmd
+      - section: "Exercises"
+        contents:
+          - text: "All exercises"
+            file: exercises.qmd
+          - text: "1 · First agent session"
+            file: exercises/ex1-first-session.qmd
+          - text: "2 · Git with an agent"
+            file: exercises/ex2-git-with-agent.qmd
+          - text: "3 · Write a CLAUDE.md"
+            file: exercises/ex3-claude-md.qmd
+          - text: "4 · Write your first skill"
+            file: exercises/ex4-first-skill.qmd
+          - text: "5 · Your own workflow"
+            file: exercises/ex5-your-workflow.qmd
+      - section: "Reference"
+        contents:
+          - text: "Resources & cheat sheets"
+            file: resources.qmd
+          - text: "Facilitator notes"
+            file: instructor.qmd
   page-footer:
     left: "SMDM Short Course · Jacob Jameson, MS · Harvard University"
     right:

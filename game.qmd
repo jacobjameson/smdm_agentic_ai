@@ -1,0 +1,176 @@
+---
+title: "Terminal Trainer"
+subtitle: "Learn the terminal by playing — 8 missions, ~15 minutes, nothing to install"
+toc: false
+resources:
+  - assets/terminal-game.js
+---
+
+Before the course, you need to be comfortable with a handful of terminal commands. Instead of a reading assignment, play this: a **safe, simulated terminal** that walks you through everything — navigating, creating files and folders, and the git commands we'll use on course day. You can't break anything, and you don't need anything installed.
+
+**Click the terminal and start typing.** Type `help` for commands, `hint` if you're stuck. When you win, post your 🏆 in the Slack channel.
+
+```{=html}
+<div id="tt-wrap">
+  <div id="tt-titlebar">
+    <span class="tt-dot" style="background:#ff5f56"></span>
+    <span class="tt-dot" style="background:#ffbd2e"></span>
+    <span class="tt-dot" style="background:#27c93f"></span>
+    <span id="tt-title">you@smdm — terminal trainer</span>
+    <span id="tt-progress"></span>
+  </div>
+  <div id="tt-screen" tabindex="0">
+    <div id="tt-out"></div>
+    <div id="tt-inputline">
+      <span id="tt-prompt"></span>
+      <input id="tt-input" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="terminal input" />
+    </div>
+  </div>
+</div>
+
+<style>
+#tt-wrap {
+  border-radius: 10px; overflow: hidden; margin: 1rem 0 2rem 0;
+  box-shadow: 0 8px 30px rgba(0,0,0,.35);
+  font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+}
+#tt-titlebar {
+  background: #21262d; padding: .5rem .8rem; display: flex; align-items: center; gap: .45rem;
+  font-size: .8rem; color: #8b949e;
+}
+.tt-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+#tt-title { margin-left: .5rem; }
+#tt-progress { margin-left: auto; color: #d29922; }
+#tt-screen {
+  background: #0d1117; color: #c9d1d9; padding: 1rem; height: 65vh; min-height: 420px;
+  overflow-y: auto; font-size: .95rem; line-height: 1.5; cursor: text;
+}
+#tt-out div { white-space: pre-wrap; word-break: break-word; }
+#tt-inputline { display: flex; align-items: baseline; gap: .5rem; }
+#tt-prompt { color: #58a6ff; white-space: nowrap; }
+#tt-input {
+  flex: 1; background: transparent; border: none; outline: none; color: #c9d1d9;
+  font: inherit; caret-color: #58a6ff; padding: 0;
+}
+.tt-ok   { color: #3fb950; }
+.tt-err  { color: #f85149; }
+.tt-info { color: #58a6ff; }
+.tt-sys  { color: #d29922; }
+.tt-dim  { color: #8b949e; }
+.tt-echo { color: #c9d1d9; }
+.tt-echo .tt-p { color: #58a6ff; }
+</style>
+
+<script src="assets/terminal-game.js"></script>
+<script>
+(function () {
+  const game = createGame();
+  const out = document.getElementById("tt-out");
+  const input = document.getElementById("tt-input");
+  const promptEl = document.getElementById("tt-prompt");
+  const screen = document.getElementById("tt-screen");
+  const progressEl = document.getElementById("tt-progress");
+
+  const COMMANDS = ["pwd","ls","cd","mkdir","touch","cat","echo","rm","git","clear","help","hint","missions"];
+  const GIT_SUBS = ["init","status","add","commit","log","branch","switch","merge"];
+  let history = [], hIdx = -1;
+
+  function print(lines) {
+    for (const l of lines) {
+      const d = document.createElement("div");
+      d.textContent = l.t === "" ? " " : l.t;
+      if (l.c) d.className = "tt-" + l.c;
+      out.appendChild(d);
+    }
+  }
+  function echoCmd(cmd) {
+    const d = document.createElement("div");
+    d.className = "tt-echo";
+    const p = document.createElement("span");
+    p.className = "tt-p";
+    p.textContent = promptEl.textContent + " ";
+    d.appendChild(p);
+    d.appendChild(document.createTextNode(cmd));
+    out.appendChild(d);
+  }
+  function refresh() {
+    promptEl.textContent = game.promptStr();
+    const mi = game._state.missions();
+    const total = 8;
+    progressEl.textContent = game._state.isComplete()
+      ? "🏆 complete!"
+      : "mission " + (mi + 1) + "/" + total;
+    screen.scrollTop = screen.scrollHeight;
+  }
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      const cmd = input.value;
+      input.value = "";
+      echoCmd(cmd);
+      if (cmd.trim()) { history.push(cmd); hIdx = history.length; }
+      const r = game.run(cmd);
+      if (r.clear) out.innerHTML = "";
+      print(r.out);
+      refresh();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (hIdx > 0) { hIdx--; input.value = history[hIdx]; }
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (hIdx < history.length - 1) { hIdx++; input.value = history[hIdx]; }
+      else { hIdx = history.length; input.value = ""; }
+    } else if (e.key === "Tab") {
+      e.preventDefault();
+      const parts = input.value.split(/\s+/);
+      const last = parts[parts.length - 1];
+      if (last === "") return;
+      let pool;
+      if (parts.length === 1) pool = COMMANDS;
+      else if (parts[0] === "git") pool = GIT_SUBS.concat(game.cwdEntries());
+      else pool = game.cwdEntries();
+      const matches = pool.filter((c) => c.startsWith(last));
+      if (matches.length === 1) {
+        parts[parts.length - 1] = matches[0];
+        input.value = parts.join(" ");
+      } else if (matches.length > 1) {
+        print([{ t: matches.join("   "), c: "dim" }]);
+        refresh();
+      }
+    }
+  });
+
+  screen.addEventListener("click", function () { input.focus(); });
+
+  print(game.intro());
+  refresh();
+  input.focus();
+})();
+</script>
+```
+
+## What this covered (your cheat sheet)
+
+| Command | What it does |
+|---------|--------------|
+| `pwd` | Where am I? |
+| `ls` | What's here? |
+| `cd <dir>` / `cd ..` / `cd ~` | Move into a folder / up one / home |
+| `mkdir <name>` | Make a folder |
+| `touch <name>` | Make an empty file |
+| `cat <file>` | Print a file's contents |
+| `echo "text" > <file>` | Write text into a file (`>>` appends) |
+| `git init` | Start tracking a folder with git |
+| `git status` | What does git see right now? *(run constantly)* |
+| `git add .` | Stage changes for the next snapshot |
+| `git commit -m "msg"` | Save the snapshot |
+| `git log` | Show history |
+| `git switch -c <name>` | Create + move to a new branch |
+| `git merge <name>` | Bring a branch's work into the current one |
+
+: {.striped}
+
+::: {.callout-tip}
+## Done? Do the real thing.
+The [Setup guide](setup.qmd) walks you through installing git and Claude Code on your actual machine — including creating and pushing a real repo to GitHub. Everything you practiced here works exactly the same, plus a few things a simulation can't teach (like `gh auth login`).
+:::
