@@ -34,7 +34,7 @@ The course is hands-on from the first hour, so arriving set up is everything. Wo
 ::: {.path-card}
 **② Play the Terminal Trainer** 🎮
 
-~15 min, in your browser, nothing to install. Eight missions that teach every terminal and git command we'll use — safely. Win the 🏆.
+~20 min, in your browser, nothing to install. Nine missions that teach every terminal and git command we'll use — through your first pull request. Win the 🏆.
 
 [Play now →](game.qmd)
 :::

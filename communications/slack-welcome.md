@@ -15,7 +15,7 @@ You need: git, a GitHub account (with the `gh` CLI), and Claude Code — the pag
 
 **:two: New to the terminal? Play the Terminal Trainer** :video_game:
 https://jacobjameson.com/smdm_agentic_ai/game.html
-15 minutes, in your browser, nothing to install: 8 missions that teach every terminal and git command we'll use. When you beat it, post your :trophy: here!
+20 minutes, in your browser, nothing to install: 9 missions that take you from `pwd` all the way through your first pull request. When you beat it, post your :trophy: here!
 
 **:three: Take the 4-question baseline poll** :point_down:
 Posted below — react with the emoji that matches. Takes 20 seconds and shapes how I pitch the course.

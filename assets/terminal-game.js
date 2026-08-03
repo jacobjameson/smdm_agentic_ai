@@ -30,6 +30,9 @@ function createGame() {
     files: {}, // path -> 'untracked' | 'staged' | 'committed' | 'modified'
     commits: [], // {msg, branch, files: [paths]}
     merged: [], // branch names merged into main
+    upstreams: [], // branches linked to origin via -u
+    pr: { open: false, branch: null, num: 0, diffViewed: false, merged: false },
+    synced: false, // local main pulled after PR merge
   };
 
   // ---------- mission flags ----------
@@ -73,7 +76,6 @@ function createGame() {
   }
 
   function repoFilePaths() {
-    // all files under the repo root
     const out = [];
     const rootParts = git.rootPath === "~" ? [] : git.rootPath.slice(2).split("/");
     const base = getNode(rootParts);
@@ -184,28 +186,45 @@ function createGame() {
       done: "Small, frequent commits with clear messages = free undo + a readable history.",
     },
     {
+      title: "Publish to GitHub",
+      brief: [
+        "Right now your commits exist only on this computer. Push them to GitHub for backup and sharing.",
+        "(We've pre-connected a pretend GitHub repo for you, named `origin`.)",
+        "  ▸ `git push` — try it! Watch what git tells you...",
+        "  ▸ ...then follow its advice: `git push -u origin main`",
+        "The `-u` links your local branch to GitHub — needed once per branch; after that, plain `git push` works.",
+      ],
+      hint: "git push   (read the message)   then   git push -u origin main",
+      check: () => git.upstreams.includes("main"),
+      done: "Your work now lives on GitHub too — backed up, shareable, and ready for collaboration.",
+    },
+    {
       title: "Branch out",
       brief: [
-        "Branches are sandboxes — on course day, your AI agent will work in one. Make a branch, do some work, commit it:",
+        "Branches are sandboxes — on course day, your AI agent will work in one. Make a branch, do some work, and push it:",
         "  ▸ `git switch -c figures` — create a branch called 'figures' and move to it",
         "  ▸ `touch plot.R`",
         "  ▸ `git add plot.R`",
         '  ▸ `git commit -m "Add plot script"`',
+        "  ▸ `git push -u origin figures` — publish the branch",
       ],
-      hint: 'git switch -c figures   touch plot.R   git add plot.R   git commit -m "Add plot script"',
+      hint: 'git switch -c figures   touch plot.R   git add plot.R   git commit -m "Add plot script"   git push -u origin figures',
       check: () =>
-        git.commits.some((c) => c.branch !== "main" && c.files.some((f) => f.endsWith(".R"))),
+        git.commits.some((c) => c.branch !== "main" && c.files.some((f) => f.endsWith(".R"))) &&
+        git.upstreams.some((b) => b !== "main"),
       done: "Notice your prompt shows the branch you're on. main hasn't changed at all.",
     },
     {
-      title: "Merge what you approve",
+      title: "Open a pull request — merge what you approve",
       brief: [
-        "The work on your branch is done. Bring it into main — *your* decision, nobody else's:",
-        "  ▸ `git switch main` — go back to main (plot.R vanishes... it lives on the branch!)",
-        "  ▸ `git merge figures` — pull the approved work in",
+        "A pull request (PR) proposes your branch's work for `main` — and nothing merges until YOU approve it. This is the whole safety model of the course:",
+        "  ▸ `gh pr create` — open a pull request",
+        "  ▸ `gh pr diff` — READ the change (the review step — never skip it)",
+        "  ▸ `gh pr merge` — merge what you approved",
+        "  ▸ `git switch main` then `git pull` — sync your local main with what you merged",
       ],
-      hint: "git switch main   then   git merge figures",
-      check: () => git.current === "main" && git.merged.length >= 1,
+      hint: "gh pr create   gh pr diff   gh pr merge   git switch main   git pull",
+      check: () => git.pr.merged && git.current === "main" && git.synced,
       done: "",
     },
   ];
@@ -228,14 +247,14 @@ function createGame() {
       L("🏆 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 🏆", "ok"),
       L("   YOU BEAT THE TERMINAL TRAINER!", "ok"),
       L(""),
-      L("   You just did, in miniature, the exact loop from the course:", "sys"),
-      L("   work on a branch → review → merge what you approve.", "sys"),
+      L("   You just ran, in miniature, the exact loop from the course:", "sys"),
+      L("   branch → push → pull request → REVIEW THE DIFF → merge.", "sys"),
       L("   On course day an AI agent does the typing — and now you can", "sys"),
-      L("   read every move it makes.", "sys"),
+      L("   read every move it makes, and nothing lands without your OK.", "sys"),
       L(""),
       L("   ✅ Post \"🏆 terminal: cleared\" in the course Slack channel!", "ok"),
       L(""),
-      L("   Next: do the real setup → jacobjameson.com/smdm_agentic_ai/setup.html", "info"),
+      L("   Next: do the real thing → jacobjameson.com/smdm_agentic_ai/setup.html", "info"),
       L("🏆 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 🏆", "ok"),
     ];
   }
@@ -264,9 +283,9 @@ function createGame() {
     if (!n) return [L(`ls: cannot access '${args[0]}': No such file or directory`, "err")];
     if (n.type === "file") return [L(args[0])];
     const names = Object.keys(n.children).sort();
-    if (!names.length) return [L("(empty)", "dim")];
     if (target.length === 0) flags.lsHome = true;
     if (target.length === 1 && target[0] === "research") flags.lsResearch = true;
+    if (!names.length) return [L("(empty)", "dim")];
     return [
       L(
         names
@@ -328,7 +347,6 @@ function createGame() {
   }
 
   function cmdEcho(tokens) {
-    // tokens excludes 'echo'. Look for > or >>
     const gt = tokens.findIndex((t) => t === ">" || t === ">>");
     if (gt === -1) return [L(tokens.join(" "))];
     const text = tokens.slice(0, gt).join(" ");
@@ -367,13 +385,13 @@ function createGame() {
   // ---------- git ----------
   function gitCmd(tokens) {
     const sub = tokens[0];
-    if (!sub) return [L("usage: git <init|status|add|commit|log|branch|switch|merge>", "err")];
+    if (!sub)
+      return [L("usage: git <init|status|add|commit|log|branch|switch|push|pull|merge>", "err")];
 
     if (sub === "init") {
       if (git.initialized) return [L("Reinitialized existing Git repository", "dim")];
       git.initialized = true;
       git.rootPath = pathStr(cwd);
-      // mark existing files untracked
       for (const p of repoFilePaths()) git.files[p] = "untracked";
       return [L(`Initialized empty Git repository in ${git.rootPath}/.git/`, "ok")];
     }
@@ -441,7 +459,7 @@ function createGame() {
       stagedPaths.forEach((p) => (git.files[p] = "committed"));
       git.commits.push({ msg, branch: git.current, files: stagedPaths });
       return [
-        L(`[${git.current} ${Math.random ? "" : ""}${"c" + git.commits.length}] ${msg}`, "ok"),
+        L(`[${git.current} ${"c" + git.commits.length}] ${msg}`, "ok"),
         L(` ${stagedPaths.length} file(s) changed`, "dim"),
       ];
     }
@@ -458,7 +476,9 @@ function createGame() {
     }
 
     if (sub === "branch") {
-      return git.branches.map((b) => L((b === git.current ? "* " : "  ") + b, b === git.current ? "ok" : ""));
+      return git.branches.map((b) =>
+        L((b === git.current ? "* " : "  ") + b, b === git.current ? "ok" : "")
+      );
     }
 
     if (sub === "switch" || sub === "checkout") {
@@ -481,21 +501,150 @@ function createGame() {
       return [L(`Switched to branch '${name}'`, "ok")];
     }
 
+    if (sub === "push") {
+      if (!git.commits.length)
+        return [L("error: nothing to push — make a commit first", "err")];
+      let rest = tokens.slice(1);
+      let setUpstream = false;
+      let branch = null;
+      if (rest[0] === "-u" || rest[0] === "--set-upstream") {
+        setUpstream = true;
+        rest = rest.slice(1);
+      }
+      if (rest[0] === "origin") {
+        branch = rest[1] || null;
+        rest = rest.slice(2);
+      } else if (rest.length && rest[0] !== "origin") {
+        return [L(`fatal: '${rest[0]}' does not appear to be a git repository (the remote here is named origin)`, "err")];
+      }
+      if (setUpstream && !branch)
+        return [L("usage: git push -u origin <branch-name>", "err")];
+      if (branch && branch !== git.current)
+        return [
+          L(`error: you're on '${git.current}' but tried to push '${branch}'.`, "err"),
+          L(`Push the branch you're on:  git push -u origin ${git.current}`, "info"),
+        ];
+      if (!setUpstream && !git.upstreams.includes(git.current))
+        return [
+          L(`fatal: the current branch ${git.current} has no upstream branch.`, "err"),
+          L("To push and link it to GitHub (first time only), use:", "info"),
+          L(`    git push -u origin ${git.current}`, "info"),
+        ];
+      if (setUpstream && !git.upstreams.includes(git.current)) git.upstreams.push(git.current);
+      const isNew = setUpstream;
+      return [
+        L("Enumerating objects... done.", "dim"),
+        L("To github.com:you/my-project.git", "dim"),
+        isNew
+          ? L(` * [new branch]      ${git.current} -> ${git.current}`, "ok")
+          : L(`   ${git.current} -> ${git.current}`, "ok"),
+        ...(isNew
+          ? [L(`Branch '${git.current}' set up to track 'origin/${git.current}'.`, "dim")]
+          : []),
+      ];
+    }
+
+    if (sub === "pull") {
+      if (git.pr.merged && git.current === "main" && !git.synced) {
+        git.synced = true;
+        return [
+          L("Updating main..origin/main", "dim"),
+          L("Fast-forward", "ok"),
+          L(" plot.R | 1 +", "dim"),
+          L(" 1 file changed", "dim"),
+        ];
+      }
+      return [L("Already up to date.", "dim")];
+    }
+
     if (sub === "merge") {
       const name = tokens[1];
       if (!name) return [L("usage: git merge <branch>", "err")];
       if (!git.branches.includes(name)) return [L(`merge: ${name} — not something we can merge`, "err")];
       if (name === git.current) return [L(`Already up to date.`, "dim")];
-      git.merged.push(name);
       return [
-        L(`Updating main..${name}`, "dim"),
-        L("Fast-forward", "ok"),
-        L(` plot.R | 1 +`, "dim"),
-        L(` 1 file changed`, "dim"),
+        L("You *could* merge locally — but in this trainer (and in the course!) we", "sys"),
+        L("merge through a pull request, so there's always a review step:", "sys"),
+        L("    gh pr create   →   gh pr diff   →   gh pr merge", "info"),
       ];
     }
 
-    return [L(`git: '${sub}' is not a git command this trainer knows. Try: init status add commit log branch switch merge`, "err")];
+    return [L(`git: '${sub}' is not a git command this trainer knows. Try: init status add commit log branch switch push pull merge`, "err")];
+  }
+
+  // ---------- gh (GitHub CLI) ----------
+  function ghCmd(tokens) {
+    if (tokens[0] !== "pr")
+      return [L("usage: gh pr <create|diff|merge>   (this trainer supports the pr commands)", "err")];
+    if (!git.initialized) return [L("fatal: not a git repository", "err")];
+    const sub = tokens[1];
+
+    if (sub === "create") {
+      if (git.current === "main")
+        return [
+          L("error: you're on main — a pull request proposes a *branch* into main.", "err"),
+          L("Switch to your feature branch first:  git switch figures", "info"),
+        ];
+      if (!git.upstreams.includes(git.current))
+        return [
+          L("error: your branch isn't on GitHub yet.", "err"),
+          L(`Push it first:  git push -u origin ${git.current}`, "info"),
+        ];
+      if (git.pr.open) return [L(`a pull request for '${git.pr.branch}' already exists (#${git.pr.num})`, "dim")];
+      git.pr.open = true;
+      git.pr.branch = git.current;
+      git.pr.num += 1;
+      git.pr.diffViewed = false;
+      return [
+        L(`Creating pull request for ${git.current} into main in you/my-project`, "dim"),
+        L(""),
+        L(`https://github.com/you/my-project/pull/${git.pr.num}`, "ok"),
+        L(""),
+        L("Before you merge: READ THE DIFF →  gh pr diff", "sys"),
+      ];
+    }
+
+    if (sub === "diff") {
+      if (!git.pr.open) return [L("no open pull request — create one with: gh pr create", "err")];
+      git.pr.diffViewed = true;
+      const prFiles = [
+        ...new Set(
+          git.commits.filter((c) => c.branch === git.pr.branch).flatMap((c) => c.files)
+        ),
+      ];
+      const out = [];
+      prFiles.forEach((p) => {
+        const name = p.split("/").pop();
+        out.push(L(`diff --git a/${name} b/${name}`, "info"));
+        out.push(L(`new file: ${name}`, "ok"));
+        out.push(L(`+ (contents of ${name})`, "ok"));
+      });
+      out.push(L(""));
+      out.push(L("That's everything this PR would change. Nothing else. If it looks right → gh pr merge", "dim"));
+      return out;
+    }
+
+    if (sub === "merge") {
+      if (!git.pr.open) return [L("no open pull request — create one with: gh pr create", "err")];
+      if (!git.pr.diffViewed)
+        return [
+          L("⚠ You haven't reviewed this PR.", "err"),
+          L("The one rule of the course: never merge what you haven't reviewed.", "sys"),
+          L("Read it first:  gh pr diff", "info"),
+        ];
+      git.pr.open = false;
+      git.pr.merged = true;
+      git.merged.push(git.pr.branch);
+      return [
+        L(`✔ Squashed and merged pull request #${git.pr.num} (${git.pr.branch} → main)`, "ok"),
+        L("✔ Deleted branch on GitHub", "dim"),
+        L(""),
+        L("Your local main doesn't know yet — sync it:", "sys"),
+        L("    git switch main   then   git pull", "info"),
+      ];
+    }
+
+    return [L("usage: gh pr <create|diff|merge>", "err")];
   }
 
   // ---------- dispatcher ----------
@@ -535,12 +684,16 @@ function createGame() {
       case "git":
         out.push(...gitCmd(args));
         break;
+      case "gh":
+        out.push(...ghCmd(args));
+        break;
       case "clear":
         return { out, prompt: promptStr(), clear: true, completed };
       case "help":
         out.push(
           L("Files & folders:  pwd · ls · cd <dir> · cd .. · mkdir <name> · touch <name> · cat <file> · echo \"text\" > <file> · rm <file>", "info"),
-          L("Git:              git init · git status · git add · git commit -m \"msg\" · git log · git branch · git switch [-c] · git merge", "info"),
+          L("Git:              git init · git status · git add · git commit -m \"msg\" · git log · git branch · git switch [-c] · git push [-u origin <br>] · git pull", "info"),
+          L("GitHub:           gh pr create · gh pr diff · gh pr merge", "info"),
           L("Trainer:          hint · missions · clear · help", "info")
         );
         break;
@@ -572,7 +725,7 @@ function createGame() {
     return [
       L("┌──────────────────────────────────────────────────────────┐", "info"),
       L("│           TERMINAL TRAINER · pre-work edition            │", "info"),
-      L("│   8 short missions: navigate, build, and git like a pro  │", "info"),
+      L("│  9 short missions: navigate, build, commit, push, merge  │", "info"),
       L("└──────────────────────────────────────────────────────────┘", "info"),
       L("This is a safe, simulated terminal — you cannot break anything.", "dim"),
       L("Type `help` anytime for the command list, `hint` if you're stuck.", "dim"),
@@ -580,12 +733,11 @@ function createGame() {
     ];
   }
 
-  // expose for DOM layer + tests
   return {
     run,
     intro,
     promptStr,
-    // for tab completion
+    missionCount: missions.length,
     cwdEntries: () => {
       const n = getNode(cwd);
       return n ? Object.keys(n.children) : [];
