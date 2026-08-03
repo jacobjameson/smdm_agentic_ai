@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/git-basics.html</loc>
-    <lastmod>2026-08-03T19:54:07.918Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/setup.html</loc>
-    <lastmod>2026-08-03T19:54:07.918Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jacobjameson.com/smdm_agentic_ai/index.html</loc>
-    <lastmod>2026-08-03T19:54:07.918Z</lastmod>
+    <loc>https://jacobjameson.com/smdm_agentic_ai/survey.html</loc>
+    <lastmod>2026-08-03T19:59:39.228Z</lastmod>
   </url>
   <url>
     <loc>https://jacobjameson.com/smdm_agentic_ai/game.html</loc>
-    <lastmod>2026-08-03T19:54:07.918Z</lastmod>
+    <lastmod>2026-08-03T19:59:39.227Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jacobjameson.com/smdm_agentic_ai/index.html</loc>
+    <lastmod>2026-08-03T19:59:39.227Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jacobjameson.com/smdm_agentic_ai/setup.html</loc>
+    <lastmod>2026-08-03T19:59:39.228Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jacobjameson.com/smdm_agentic_ai/git-basics.html</loc>
+    <lastmod>2026-08-03T19:59:39.227Z</lastmod>
   </url>
 </urlset>

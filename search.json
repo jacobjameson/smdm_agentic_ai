@@ -1,5 +1,209 @@
 [
   {
+    "objectID": "survey.html",
+    "href": "survey.html",
+    "title": "Baseline Survey",
+    "section": "",
+    "text": "Before course day, tell me where you’re starting from. Responses shape how much time we spend on basics versus advanced material — and the anonymized results make an appearance in the opening session.\n\n  Loading…\n\nPrefer not to use the embedded form? Open it in a new tab instead.\nDone? Continue with the pre-work: ① Setup · ② Terminal Trainer 🎮 · ③ Git Basics\n\n\n\n Back to top",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "Baseline survey ✏️"
+    ]
+  },
+  {
+    "objectID": "game.html",
+    "href": "game.html",
+    "title": "Terminal Trainer",
+    "section": "",
+    "text": "Before the course, you need to be comfortable with a handful of terminal commands. Instead of a reading assignment, play this: a safe, simulated terminal that walks you through everything — navigating, creating files and folders, and the git commands we’ll use on course day. You can’t break anything, and you don’t need anything installed.\nClick the terminal and start typing. Type help for commands, hint if you’re stuck. When you win, post your 🏆 in the Slack channel.",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "② Terminal Trainer 🎮"
+    ]
+  },
+  {
+    "objectID": "game.html#what-this-covered-your-cheat-sheet",
+    "href": "game.html#what-this-covered-your-cheat-sheet",
+    "title": "Terminal Trainer",
+    "section": "What this covered (your cheat sheet)",
+    "text": "What this covered (your cheat sheet)\n\n\n\n\n\n\n\nCommand\nWhat it does\n\n\n\n\npwd\nWhere am I?\n\n\nls\nWhat’s here?\n\n\ncd &lt;dir&gt; / cd .. / cd ~\nMove into a folder / up one / home\n\n\nmkdir &lt;name&gt;\nMake a folder\n\n\ntouch &lt;name&gt;\nMake an empty file\n\n\ncat &lt;file&gt;\nPrint a file’s contents\n\n\necho \"text\" &gt; &lt;file&gt;\nWrite text into a file (&gt;&gt; appends)\n\n\ngit init\nStart tracking a folder with git\n\n\ngit status\nWhat does git see right now? (run constantly)\n\n\ngit add .\nStage changes for the next snapshot\n\n\ngit commit -m \"msg\"\nSave the snapshot\n\n\ngit log\nShow history\n\n\ngit switch -c &lt;name&gt;\nCreate + move to a new branch\n\n\ngit push -u origin &lt;name&gt;\nPublish a branch to GitHub the first time (git push after that)\n\n\ngit pull\nFetch the latest from GitHub into your current branch\n\n\ngh pr create\nOpen a pull request proposing your branch into main\n\n\ngh pr diff\nRead the change — the review step; never skip it\n\n\ngh pr merge\nMerge what you approved\n\n\n\n\n\n\n\n\n\nTipDone? Do the real thing.\n\n\n\nThe Setup guide walks you through installing git and Claude Code on your actual machine — including creating and pushing a real repo to GitHub. Everything you practiced here works exactly the same, plus a few things a simulation can’t teach (like gh auth login).",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "② Terminal Trainer 🎮"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Agentic Coding for Research",
+    "section": "",
+    "text": "The future of research programming is shifting from writing every line to directing, reviewing, and iterating with intelligent agents.\n\nThis three-hour, hands-on SMDM short course teaches you to work with AI agents like Claude Code — with git & GitHub as your safety layer — and ends with you building a custom workflow for your own research.\nStart the pre-work → Join the Slack community",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#get-ready-three-pieces-of-pre-work",
+    "href": "index.html#get-ready-three-pieces-of-pre-work",
+    "title": "Agentic Coding for Research",
+    "section": "Get ready: three pieces of pre-work",
+    "text": "Get ready: three pieces of pre-work\nThe course is hands-on from the first hour, so arriving set up is everything. Work through these three steps in order — budget about an hour total. When you finish each one, post in the course Slack channel.\nFirst, though: take the 2-minute baseline survey — it shapes how I pitch the course.\n\n\n\n① Set up your machine\n~30 min, done once. Install git, create a GitHub account, connect them with SSH keys, and install the gh CLI and Claude Code. Ends with a verification checklist.\nSetup guide →\n\n\n\n\n② Play the Terminal Trainer 🎮\n~20 min, in your browser, nothing to install. Nine missions that teach every terminal and git command we’ll use — through your first pull request. Win the 🏆.\nPlay now →\n\n\n\n\n③ Git & GitHub Basics\n~20 min read + 15 min practice. What version control actually is, the mental model of a repository, and the branch → pull request → merge workflow the whole course runs on.\nRead it →",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#who-this-is-for",
+    "href": "index.html#who-this-is-for",
+    "title": "Agentic Coding for Research",
+    "section": "Who this is for",
+    "text": "Who this is for\nResearchers and academics who want to work faster and more reproducibly with AI agents — whether that’s building simulation models, cleaning data, producing figures and tables, managing analysis pipelines, or drafting and revising manuscripts. No programming experience required. Agents meet you where you are: if you can describe what you want, you can direct one. The pre-work below covers every technical skill the course assumes.",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#what-to-expect-on-course-day",
+    "href": "index.html#what-to-expect-on-course-day",
+    "title": "Agentic Coding for Research",
+    "section": "What to expect on course day",
+    "text": "What to expect on course day\nDetails will unlock here on course day — but the shape is: short lectures, live demonstrations, and hands-on exercises, ending with a build session where you prototype an agentic workflow around your own research task. You’ll leave with working skills and a real prototype.\n\n\n\n\n\n\nImportantTwo things to bring\n\n\n\n\nA set-up laptop — all three pre-work steps done, verification checklist passing.\nA research task in mind — a simulation model, a data-cleaning pipeline, a figure you keep remaking, a reviewer response. The last part of the course is yours to build on it.",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#join-the-community",
+    "href": "index.html#join-the-community",
+    "title": "Agentic Coding for Research",
+    "section": "Join the community",
+    "text": "Join the community\nThe course has a Slack workspace that doubles as an ongoing community for researchers working with agentic AI — pre-course support, skill sharing, and news:\n→ Join the Agentic AI Working Group Slack\nQuestions before course day go there — for setup trouble, include the exact error message and your operating system.",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "Home"
+    ]
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Setup Guide",
+    "section": "",
+    "text": "ImportantPlease complete this before the course\n\n\n\nWe’re fully remote on Zoom, and setup problems are slow to debug for 30 people at once. Work through every part below and run the verification checklist at the end. If something fails, post the error in the course Slack channel — we’ll debug it there before course day rather than during class.\nYou’ll set up five things, in order: a terminal, git, a GitHub account (connected by SSH), the gh CLI, and Claude Code.",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "① Setup guide"
+    ]
+  },
+  {
+    "objectID": "setup.html#part-0-a-terminal",
+    "href": "setup.html#part-0-a-terminal",
+    "title": "Setup Guide",
+    "section": "Part 0 · A terminal",
+    "text": "Part 0 · A terminal\n\nmacOS: open Terminal (Applications → Utilities → Terminal), or install iTerm2.\nWindows: install Git for Windows — make sure you include Git Bash in your installation! Git Bash is the terminal you’ll use for everything below.\nLinux: your existing terminal is fine.",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "① Setup guide"
+    ]
+  },
+  {
+    "objectID": "setup.html#part-i-installing-git",
+    "href": "setup.html#part-i-installing-git",
+    "title": "Setup Guide",
+    "section": "Part I · Installing Git",
+    "text": "Part I · Installing Git\n\nmacOSWindowsLinux\n\n\n\nInstall Homebrew following the instructions at https://brew.sh/.\nOpen Terminal and check if git is already installed:\n\ngit --version\n\nIf not, install git with:\n\nbrew install git\nThen verify it’s installed by running git --version again.\n\n\nInstalling Git for Windows (Part 0) also installs git. Open Git Bash and verify:\ngit --version\n\n\nsudo apt-get update && sudo apt-get install -y git   # Debian/Ubuntu",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "① Setup guide"
+    ]
+  },
+  {
+    "objectID": "setup.html#part-ii-creating-a-github-account",
+    "href": "setup.html#part-ii-creating-a-github-account",
+    "title": "Setup Guide",
+    "section": "Part II · Creating a GitHub Account",
+    "text": "Part II · Creating a GitHub Account\n\nGo to GitHub.\nClick the “Sign Up” button.\nFollow the on-screen instructions to create your account.\n\nAlready have one? Skip ahead.",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "① Setup guide"
+    ]
+  },
+  {
+    "objectID": "setup.html#part-iii-git-setup",
+    "href": "setup.html#part-iii-git-setup",
+    "title": "Setup Guide",
+    "section": "Part III · Git Setup",
+    "text": "Part III · Git Setup\nConfigure git with your name and email address. Be sure to use the same email associated with your GitHub account:\ngit config --global user.name \"YOUR NAME\"\ngit config --global user.email \"YOUR EMAIL ADDRESS\"\ngit config --global init.defaultBranch main",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "① Setup guide"
+    ]
+  },
+  {
+    "objectID": "setup.html#part-iv-ssh-keys",
+    "href": "setup.html#part-iv-ssh-keys",
+    "title": "Setup Guide",
+    "section": "Part IV · SSH Keys",
+    "text": "Part IV · SSH Keys\nTo write code locally and push to GitHub (or pull from GitHub) without constantly entering a username and password, we set up SSH keys.\n\nSSH keys come in pairs: a public key that gets shared with services like GitHub, and a private key that is stored only on your computer. If the keys match, you’re granted access. The cryptography behind SSH keys ensures that no one can reverse-engineer your private key from the public one.\n\nThese steps are a simplification of GitHub’s documentation — feel free to follow that instead if you prefer.\n\nStep 1 · Check if you already have keys\nls -al ~/.ssh/\nIf you see files like id_rsa and id_rsa.pub (or id_ed25519 / id_ed25519.pub — just a different encryption algorithm), you already have a key pair: skip to Step 3. Otherwise, read on.\n\n\nStep 2 · Create new SSH keys\nRun the following, replacing the email with the same email you used for GitHub:\nssh-keygen -t rsa -b 4096 -C \"your_email@example.com\"\nYou’ll see a prompt like this — just hit enter to save in the default location:\nEnter file in which to save the key (/Users/you/.ssh/id_rsa):\nThen it asks for a passphrase. We’re not using one here — leave it blank and hit enter twice:\nEnter passphrase (empty for no passphrase):\nEnter same passphrase again:\nYou’ll finish with a “randomart” image — that means it worked.\n\n\nStep 3 · Add your key to GitHub\nPrint your public key:\ncat ~/.ssh/id_rsa.pub\nCopy the output exactly (it starts with ssh-rsa and ends with your email). Then go to https://github.com/settings/keys, hit “New SSH key”, paste it into the box, give it a title like “My MacBook Pro” (so you know which computer it came from), and hit “Add SSH key”.\n\n\n\nStep 4 · Verify it worked!\nssh -T git@github.com\n(The first time, type yes when asked about the host fingerprint.) A successful connection looks like:\nHi username! You've successfully authenticated, but GitHub does not\nprovide shell access.\n\n\n\n\n\n\nNoteRecap: what did we just do?\n\n\n\nYou created a public/private key pair in the hidden ~/.ssh/ folder. id_rsa.pub is your public key — share it far and wide (you just gave it to GitHub). id_rsa is your private key — it never leaves your computer. The pair is mathematically linked: your computer signs with the private key, GitHub verifies with the public one, and the two can now communicate securely without a password every time.",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "① Setup guide"
+    ]
+  },
+  {
+    "objectID": "setup.html#part-v-the-gh-cli-and-claude-code",
+    "href": "setup.html#part-v-the-gh-cli-and-claude-code",
+    "title": "Setup Guide",
+    "section": "Part V · The gh CLI and Claude Code",
+    "text": "Part V · The gh CLI and Claude Code\nTwo more tools and you’re done.\n\nThe GitHub CLI (gh)\ngh lets you create repos and open pull requests from the terminal — we use it throughout the course.\n\nmacOSWindowsLinux\n\n\nbrew install gh\n\n\nwinget install --id GitHub.cli\n\n\nSee cli.github.com for your package manager.\n\n\n\nThen log in (choose GitHub.com → SSH → your key when prompted — it’ll pick up the key you just made):\ngh auth login\n\n\nClaude Code\nClaude Code is the AI agent we’ll use on course day. It needs Node.js (LTS) first:\nbrew install node          # macOS\n# or: winget install OpenJS.NodeJS.LTS   (Windows)\nThen install and start it once to sign in:\nnpm install -g @anthropic-ai/claude-code\nclaude\nFollow the browser prompt to authenticate with your Anthropic account. You’ll need an account with access to Claude Code — see claude.com/claude-code for current options.\n\n\n\n\n\n\nNoteUsing a different agent?\n\n\n\nThe course teaches with Claude Code, but the mechanics are the same in OpenAI’s Codex CLI and similar tools. We standardize on one so the hands-on parts run smoothly — install Claude Code even if you use something else day-to-day.",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "① Setup guide"
+    ]
+  },
+  {
+    "objectID": "setup.html#verify-your-setup",
+    "href": "setup.html#verify-your-setup",
+    "title": "Setup Guide",
+    "section": "Verify your setup",
+    "text": "Verify your setup\nRun each command. You should get a version number or sensible output — not “command not found.”\ngit --version\nssh -T git@github.com\ngh --version\ngh auth status\nnode --version\nclaude --version\nThen confirm the full loop — create a repo, commit, and push it to your GitHub:\nmkdir agentic-warmup && cd agentic-warmup\ngit init\necho \"# Warmup\" &gt; README.md\ngit add README.md\ngit commit -m \"First commit\"\ngh repo create agentic-warmup --public --source=. --push\nIf that last command printed your new repo’s URL, you’re fully set up. 🎉 Post a ✅ in the Slack channel. (You can delete the test repo afterward with gh repo delete agentic-warmup --yes.)\n\nSetup complete when: git, gh, node, and claude all report versions; ssh -T git@github.com greets you by username; gh auth status shows you’re logged in; and you created + pushed a test repo.",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "① Setup guide"
+    ]
+  },
+  {
+    "objectID": "setup.html#trouble",
+    "href": "setup.html#trouble",
+    "title": "Setup Guide",
+    "section": "Trouble?",
+    "text": "Trouble?\n\n\n\nSymptom\nFix\n\n\n\n\ncommand not found: git/gh/claude\nThe tool didn’t install or isn’t on your PATH. Reinstall; on Windows make sure you’re in Git Bash.\n\n\nPermission denied (publickey)\nYour SSH key isn’t on GitHub (redo Part IV Step 3), or you created it under a different name.\n\n\ngh auth login won’t open a browser\nChoose “paste an authentication token” and follow these steps.\n\n\nclaude says not authenticated\nRun claude (no args) and complete the browser sign-in.\n\n\nCorporate laptop blocks installs\nPost in the Slack channel — we’ll find a workaround, or use a personal machine if possible.\n\n\n\nNext up: ② Terminal Trainer 🎮 · ③ Git & GitHub Basics",
+    "crumbs": [
+      "① Setup",
+      "Pre-work",
+      "① Setup guide"
+    ]
+  },
+  {
     "objectID": "git-basics.html",
     "href": "git-basics.html",
     "title": "Git & GitHub Basics",
@@ -117,198 +321,6 @@
       "① Setup",
       "Pre-work",
       "③ Git & GitHub Basics"
-    ]
-  },
-  {
-    "objectID": "setup.html",
-    "href": "setup.html",
-    "title": "Setup Guide",
-    "section": "",
-    "text": "ImportantPlease complete this before the course\n\n\n\nWe’re fully remote on Zoom, and setup problems are slow to debug for 30 people at once. Work through every part below and run the verification checklist at the end. If something fails, post the error in the course Slack channel — we’ll debug it there before course day rather than during class.\nYou’ll set up five things, in order: a terminal, git, a GitHub account (connected by SSH), the gh CLI, and Claude Code.",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "① Setup guide"
-    ]
-  },
-  {
-    "objectID": "setup.html#part-0-a-terminal",
-    "href": "setup.html#part-0-a-terminal",
-    "title": "Setup Guide",
-    "section": "Part 0 · A terminal",
-    "text": "Part 0 · A terminal\n\nmacOS: open Terminal (Applications → Utilities → Terminal), or install iTerm2.\nWindows: install Git for Windows — make sure you include Git Bash in your installation! Git Bash is the terminal you’ll use for everything below.\nLinux: your existing terminal is fine.",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "① Setup guide"
-    ]
-  },
-  {
-    "objectID": "setup.html#part-i-installing-git",
-    "href": "setup.html#part-i-installing-git",
-    "title": "Setup Guide",
-    "section": "Part I · Installing Git",
-    "text": "Part I · Installing Git\n\nmacOSWindowsLinux\n\n\n\nInstall Homebrew following the instructions at https://brew.sh/.\nOpen Terminal and check if git is already installed:\n\ngit --version\n\nIf not, install git with:\n\nbrew install git\nThen verify it’s installed by running git --version again.\n\n\nInstalling Git for Windows (Part 0) also installs git. Open Git Bash and verify:\ngit --version\n\n\nsudo apt-get update && sudo apt-get install -y git   # Debian/Ubuntu",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "① Setup guide"
-    ]
-  },
-  {
-    "objectID": "setup.html#part-ii-creating-a-github-account",
-    "href": "setup.html#part-ii-creating-a-github-account",
-    "title": "Setup Guide",
-    "section": "Part II · Creating a GitHub Account",
-    "text": "Part II · Creating a GitHub Account\n\nGo to GitHub.\nClick the “Sign Up” button.\nFollow the on-screen instructions to create your account.\n\nAlready have one? Skip ahead.",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "① Setup guide"
-    ]
-  },
-  {
-    "objectID": "setup.html#part-iii-git-setup",
-    "href": "setup.html#part-iii-git-setup",
-    "title": "Setup Guide",
-    "section": "Part III · Git Setup",
-    "text": "Part III · Git Setup\nConfigure git with your name and email address. Be sure to use the same email associated with your GitHub account:\ngit config --global user.name \"YOUR NAME\"\ngit config --global user.email \"YOUR EMAIL ADDRESS\"\ngit config --global init.defaultBranch main",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "① Setup guide"
-    ]
-  },
-  {
-    "objectID": "setup.html#part-iv-ssh-keys",
-    "href": "setup.html#part-iv-ssh-keys",
-    "title": "Setup Guide",
-    "section": "Part IV · SSH Keys",
-    "text": "Part IV · SSH Keys\nTo write code locally and push to GitHub (or pull from GitHub) without constantly entering a username and password, we set up SSH keys.\n\nSSH keys come in pairs: a public key that gets shared with services like GitHub, and a private key that is stored only on your computer. If the keys match, you’re granted access. The cryptography behind SSH keys ensures that no one can reverse-engineer your private key from the public one.\n\nThese steps are a simplification of GitHub’s documentation — feel free to follow that instead if you prefer.\n\nStep 1 · Check if you already have keys\nls -al ~/.ssh/\nIf you see files like id_rsa and id_rsa.pub (or id_ed25519 / id_ed25519.pub — just a different encryption algorithm), you already have a key pair: skip to Step 3. Otherwise, read on.\n\n\nStep 2 · Create new SSH keys\nRun the following, replacing the email with the same email you used for GitHub:\nssh-keygen -t rsa -b 4096 -C \"your_email@example.com\"\nYou’ll see a prompt like this — just hit enter to save in the default location:\nEnter file in which to save the key (/Users/you/.ssh/id_rsa):\nThen it asks for a passphrase. We’re not using one here — leave it blank and hit enter twice:\nEnter passphrase (empty for no passphrase):\nEnter same passphrase again:\nYou’ll finish with a “randomart” image — that means it worked.\n\n\nStep 3 · Add your key to GitHub\nPrint your public key:\ncat ~/.ssh/id_rsa.pub\nCopy the output exactly (it starts with ssh-rsa and ends with your email). Then go to https://github.com/settings/keys, hit “New SSH key”, paste it into the box, give it a title like “My MacBook Pro” (so you know which computer it came from), and hit “Add SSH key”.\n\n\n\nStep 4 · Verify it worked!\nssh -T git@github.com\n(The first time, type yes when asked about the host fingerprint.) A successful connection looks like:\nHi username! You've successfully authenticated, but GitHub does not\nprovide shell access.\n\n\n\n\n\n\nNoteRecap: what did we just do?\n\n\n\nYou created a public/private key pair in the hidden ~/.ssh/ folder. id_rsa.pub is your public key — share it far and wide (you just gave it to GitHub). id_rsa is your private key — it never leaves your computer. The pair is mathematically linked: your computer signs with the private key, GitHub verifies with the public one, and the two can now communicate securely without a password every time.",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "① Setup guide"
-    ]
-  },
-  {
-    "objectID": "setup.html#part-v-the-gh-cli-and-claude-code",
-    "href": "setup.html#part-v-the-gh-cli-and-claude-code",
-    "title": "Setup Guide",
-    "section": "Part V · The gh CLI and Claude Code",
-    "text": "Part V · The gh CLI and Claude Code\nTwo more tools and you’re done.\n\nThe GitHub CLI (gh)\ngh lets you create repos and open pull requests from the terminal — we use it throughout the course.\n\nmacOSWindowsLinux\n\n\nbrew install gh\n\n\nwinget install --id GitHub.cli\n\n\nSee cli.github.com for your package manager.\n\n\n\nThen log in (choose GitHub.com → SSH → your key when prompted — it’ll pick up the key you just made):\ngh auth login\n\n\nClaude Code\nClaude Code is the AI agent we’ll use on course day. It needs Node.js (LTS) first:\nbrew install node          # macOS\n# or: winget install OpenJS.NodeJS.LTS   (Windows)\nThen install and start it once to sign in:\nnpm install -g @anthropic-ai/claude-code\nclaude\nFollow the browser prompt to authenticate with your Anthropic account. You’ll need an account with access to Claude Code — see claude.com/claude-code for current options.\n\n\n\n\n\n\nNoteUsing a different agent?\n\n\n\nThe course teaches with Claude Code, but the mechanics are the same in OpenAI’s Codex CLI and similar tools. We standardize on one so the hands-on parts run smoothly — install Claude Code even if you use something else day-to-day.",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "① Setup guide"
-    ]
-  },
-  {
-    "objectID": "setup.html#verify-your-setup",
-    "href": "setup.html#verify-your-setup",
-    "title": "Setup Guide",
-    "section": "Verify your setup",
-    "text": "Verify your setup\nRun each command. You should get a version number or sensible output — not “command not found.”\ngit --version\nssh -T git@github.com\ngh --version\ngh auth status\nnode --version\nclaude --version\nThen confirm the full loop — create a repo, commit, and push it to your GitHub:\nmkdir agentic-warmup && cd agentic-warmup\ngit init\necho \"# Warmup\" &gt; README.md\ngit add README.md\ngit commit -m \"First commit\"\ngh repo create agentic-warmup --public --source=. --push\nIf that last command printed your new repo’s URL, you’re fully set up. 🎉 Post a ✅ in the Slack channel. (You can delete the test repo afterward with gh repo delete agentic-warmup --yes.)\n\nSetup complete when: git, gh, node, and claude all report versions; ssh -T git@github.com greets you by username; gh auth status shows you’re logged in; and you created + pushed a test repo.",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "① Setup guide"
-    ]
-  },
-  {
-    "objectID": "setup.html#trouble",
-    "href": "setup.html#trouble",
-    "title": "Setup Guide",
-    "section": "Trouble?",
-    "text": "Trouble?\n\n\n\nSymptom\nFix\n\n\n\n\ncommand not found: git/gh/claude\nThe tool didn’t install or isn’t on your PATH. Reinstall; on Windows make sure you’re in Git Bash.\n\n\nPermission denied (publickey)\nYour SSH key isn’t on GitHub (redo Part IV Step 3), or you created it under a different name.\n\n\ngh auth login won’t open a browser\nChoose “paste an authentication token” and follow these steps.\n\n\nclaude says not authenticated\nRun claude (no args) and complete the browser sign-in.\n\n\nCorporate laptop blocks installs\nPost in the Slack channel — we’ll find a workaround, or use a personal machine if possible.\n\n\n\nNext up: ② Terminal Trainer 🎮 · ③ Git & GitHub Basics",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "① Setup guide"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Agentic Coding for Research",
-    "section": "",
-    "text": "The future of research programming is shifting from writing every line to directing, reviewing, and iterating with intelligent agents.\n\nThis three-hour, hands-on SMDM short course teaches you to work with AI agents like Claude Code — with git & GitHub as your safety layer — and ends with you building a custom workflow for your own research.\nStart the pre-work → Join the Slack community",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#get-ready-three-pieces-of-pre-work",
-    "href": "index.html#get-ready-three-pieces-of-pre-work",
-    "title": "Agentic Coding for Research",
-    "section": "Get ready: three pieces of pre-work",
-    "text": "Get ready: three pieces of pre-work\nThe course is hands-on from the first hour, so arriving set up is everything. Work through these three steps in order — budget about an hour total. When you finish each one, post in the course Slack channel.\n\n\n\n① Set up your machine\n~30 min, done once. Install git, create a GitHub account, connect them with SSH keys, and install the gh CLI and Claude Code. Ends with a verification checklist.\nSetup guide →\n\n\n\n\n② Play the Terminal Trainer 🎮\n~20 min, in your browser, nothing to install. Nine missions that teach every terminal and git command we’ll use — through your first pull request. Win the 🏆.\nPlay now →\n\n\n\n\n③ Git & GitHub Basics\n~20 min read + 15 min practice. What version control actually is, the mental model of a repository, and the branch → pull request → merge workflow the whole course runs on.\nRead it →",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#who-this-is-for",
-    "href": "index.html#who-this-is-for",
-    "title": "Agentic Coding for Research",
-    "section": "Who this is for",
-    "text": "Who this is for\nResearchers and academics who want to work faster and more reproducibly with AI agents — whether that’s building simulation models, cleaning data, producing figures and tables, managing analysis pipelines, or drafting and revising manuscripts. No programming experience required. Agents meet you where you are: if you can describe what you want, you can direct one. The pre-work below covers every technical skill the course assumes.",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#what-to-expect-on-course-day",
-    "href": "index.html#what-to-expect-on-course-day",
-    "title": "Agentic Coding for Research",
-    "section": "What to expect on course day",
-    "text": "What to expect on course day\nDetails will unlock here on course day — but the shape is: short lectures, live demonstrations, and hands-on exercises, ending with a build session where you prototype an agentic workflow around your own research task. You’ll leave with working skills and a real prototype.\n\n\n\n\n\n\nImportantTwo things to bring\n\n\n\n\nA set-up laptop — all three pre-work steps done, verification checklist passing.\nA research task in mind — a simulation model, a data-cleaning pipeline, a figure you keep remaking, a reviewer response. The last part of the course is yours to build on it.",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#join-the-community",
-    "href": "index.html#join-the-community",
-    "title": "Agentic Coding for Research",
-    "section": "Join the community",
-    "text": "Join the community\nThe course has a Slack workspace that doubles as an ongoing community for researchers working with agentic AI — pre-course support, skill sharing, and news:\n→ Join the Agentic AI Working Group Slack\nQuestions before course day go there — for setup trouble, include the exact error message and your operating system.",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "Home"
-    ]
-  },
-  {
-    "objectID": "game.html",
-    "href": "game.html",
-    "title": "Terminal Trainer",
-    "section": "",
-    "text": "Before the course, you need to be comfortable with a handful of terminal commands. Instead of a reading assignment, play this: a safe, simulated terminal that walks you through everything — navigating, creating files and folders, and the git commands we’ll use on course day. You can’t break anything, and you don’t need anything installed.\nClick the terminal and start typing. Type help for commands, hint if you’re stuck. When you win, post your 🏆 in the Slack channel.",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "② Terminal Trainer 🎮"
-    ]
-  },
-  {
-    "objectID": "game.html#what-this-covered-your-cheat-sheet",
-    "href": "game.html#what-this-covered-your-cheat-sheet",
-    "title": "Terminal Trainer",
-    "section": "What this covered (your cheat sheet)",
-    "text": "What this covered (your cheat sheet)\n\n\n\n\n\n\n\nCommand\nWhat it does\n\n\n\n\npwd\nWhere am I?\n\n\nls\nWhat’s here?\n\n\ncd &lt;dir&gt; / cd .. / cd ~\nMove into a folder / up one / home\n\n\nmkdir &lt;name&gt;\nMake a folder\n\n\ntouch &lt;name&gt;\nMake an empty file\n\n\ncat &lt;file&gt;\nPrint a file’s contents\n\n\necho \"text\" &gt; &lt;file&gt;\nWrite text into a file (&gt;&gt; appends)\n\n\ngit init\nStart tracking a folder with git\n\n\ngit status\nWhat does git see right now? (run constantly)\n\n\ngit add .\nStage changes for the next snapshot\n\n\ngit commit -m \"msg\"\nSave the snapshot\n\n\ngit log\nShow history\n\n\ngit switch -c &lt;name&gt;\nCreate + move to a new branch\n\n\ngit push -u origin &lt;name&gt;\nPublish a branch to GitHub the first time (git push after that)\n\n\ngit pull\nFetch the latest from GitHub into your current branch\n\n\ngh pr create\nOpen a pull request proposing your branch into main\n\n\ngh pr diff\nRead the change — the review step; never skip it\n\n\ngh pr merge\nMerge what you approved\n\n\n\n\n\n\n\n\n\nTipDone? Do the real thing.\n\n\n\nThe Setup guide walks you through installing git and Claude Code on your actual machine — including creating and pushing a real repo to GitHub. Everything you practiced here works exactly the same, plus a few things a simulation can’t teach (like gh auth login).",
-    "crumbs": [
-      "① Setup",
-      "Pre-work",
-      "② Terminal Trainer 🎮"
     ]
   }
 ]

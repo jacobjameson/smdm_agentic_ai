@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Terminal Trainer – Agentic Coding for Research</title>
+<title>Baseline Survey – Agentic Coding for Research</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -35,8 +35,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./git-basics.html" rel="next">
-<link href="./setup.html" rel="prev">
+<link href="./git-basics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -131,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Pre-work</a></li><li class="breadcrumb-item"><a href="./game.html">② Terminal Trainer 🎮</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Pre-work</a></li><li class="breadcrumb-item"><a href="./survey.html">Baseline survey ✏️</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -166,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./game.html" class="sidebar-item-text sidebar-link active">
+  <a href="./game.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">② Terminal Trainer 🎮</span></a>
   </div>
 </li>
@@ -178,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./survey.html" class="sidebar-item-text sidebar-link">
+  <a href="./survey.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Baseline survey ✏️</span></a>
   </div>
 </li>
@@ -193,10 +192,10 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Pre-work</a></li><li class="breadcrumb-item"><a href="./game.html">② Terminal Trainer 🎮</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Pre-work</a></li><li class="breadcrumb-item"><a href="./survey.html">Baseline survey ✏️</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Terminal Trainer</h1>
-<p class="subtitle lead">Learn the terminal by playing — 9 missions, ~20 minutes, nothing to install</p>
+<h1 class="title">Baseline Survey</h1>
+<p class="subtitle lead">2 minutes — helps me pitch the course at the right level</p>
 </div>
 
 
@@ -213,249 +212,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Before the course, you need to be comfortable with a handful of terminal commands. Instead of a reading assignment, play this: a <strong>safe, simulated terminal</strong> that walks you through everything — navigating, creating files and folders, and the git commands we’ll use on course day. You can’t break anything, and you don’t need anything installed.</p>
-<p><strong>Click the terminal and start typing.</strong> Type <code>help</code> for commands, <code>hint</code> if you’re stuck. When you win, post your 🏆 in the <a href="https://join.slack.com/t/agenticaiworkinggroup/shared_invite/zt-45afgdq1j-R8PNZz3SqUZuzgamkYDttQ">Slack channel</a>.</p>
-<div id="tt-wrap">
-  <div id="tt-titlebar">
-    <span class="tt-dot" style="background:#ff5f56"></span>
-    <span class="tt-dot" style="background:#ffbd2e"></span>
-    <span class="tt-dot" style="background:#27c93f"></span>
-    <span id="tt-title">you@smdm — terminal trainer</span>
-    <span id="tt-progress"></span>
-  </div>
-  <div id="tt-screen" tabindex="0">
-    <div id="tt-out"></div>
-    <div id="tt-inputline">
-      <span id="tt-prompt"></span>
-      <input id="tt-input" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="terminal input">
-    </div>
-  </div>
-</div>
-
-<style>
-#tt-wrap {
-  border-radius: 10px; overflow: hidden; margin: 1rem 0 2rem 0;
-  box-shadow: 0 8px 30px rgba(0,0,0,.35);
-  font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
-}
-#tt-titlebar {
-  background: #21262d; padding: .5rem .8rem; display: flex; align-items: center; gap: .45rem;
-  font-size: .8rem; color: #8b949e;
-}
-.tt-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-#tt-title { margin-left: .5rem; }
-#tt-progress { margin-left: auto; color: #d29922; }
-#tt-screen {
-  background: #0d1117; color: #c9d1d9; padding: 1rem; height: 65vh; min-height: 420px;
-  overflow-y: auto; font-size: .95rem; line-height: 1.5; cursor: text;
-}
-#tt-out div { white-space: pre-wrap; word-break: break-word; }
-#tt-inputline { display: flex; align-items: baseline; gap: .5rem; }
-#tt-prompt { color: #58a6ff; white-space: nowrap; }
-#tt-input {
-  flex: 1; background: transparent; border: none; outline: none; color: #c9d1d9;
-  font: inherit; caret-color: #58a6ff; padding: 0;
-}
-.tt-ok   { color: #3fb950; }
-.tt-err  { color: #f85149; }
-.tt-info { color: #58a6ff; }
-.tt-sys  { color: #d29922; }
-.tt-dim  { color: #8b949e; }
-.tt-echo { color: #c9d1d9; }
-.tt-echo .tt-p { color: #58a6ff; }
-</style>
-
-<script src="assets/terminal-game.js"></script>
-<script>
-(function () {
-  const game = createGame();
-  const out = document.getElementById("tt-out");
-  const input = document.getElementById("tt-input");
-  const promptEl = document.getElementById("tt-prompt");
-  const screen = document.getElementById("tt-screen");
-  const progressEl = document.getElementById("tt-progress");
-
-  const COMMANDS = ["pwd","ls","cd","mkdir","touch","cat","echo","rm","git","gh","clear","help","hint","missions"];
-  const GIT_SUBS = ["init","status","add","commit","log","branch","switch","push","pull","merge"];
-  const GH_SUBS = ["pr","create","diff","merge"];
-  let history = [], hIdx = -1;
-
-  function print(lines) {
-    for (const l of lines) {
-      const d = document.createElement("div");
-      d.textContent = l.t === "" ? " " : l.t;
-      if (l.c) d.className = "tt-" + l.c;
-      out.appendChild(d);
-    }
-  }
-  function echoCmd(cmd) {
-    const d = document.createElement("div");
-    d.className = "tt-echo";
-    const p = document.createElement("span");
-    p.className = "tt-p";
-    p.textContent = promptEl.textContent + " ";
-    d.appendChild(p);
-    d.appendChild(document.createTextNode(cmd));
-    out.appendChild(d);
-  }
-  function refresh() {
-    promptEl.textContent = game.promptStr();
-    const mi = game._state.missions();
-    progressEl.textContent = game._state.isComplete()
-      ? "🏆 complete!"
-      : "mission " + (mi + 1) + "/" + game.missionCount;
-    screen.scrollTop = screen.scrollHeight;
-  }
-
-  input.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-      const cmd = input.value;
-      input.value = "";
-      echoCmd(cmd);
-      if (cmd.trim()) { history.push(cmd); hIdx = history.length; }
-      const r = game.run(cmd);
-      if (r.clear) out.innerHTML = "";
-      print(r.out);
-      refresh();
-    } else if (e.key === "ArrowUp") {
-      e.preventDefault();
-      if (hIdx > 0) { hIdx--; input.value = history[hIdx]; }
-    } else if (e.key === "ArrowDown") {
-      e.preventDefault();
-      if (hIdx < history.length - 1) { hIdx++; input.value = history[hIdx]; }
-      else { hIdx = history.length; input.value = ""; }
-    } else if (e.key === "Tab") {
-      e.preventDefault();
-      const parts = input.value.split(/\s+/);
-      const last = parts[parts.length - 1];
-      if (last === "") return;
-      let pool;
-      if (parts.length === 1) pool = COMMANDS;
-      else if (parts[0] === "git") pool = GIT_SUBS.concat(game.cwdEntries());
-      else if (parts[0] === "gh") pool = GH_SUBS;
-      else pool = game.cwdEntries();
-      const matches = pool.filter((c) => c.startsWith(last));
-      if (matches.length === 1) {
-        parts[parts.length - 1] = matches[0];
-        input.value = parts.join(" ");
-      } else if (matches.length > 1) {
-        print([{ t: matches.join("   "), c: "dim" }]);
-        refresh();
-      }
-    }
-  });
-
-  screen.addEventListener("click", function () { input.focus(); });
-
-  print(game.intro());
-  refresh();
-  input.focus();
-})();
-</script>
-<section id="what-this-covered-your-cheat-sheet" class="level2">
-<h2 class="anchored" data-anchor-id="what-this-covered-your-cheat-sheet">What this covered (your cheat sheet)</h2>
-<table class="table-striped caption-top table">
-<colgroup>
-<col style="width: 39%">
-<col style="width: 60%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Command</th>
-<th>What it does</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>pwd</code></td>
-<td>Where am I?</td>
-</tr>
-<tr class="even">
-<td><code>ls</code></td>
-<td>What’s here?</td>
-</tr>
-<tr class="odd">
-<td><code>cd &lt;dir&gt;</code> / <code>cd ..</code> / <code>cd ~</code></td>
-<td>Move into a folder / up one / home</td>
-</tr>
-<tr class="even">
-<td><code>mkdir &lt;name&gt;</code></td>
-<td>Make a folder</td>
-</tr>
-<tr class="odd">
-<td><code>touch &lt;name&gt;</code></td>
-<td>Make an empty file</td>
-</tr>
-<tr class="even">
-<td><code>cat &lt;file&gt;</code></td>
-<td>Print a file’s contents</td>
-</tr>
-<tr class="odd">
-<td><code>echo "text" &gt; &lt;file&gt;</code></td>
-<td>Write text into a file (<code>&gt;&gt;</code> appends)</td>
-</tr>
-<tr class="even">
-<td><code>git init</code></td>
-<td>Start tracking a folder with git</td>
-</tr>
-<tr class="odd">
-<td><code>git status</code></td>
-<td>What does git see right now? <em>(run constantly)</em></td>
-</tr>
-<tr class="even">
-<td><code>git add .</code></td>
-<td>Stage changes for the next snapshot</td>
-</tr>
-<tr class="odd">
-<td><code>git commit -m "msg"</code></td>
-<td>Save the snapshot</td>
-</tr>
-<tr class="even">
-<td><code>git log</code></td>
-<td>Show history</td>
-</tr>
-<tr class="odd">
-<td><code>git switch -c &lt;name&gt;</code></td>
-<td>Create + move to a new branch</td>
-</tr>
-<tr class="even">
-<td><code>git push -u origin &lt;name&gt;</code></td>
-<td>Publish a branch to GitHub the first time (<code>git push</code> after that)</td>
-</tr>
-<tr class="odd">
-<td><code>git pull</code></td>
-<td>Fetch the latest from GitHub into your current branch</td>
-</tr>
-<tr class="even">
-<td><code>gh pr create</code></td>
-<td>Open a pull request proposing your branch into <code>main</code></td>
-</tr>
-<tr class="odd">
-<td><code>gh pr diff</code></td>
-<td><strong>Read the change</strong> — the review step; never skip it</td>
-</tr>
-<tr class="even">
-<td><code>gh pr merge</code></td>
-<td>Merge what you approved</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Done? Do the real thing.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <a href="./setup.html">Setup guide</a> walks you through installing git and Claude Code on your actual machine — including creating and pushing a real repo to GitHub. Everything you practiced here works exactly the same, plus a few things a simulation can’t teach (like <code>gh auth login</code>).</p>
-</div>
-</div>
+<p>Before course day, tell me where you’re starting from. Responses shape how much time we spend on basics versus advanced material — and the anonymized results make an appearance in the opening session.</p>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfPCyGJ7acxzQknVjE3JQO3h57j1lTv8qTMQZTAIKU7yN3GQg/viewform?embedded=true" width="100%" height="1400" frameborder="0" marginheight="0" marginwidth="0" style="border: 1.5px solid #dfe7ee; border-radius: 0.75rem;">
+  Loading…
+</iframe>
+<p>Prefer not to use the embedded form? <a href="https://docs.google.com/forms/d/e/1FAIpQLSfPCyGJ7acxzQknVjE3JQO3h57j1lTv8qTMQZTAIKU7yN3GQg/viewform">Open it in a new tab instead</a>.</p>
+<p><strong>Done?</strong> Continue with the pre-work: <a href="./setup.html">① Setup</a> · <a href="./game.html">② Terminal Trainer 🎮</a> · <a href="./git-basics.html">③ Git Basics</a></p>
 
 
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -867,14 +631,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./setup.html" class="pagination-link" aria-label="① Setup guide">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">① Setup guide</span>
+      <a href="./git-basics.html" class="pagination-link" aria-label="③ Git &amp; GitHub Basics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">③ Git &amp; GitHub Basics</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./git-basics.html" class="pagination-link" aria-label="③ Git &amp; GitHub Basics">
-        <span class="nav-page-text">③ Git &amp; GitHub Basics</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -885,7 +646,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/jacobjameson/smdm_agentic_ai/edit/main/game.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/jacobjameson/smdm_agentic_ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/jacobjameson/smdm_agentic_ai/edit/main/survey.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/jacobjameson/smdm_agentic_ai/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
