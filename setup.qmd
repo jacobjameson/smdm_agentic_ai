@@ -5,7 +5,7 @@ subtitle: "Get your machine ready — budget ~30 minutes, done once"
 
 ::: {.callout-important}
 ## Please complete this *before* the course
-We're fully remote on Zoom, and setup problems are slow to debug for 30 people at once. Work through every part below and run the **[verification checklist](#verify-your-setup)** at the end. If something fails, **post the error in the course Slack channel** — we'll debug it there before course day rather than during class.
+We're fully remote on Zoom, and setup problems are slow to debug for 30 people at once. Work through every part below and run the **[verification checklist](#verify-your-setup)** at the end. If something fails, **post the error in the [course Slack channel](https://join.slack.com/t/agenticaiworkinggroup/shared_invite/zt-45afgdq1j-R8PNZz3SqUZuzgamkYDttQ)** — we'll debug it there before course day rather than during class.
 :::
 
 ::: {.callout-tip}
@@ -219,7 +219,7 @@ git commit -m "First commit"
 gh repo create agentic-warmup --public --source=. --push
 ```
 
-If that last command printed your new repo's URL, **you're fully set up.** 🎉 Post a ✅ in the Slack channel. (You can delete the test repo afterward with `gh repo delete agentic-warmup --yes`.)
+If that last command printed your new repo's URL, **you're fully set up.** 🎉 Post a ✅ in the [Slack channel](https://join.slack.com/t/agenticaiworkinggroup/shared_invite/zt-45afgdq1j-R8PNZz3SqUZuzgamkYDttQ). (You can delete the test repo afterward with `gh repo delete agentic-warmup --yes`.)
 
 ::: {.recap}
 Setup complete when: `git`, `gh`, `node`, and `claude` all report versions; `ssh -T git@github.com` greets you by username; `gh auth status` shows you're logged in; and you created + pushed a test repo.

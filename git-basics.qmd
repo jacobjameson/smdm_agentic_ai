@@ -221,7 +221,7 @@ You've read it — now type it. Fifteen minutes, using the repo you made in [Set
 
 1. `cd agentic-warmup` (or make a fresh repo)
 2. Run the **feature-branch workflow** above end to end: branch → edit README → commit → push → PR → read the diff → merge → sync main.
-3. Post a ✅ in the Slack channel when your PR is merged.
+3. Post a ✅ in the [Slack channel](https://join.slack.com/t/agenticaiworkinggroup/shared_invite/zt-45afgdq1j-R8PNZz3SqUZuzgamkYDttQ) when your PR is merged.
 
 ## Further reading
 

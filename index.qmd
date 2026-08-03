@@ -11,14 +11,14 @@ toc: false
 The future of research programming is shifting from writing every line to **directing, reviewing, and iterating with intelligent agents.**
 :::
 
-This half-day, hands-on SMDM short course teaches you to work with AI coding agents like **Claude Code** — with **git & GitHub** as your safety layer — and ends with you building a custom workflow for your own research.
+This three-hour, hands-on SMDM short course teaches you to work with AI agents like **Claude Code** — with **git & GitHub** as your safety layer — and ends with you building a custom workflow for your own research.
 
-[Start the pre-work →](setup.qmd){.btn-course}
+[Start the pre-work →](setup.qmd){.btn-course} [Join the Slack community](https://join.slack.com/t/agenticaiworkinggroup/shared_invite/zt-45afgdq1j-R8PNZz3SqUZuzgamkYDttQ){.btn-course .ghost}
 :::
 
 ## Get ready: three pieces of pre-work
 
-The course is hands-on from the first hour, so arriving set up is everything. Work through these three steps in order — budget about an hour total. When you finish each one, post in the course Slack channel.
+The course is hands-on from the first hour, so arriving set up is everything. Work through these three steps in order — budget about an hour total. When you finish each one, post in the [course Slack channel](https://join.slack.com/t/agenticaiworkinggroup/shared_invite/zt-45afgdq1j-R8PNZz3SqUZuzgamkYDttQ).
 
 ::: {.grid}
 ::: {.g-col-12 .g-col-md-4}
@@ -52,7 +52,7 @@ The course is hands-on from the first hour, so arriving set up is everything. Wo
 
 ## Who this is for
 
-Health researchers and academics who use R or Python for simulation models, data pipelines, or analysis scripts — and want to work faster and more reproducibly with AI agents. **No advanced programming experience required.** If you can write a basic R or Python script, you're ready.
+Researchers and academics who want to work faster and more reproducibly with AI agents — whether that's building simulation models, cleaning data, producing figures and tables, managing analysis pipelines, or drafting and revising manuscripts. **No programming experience required.** Agents meet you where you are: if you can describe what you want, you can direct one. The pre-work below covers every technical skill the course assumes.
 
 ## What to expect on course day
 
@@ -61,9 +61,13 @@ Details will unlock here on course day — but the shape is: short lectures, liv
 ::: {.callout-important}
 ## Two things to bring
 1. **A set-up laptop** — all three pre-work steps done, verification checklist passing.
-2. **A research task in mind** — a simulation model, a data-cleaning pipeline, a figure you keep remaking, a reviewer response. The last hour is yours to build on it.
+2. **A research task in mind** — a simulation model, a data-cleaning pipeline, a figure you keep remaking, a reviewer response. The last part of the course is yours to build on it.
 :::
 
-## Questions before then?
+## Join the community
 
-Post in the course Slack channel — for setup trouble, include the exact error message and your operating system.
+The course has a Slack workspace that doubles as an ongoing community for researchers working with agentic AI — pre-course support, skill sharing, and news:
+
+**[→ Join the Agentic AI Working Group Slack](https://join.slack.com/t/agenticaiworkinggroup/shared_invite/zt-45afgdq1j-R8PNZz3SqUZuzgamkYDttQ)**
+
+Questions before course day go there — for setup trouble, include the exact error message and your operating system.
