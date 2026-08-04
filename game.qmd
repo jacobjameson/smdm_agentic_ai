@@ -61,7 +61,8 @@ Before the course, you need to be comfortable with a handful of terminal command
 .tt-echo .tt-p { color: #58a6ff; }
 </style>
 
-<script src="assets/terminal-game.js"></script>
+<!-- bump ?v= whenever terminal-game.js changes, to defeat stale browser caches -->
+<script src="assets/terminal-game.js?v=3"></script>
 <script>
 (function () {
   const game = createGame();

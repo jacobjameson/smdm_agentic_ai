@@ -137,14 +137,13 @@ function createGame() {
       ],
       hint: "mkdir my-project   cd my-project   mkdir data   touch analysis.R",
       check: () => {
-        const p = getNode(["my-project"]);
-        return (
-          p &&
-          p.type === "dir" &&
-          p.children["data"]?.type === "dir" &&
-          p.children["analysis.R"]?.type === "file" &&
-          cwd[0] === "my-project"
-        );
+        // any new top-level project dir counts — what matters is the shape:
+        // you're inside a folder you made, containing a subfolder and a file
+        if (!cwd.length || cwd[0] === "research") return false;
+        const D = root.children[cwd[0]];
+        if (!D || D.type !== "dir") return false;
+        const kids = Object.values(D.children);
+        return kids.some((k) => k.type === "dir") && kids.some((k) => k.type === "file");
       },
       done: "That's a real project skeleton — the same structure you'll use on course day.",
     },
@@ -157,8 +156,14 @@ function createGame() {
       ],
       hint: 'echo "# My project" > README.md   then   cat README.md',
       check: () => {
-        const r = getNode(["my-project", "README.md"]);
-        return r && r.content.length > 0 && flags.catReadme;
+        // a README (any capitalization) with content, in your project folder, that you cat'ed
+        if (!cwd.length) return false;
+        const D = root.children[cwd[0]];
+        if (!D || D.type !== "dir") return false;
+        const r = Object.entries(D.children).find(
+          ([n, f]) => f.type === "file" && /^readme(\.md|\.txt)?$/i.test(n)
+        );
+        return !!r && r[1].content.length > 0 && flags.catReadme;
       },
       done: "echo + > is the quickest way to create small files from the command line.",
     },
@@ -210,7 +215,8 @@ function createGame() {
       ],
       hint: 'git switch -c figures   touch plot.R   git add plot.R   git commit -m "Add plot script"   git push -u origin figures',
       check: () =>
-        git.commits.some((c) => c.branch !== "main" && c.files.some((f) => f.endsWith(".R"))) &&
+        // any commit on any non-main branch, with that branch pushed — file names don't matter
+        git.commits.some((c) => c.branch !== "main") &&
         git.upstreams.some((b) => b !== "main"),
       done: "Notice your prompt shows the branch you're on. main hasn't changed at all.",
     },
@@ -342,7 +348,7 @@ function createGame() {
     if (!n) return [L(`cat: ${args[0]}: No such file or directory`, "err")];
     if (n.type === "dir") return [L(`cat: ${args[0]}: Is a directory`, "err")];
     if (args[0].includes("welcome.txt")) flags.catWelcome = true;
-    if (args[0].includes("README.md")) flags.catReadme = true;
+    if (/readme/i.test(args[0])) flags.catReadme = true;
     return n.content.split("\n").map((l) => L(l));
   }
 
