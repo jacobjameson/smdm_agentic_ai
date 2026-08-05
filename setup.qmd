@@ -259,8 +259,13 @@ echo 'export OPENAI_API_KEY=sk-your-key-here' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-3. Install as in Part V (`npm install -g @openai/codex`), then run `codex` and choose the **API key** sign-in option instead of "Sign in with ChatGPT."
-4. Azure OpenAI endpoints need a small config file pointing Codex at your deployment — follow the "Azure" section of the [Codex configuration docs](https://developers.openai.com/codex/cli) with the base URL from your IT group.
+3. Install as in Part V (`npm install -g @openai/codex`), then sign in with the key instead of ChatGPT:
+
+```bash
+printenv OPENAI_API_KEY | codex login --with-api-key
+```
+
+4. Azure OpenAI endpoints need a small config file pointing Codex at your deployment — see the [Codex authentication docs](https://developers.openai.com/codex/auth) and get the base URL from your IT group.
 
 :::
 
