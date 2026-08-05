@@ -210,6 +210,82 @@ Choose **"Sign in with ChatGPT"** and follow the browser prompt (ChatGPT Plus/Pr
 Whichever you already pay for or can access — they're interchangeable for this course. Live demos will be shown in Claude Code, but every prompt and workflow transfers directly to Codex (the only visible difference: Codex reads its standing instructions from a file called `AGENTS.md` where Claude Code uses `CLAUDE.md` — we'll cover this on course day). Other agentic CLIs (e.g., [Gemini CLI](https://github.com/google-gemini/gemini-cli)) work the same way too.
 :::
 
+## Part V½ · Locked-down institution? The API-key path {#api-keys}
+
+Many hospitals, health systems, and government-adjacent institutions **block consumer AI logins** (claude.ai / ChatGPT accounts) but **allow AI tools built on API keys** — often through an institutional gateway with a signed data agreement. If that's you, good news: **both Claude Code and Codex run happily on an API key, with no consumer account at all.** Same tool, same course, different authentication.
+
+::: {.callout-tip}
+## Step 0: ask your IT/research-computing group one question
+*"Do we have an approved LLM API endpoint — Azure OpenAI, AWS Bedrock, or an internal API gateway — and can I get an API key and base URL for it?"*
+
+Many institutions already run one (hospitals often have **Azure OpenAI** or **AWS Bedrock** under a business associate agreement). If yes, use the *gateway* tab below. If they can issue you a direct vendor key instead, use a *direct key* tab. Ask before creating personal keys — the institutional route is usually both sanctioned *and* paid for.
+:::
+
+::: {.panel-tabset}
+
+### Claude Code · direct API key
+
+1. Create a key at [console.anthropic.com](https://console.anthropic.com/) (Settings → API keys). **Set a monthly spending cap first** (Settings → Limits) — a few dollars covers the course.
+2. Tell Claude Code to use it by adding one line to your shell config:
+
+```bash
+echo 'export ANTHROPIC_API_KEY=sk-ant-your-key-here' >> ~/.zshrc
+source ~/.zshrc     # Git Bash on Windows: use ~/.bashrc
+```
+
+3. Install and run as in Part V (`npm install -g @anthropic-ai/claude-code`, then `claude`). With the key set, **no browser login is needed** — you're billed per token instead. Run `/cost` inside a session anytime to see what you've spent.
+
+### Claude Code · institutional gateway
+
+If your institution runs a gateway (typically fronting AWS Bedrock), Claude Code points at it with environment variables — get the exact values from your IT group:
+
+```bash
+# add to ~/.zshrc (values from YOUR institution)
+export CLAUDE_CODE_USE_BEDROCK=1
+export ANTHROPIC_BEDROCK_BASE_URL=https://<your-institutions-gateway-url>
+export ANTHROPIC_API_KEY=<key-from-your-institutions-portal>
+export CLAUDE_CODE_SKIP_BEDROCK_AUTH=1   # when the gateway handles cloud auth
+```
+
+Then install and run `claude` normally. This is exactly how Harvard sets it up — see [Chris Stubbs' walkthrough](https://astrostubbs.github.io/GenAI-for-Scholarship/setting-up-claude-code.html) of the Harvard HUIT configuration for a worked institutional example. (Google Vertex AI gateways work analogously with `CLAUDE_CODE_USE_VERTEX=1`.)
+
+### Codex · API key / Azure
+
+1. Create a key at [platform.openai.com](https://platform.openai.com/) (or get one for your institution's **Azure OpenAI** deployment from IT).
+2. For a direct OpenAI key:
+
+```bash
+echo 'export OPENAI_API_KEY=sk-your-key-here' >> ~/.zshrc
+source ~/.zshrc
+```
+
+3. Install as in Part V (`npm install -g @openai/codex`), then run `codex` and choose the **API key** sign-in option instead of "Sign in with ChatGPT."
+4. Azure OpenAI endpoints need a small config file pointing Codex at your deployment — follow the "Azure" section of the [Codex configuration docs](https://developers.openai.com/codex/cli) with the base URL from your IT group.
+
+:::
+
+::: {.callout-warning}
+## API keys are passwords
+Treat them exactly like one: never paste a key into email, Slack, or a script; **never commit one to a git repository** (that's why we use environment variables); revoke immediately if exposed. One key per person — don't share within a team, so usage stays attributable.
+:::
+
+### If the CLI itself is blocked
+
+Sometimes the block is on *installing the software*, not the model access. Two moves:
+
+1. **Send IT a specific request.** Vague asks get vague denials; this usually gets approved:
+
+   > *Subject: Request to allowlist a terminal coding tool using our institutional AI endpoint*
+   >
+   > *I'm attending a research methods course that uses an agentic coding tool ([Claude Code](https://docs.claude.com/en/docs/claude-code) or [Codex CLI](https://developers.openai.com/codex/cli)) in the terminal. It authenticates with an **API key against [our Azure OpenAI / Bedrock endpoint / an approved vendor API]** — no consumer account, no data stored by a third-party consumer service; all traffic goes through our approved endpoint. Could you allowlist installation via `npm` (packages `@anthropic-ai/claude-code` / `@openai/codex`)? The course itself uses only synthetic data.*
+
+2. **Bring a personal laptop for the course itself.** Every exercise uses **synthetic data only** — nothing institutional touches the machine. You'll learn the workflow on your own device, then work with IT on the sanctioned setup for real projects afterward.
+
+::: {.callout-note}
+## Working with patient data? (PHI/PII)
+This course never touches real data. For your actual research: an agent is bound by the same rules as any software — route model calls through your institution's agreement (Azure OpenAI / Bedrock BAA), keep data inside approved environments, and clear your IRB/data-use terms before pointing *any* AI tool at identifiable data. Your IT and compliance teams are allies here, not obstacles — the institutional-gateway route above exists precisely for this.
+:::
+
 ## Verify your setup
 
 Run each command. You should get a version number or sensible output — **not** "command not found."
@@ -248,6 +324,7 @@ Setup complete when: `git`, `gh`, `node`, and your agent (`claude` or `codex`) a
 | `Permission denied (publickey)` | Your SSH key isn't on GitHub (redo Part IV Step 3), or you created it under a different name. |
 | `gh auth login` won't open a browser | Choose "paste an authentication token" and follow [these steps](https://cli.github.com/manual/gh_auth_login). |
 | `claude` / `codex` says not authenticated | Run it with no arguments and complete the browser sign-in. |
-| Corporate laptop blocks installs | Post in the Slack channel — we'll find a workaround, or use a personal machine if possible. |
+| My org blocks consumer AI logins / requires API keys | See [the API-key path](#api-keys) above — both agents run on institutional keys with no consumer account. |
+| Corporate laptop blocks installs | The [IT-request template](#if-the-cli-itself-is-blocked) usually works; otherwise a personal machine for the course (synthetic data only), and post in Slack. |
 
 **Next up:** [② Terminal Trainer 🎮](game.qmd) · [③ Git & GitHub Basics](git-basics.qmd)
