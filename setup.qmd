@@ -280,9 +280,9 @@ Sometimes the block is on *installing the software*, not the model access. Two m
 
 1. **Send IT a specific request.** Vague asks get vague denials; this usually gets approved:
 
-   > *Subject: Request to allowlist a terminal coding tool using our institutional AI endpoint*
+   > *Subject: Request to approve a terminal coding tool that uses our institutional AI endpoint*
    >
-   > *I'm attending a research methods course that uses an agentic coding tool ([Claude Code](https://docs.claude.com/en/docs/claude-code) or [Codex CLI](https://developers.openai.com/codex/cli)) in the terminal. It authenticates with an **API key against [our Azure OpenAI / Bedrock endpoint / an approved vendor API]** — no consumer account, no data stored by a third-party consumer service; all traffic goes through our approved endpoint. Could you allowlist installation via `npm` (packages `@anthropic-ai/claude-code` / `@openai/codex`)? The course itself uses only synthetic data.*
+   > *I'm attending a research methods course that uses an agentic coding tool ([Claude Code](https://docs.claude.com/en/docs/claude-code) or [Codex CLI](https://developers.openai.com/codex/cli)) in the terminal. It authenticates with an **API key against [our Azure OpenAI / Bedrock endpoint / an approved vendor API]** — no consumer account, no data stored by a third-party consumer service; all traffic goes through our approved endpoint. Could you approve installing it via `npm` (packages `@anthropic-ai/claude-code` / `@openai/codex`)? The course itself uses only synthetic data.*
 
 2. **Bring a personal laptop for the course itself.** Every exercise uses **synthetic data only** — nothing institutional touches the machine. You'll learn the workflow on your own device, then work with IT on the sanctioned setup for real projects afterward.
 
