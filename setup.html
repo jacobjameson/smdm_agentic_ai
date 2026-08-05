@@ -245,6 +245,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#the-github-cli-gh" id="toc-the-github-cli-gh" class="nav-link" data-scroll-target="#the-github-cli-gh">The GitHub CLI (<code>gh</code>)</a></li>
   <li><a href="#an-ai-coding-agent-pick-one-or-both" id="toc-an-ai-coding-agent-pick-one-or-both" class="nav-link" data-scroll-target="#an-ai-coding-agent-pick-one-or-both">An AI coding agent — pick one (or both)</a></li>
   </ul></li>
+  <li><a href="#api-keys" id="toc-api-keys" class="nav-link" data-scroll-target="#api-keys">Part V½ · Locked-down institution? The API-key path</a>
+  <ul class="collapse">
+  <li><a href="#if-the-cli-itself-is-blocked" id="toc-if-the-cli-itself-is-blocked" class="nav-link" data-scroll-target="#if-the-cli-itself-is-blocked">If the CLI itself is blocked</a></li>
+  </ul></li>
   <li><a href="#verify-your-setup" id="toc-verify-your-setup" class="nav-link" data-scroll-target="#verify-your-setup">Verify your setup</a></li>
   <li><a href="#trouble" id="toc-trouble" class="nav-link" data-scroll-target="#trouble">Trouble?</a></li>
   </ul>
@@ -462,22 +466,118 @@ provide shell access.</code></pre>
 </div>
 </section>
 </section>
+<section id="api-keys" class="level2">
+<h2 class="anchored" data-anchor-id="api-keys">Part V½ · Locked-down institution? The API-key path</h2>
+<p>Many hospitals, health systems, and government-adjacent institutions <strong>block consumer AI logins</strong> (claude.ai / ChatGPT accounts) but <strong>allow AI tools built on API keys</strong> — often through an institutional gateway with a signed data agreement. If that’s you, good news: <strong>both Claude Code and Codex run happily on an API key, with no consumer account at all.</strong> Same tool, same course, different authentication.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Step 0: ask your IT/research-computing group one question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>“Do we have an approved LLM API endpoint — Azure OpenAI, AWS Bedrock, or an internal API gateway — and can I get an API key and base URL for it?”</em></p>
+<p>Many institutions already run one (hospitals often have <strong>Azure OpenAI</strong> or <strong>AWS Bedrock</strong> under a business associate agreement). If yes, use the <em>gateway</em> tab below. If they can issue you a direct vendor key instead, use a <em>direct key</em> tab. Ask before creating personal keys — the institutional route is usually both sanctioned <em>and</em> paid for.</p>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Claude Code · direct API key</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Claude Code · institutional gateway</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false" href="">Codex · API key / Azure</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<ol type="1">
+<li>Create a key at <a href="https://console.anthropic.com/">console.anthropic.com</a> (Settings → API keys). <strong>Set a monthly spending cap first</strong> (Settings → Limits) — a few dollars covers the course.</li>
+<li>Tell Claude Code to use it by adding one line to your shell config:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'export ANTHROPIC_API_KEY=sk-ant-your-key-here'</span> <span class="op">&gt;&gt;</span> ~/.zshrc</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.zshrc     <span class="co"># Git Bash on Windows: use ~/.bashrc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="3" type="1">
+<li>Install and run as in Part V (<code>npm install -g @anthropic-ai/claude-code</code>, then <code>claude</code>). With the key set, <strong>no browser login is needed</strong> — you’re billed per token instead. Run <code>/cost</code> inside a session anytime to see what you’ve spent.</li>
+</ol>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>If your institution runs a gateway (typically fronting AWS Bedrock), Claude Code points at it with environment variables — get the exact values from your IT group:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add to ~/.zshrc (values from YOUR institution)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">CLAUDE_CODE_USE_BEDROCK</span><span class="op">=</span>1</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_BEDROCK_BASE_URL</span><span class="op">=</span>https://<span class="op">&lt;</span>your-institutions-gateway-url<span class="op">&gt;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">ANTHROPIC_API_KEY</span><span class="op">=&lt;</span>key-from-your-institutions-portal<span class="op">&gt;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">CLAUDE_CODE_SKIP_BEDROCK_AUTH</span><span class="op">=</span>1   <span class="co"># when the gateway handles cloud auth</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then install and run <code>claude</code> normally. This is exactly how Harvard sets it up — see <a href="https://astrostubbs.github.io/GenAI-for-Scholarship/setting-up-claude-code.html">Chris Stubbs’ walkthrough</a> of the Harvard HUIT configuration for a worked institutional example. (Google Vertex AI gateways work analogously with <code>CLAUDE_CODE_USE_VERTEX=1</code>.)</p>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<ol type="1">
+<li>Create a key at <a href="https://platform.openai.com/">platform.openai.com</a> (or get one for your institution’s <strong>Azure OpenAI</strong> deployment from IT).</li>
+<li>For a direct OpenAI key:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'export OPENAI_API_KEY=sk-your-key-here'</span> <span class="op">&gt;&gt;</span> ~/.zshrc</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.zshrc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="3" type="1">
+<li>Install as in Part V (<code>npm install -g @openai/codex</code>), then sign in with the key instead of ChatGPT:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">printenv</span> OPENAI_API_KEY <span class="kw">|</span> <span class="ex">codex</span> login <span class="at">--with-api-key</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="4" type="1">
+<li>Azure OpenAI endpoints need a small config file pointing Codex at your deployment — see the <a href="https://developers.openai.com/codex/auth">Codex authentication docs</a> and get the base URL from your IT group.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>API keys are passwords
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Treat them exactly like one: never paste a key into email, Slack, or a script; <strong>never commit one to a git repository</strong> (that’s why we use environment variables); revoke immediately if exposed. One key per person — don’t share within a team, so usage stays attributable.</p>
+</div>
+</div>
+<section id="if-the-cli-itself-is-blocked" class="level3">
+<h3 class="anchored" data-anchor-id="if-the-cli-itself-is-blocked">If the CLI itself is blocked</h3>
+<p>Sometimes the block is on <em>installing the software</em>, not the model access. Two moves:</p>
+<ol type="1">
+<li><p><strong>Send IT a specific request.</strong> Vague asks get vague denials; this usually gets approved:</p>
+<blockquote class="blockquote">
+<p><em>Subject: Request to allowlist a terminal coding tool using our institutional AI endpoint</em></p>
+<p><em>I’m attending a research methods course that uses an agentic coding tool (<a href="https://docs.claude.com/en/docs/claude-code">Claude Code</a> or <a href="https://developers.openai.com/codex/cli">Codex CLI</a>) in the terminal. It authenticates with an <strong>API key against [our Azure OpenAI / Bedrock endpoint / an approved vendor API]</strong> — no consumer account, no data stored by a third-party consumer service; all traffic goes through our approved endpoint. Could you allowlist installation via <code>npm</code> (packages <code>@anthropic-ai/claude-code</code> / <code>@openai/codex</code>)? The course itself uses only synthetic data.</em></p>
+</blockquote></li>
+<li><p><strong>Bring a personal laptop for the course itself.</strong> Every exercise uses <strong>synthetic data only</strong> — nothing institutional touches the machine. You’ll learn the workflow on your own device, then work with IT on the sanctioned setup for real projects afterward.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Working with patient data? (PHI/PII)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This course never touches real data. For your actual research: an agent is bound by the same rules as any software — route model calls through your institution’s agreement (Azure OpenAI / Bedrock BAA), keep data inside approved environments, and clear your IRB/data-use terms before pointing <em>any</em> AI tool at identifiable data. Your IT and compliance teams are allies here, not obstacles — the institutional-gateway route above exists precisely for this.</p>
+</div>
+</div>
+</section>
+</section>
 <section id="verify-your-setup" class="level2">
 <h2 class="anchored" data-anchor-id="verify-your-setup">Verify your setup</h2>
 <p>Run each command. You should get a version number or sensible output — <strong>not</strong> “command not found.”</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> <span class="at">--version</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth status</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">--version</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span> <span class="at">--version</span>    <span class="co"># or:  codex --version  (whichever agent you installed)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> <span class="at">--version</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> auth status</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">--version</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="ex">claude</span> <span class="at">--version</span>    <span class="co"># or:  codex --version  (whichever agent you installed)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Then confirm the full loop — create a repo, commit, and push it to your GitHub:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> agentic-warmup <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> agentic-warmup</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"# Warmup"</span> <span class="op">&gt;</span> README.md</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"First commit"</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo create agentic-warmup <span class="at">--public</span> <span class="at">--source</span><span class="op">=</span>. <span class="at">--push</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> agentic-warmup <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> agentic-warmup</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"# Warmup"</span> <span class="op">&gt;</span> README.md</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"First commit"</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> repo create agentic-warmup <span class="at">--public</span> <span class="at">--source</span><span class="op">=</span>. <span class="at">--push</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If that last command printed your new repo’s URL, <strong>you’re fully set up.</strong> 🎉 Post a ✅ in the <a href="https://join.slack.com/t/agenticaiworkinggroup/shared_invite/zt-45afgdq1j-R8PNZz3SqUZuzgamkYDttQ">Slack channel</a>. (You can delete the test repo afterward with <code>gh repo delete agentic-warmup --yes</code>.)</p>
 <div class="recap">
 <p>Setup complete when: <code>git</code>, <code>gh</code>, <code>node</code>, and your agent (<code>claude</code> or <code>codex</code>) all report versions; <code>ssh -T git@github.com</code> greets you by username; <code>gh auth status</code> shows you’re logged in; and you created + pushed a test repo.</p>
@@ -510,8 +610,12 @@ provide shell access.</code></pre>
 <td>Run it with no arguments and complete the browser sign-in.</td>
 </tr>
 <tr class="odd">
+<td>My org blocks consumer AI logins / requires API keys</td>
+<td>See <a href="#api-keys">the API-key path</a> above — both agents run on institutional keys with no consumer account.</td>
+</tr>
+<tr class="even">
 <td>Corporate laptop blocks installs</td>
-<td>Post in the Slack channel — we’ll find a workaround, or use a personal machine if possible.</td>
+<td>The <a href="#if-the-cli-itself-is-blocked">IT-request template</a> usually works; otherwise a personal machine for the course (synthetic data only), and post in Slack.</td>
 </tr>
 </tbody>
 </table>
